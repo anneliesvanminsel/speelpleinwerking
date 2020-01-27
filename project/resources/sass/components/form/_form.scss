@@ -1,0 +1,80 @@
+@import 'textarea';
+@import 'inputdate';
+@import 'input';
+@import 'select';
+@import 'panel';
+@import 'checkbox-radio';
+.page {
+	position: relative;
+	min-height: 100vh;
+
+	&__image {
+		position: absolute;
+		top: 0;
+		right: 0;
+		z-index: -1;
+		height: 100%;
+		max-height: 100%;
+		opacity: .4;
+
+		img {
+			height: 100%;
+			width: auto;
+		}
+	}
+
+	&--auth {
+		color: $ui-white;
+
+		.logo {
+			position: relative;
+
+			&::after {
+				@include accentline(1px, $ui-white);
+				top: 65%;
+				right: 0;
+				width: 60%;
+			}
+		}
+	}
+}
+
+.form {
+	&__group {
+		position: relative;
+		display: flex;
+		flex-flow: column-reverse;
+	}
+
+	&__label {
+		touch-action: manipulation;
+
+		&.is-counter {
+			position: absolute;
+			top: 0;
+			right: 20px;
+			color: $ui-red;
+			max-width: fit-content;
+			transform: translate($spacing-xs, $spacing-xs) scale(.9);
+			background-color: white;
+			padding: 0 $spacing-xs;
+			width: auto;
+		}
+	}
+
+	&__row {
+		justify-content: space-between;
+
+		& > * {
+			width: calc(50% - 10px);
+		}
+
+		&.has-three {
+			& > * {
+				width: calc(33% - 10px);
+				padding: $spacing-xs;
+				text-align: center;
+			}
+		}
+	}
+}

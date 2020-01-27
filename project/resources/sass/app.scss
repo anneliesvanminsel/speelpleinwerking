@@ -1,7 +1,9 @@
 // Fonts
 @import url('https://fonts.googleapis.com/css?family=Nunito');
 
-// Variables
+// Config + Base
 @import 'config/config';
 @import 'base/base';
 
+// Components
+@import "components/form/form";
