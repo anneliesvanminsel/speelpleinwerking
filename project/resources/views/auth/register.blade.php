@@ -1,4 +1,4 @@
-@extends('layouts.app')
+@extends('layouts.auth')
 @section('title')
     registreren
 @endsection
@@ -22,7 +22,7 @@
                         <input
                             id="email"
                             type="email"
-                            class="form__input @error('email') is-invalid @enderror"
+                            class="for-family form__input @error('email') is-invalid @enderror"
                             name="email"
                             placeholder="bv. jan.peeters@mail.be"
                             value="{{ old('email') }}"
@@ -30,7 +30,7 @@
                             autocomplete="email"
                         >
                         <label for="email" class="form__label">
-                            {{ __('E-Mail Address') }}
+                            Mailadres
                         </label>
                         
                         @error('email')
@@ -44,7 +44,7 @@
                         <input
                             id="password"
                             type="password"
-                            class="form-control @error('password') is-invalid @enderror"
+                            class="for-family form-control @error('password') is-invalid @enderror"
                             placeholder="Jouw wachtwoord"
                             name="password"
                             required
@@ -66,7 +66,7 @@
                         <input
                             id="password-confirm"
                             type="password"
-                            class="form-control"
+                            class="for-family form-control"
                             name="password_confirmation"
                             placeholder="Wachtwoord bevestigen"
                             required
@@ -77,9 +77,44 @@
                             Wachtwoord bevestigen
                         </label>
                     </div>
+    
+                    <div class="checkbox__wrapper">
+                        <div class="checkbox">
+                            <label class="checkbox__label">
+                                <input
+                                    class="checkbox__input for-volunteer"
+                                    type="radio"
+                                    name="role"
+                                    value="vol"
+                                >
+                                <div class="checkbox__text">
+                                    Ik ben Vrijwilliger
+                                </div>
+                            </label>
+                        </div>
+                        <div class="checkbox">
+                            <label class="checkbox__label">
+                                <input
+                                    class="checkbox__input for-family"
+                                    type="radio"
+                                    name="role"
+                                    value="fam"
+                                >
+                                <div class="checkbox__text">
+                                    Ik ben Ouder, Voogd of Verantwoordelijke
+                                </div>
+                            </label>
+                        </div>
+                        @if ($errors->has('role'))
+                            <div class="form__message is-error">
+                                <strong>{{ $errors->first('role') }}</strong>
+                            </div>
+                        @endif
+                    </div>
+                    
                     
                     <div class="form__group">
-                        <button type="submit" class="btn btn--full">
+                        <button type="submit" class="btn for-family">
                             Maak een account
                         </button>
                     </div>

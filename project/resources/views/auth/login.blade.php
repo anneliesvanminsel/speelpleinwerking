@@ -1,4 +1,4 @@
-@extends('layouts.app')
+@extends('layouts.auth')
 @section('title')
     aanmelden
 @endsection
@@ -36,7 +36,7 @@
                             autofocus
                         >
                         <label for="email" class="form__label">
-                            e-mailadres
+                            Mailadres
                         </label>
                         @error('email')
                         <span class="invalid-feedback" role="alert">
@@ -58,7 +58,7 @@
                             autocomplete="current-password"
                         >
                         <label for="password" class="form__label">
-                            wachtwoord
+                            Wachtwoord
                         </label>
                         
                         @error('password')
@@ -69,7 +69,7 @@
                     
                     </div>
                     
-                    <div class="">
+                    <!--div class="">
                         <div class="">
                             <div class="">
                                 <input
@@ -85,7 +85,7 @@
                                 </label>
                             </div>
                         </div>
-                    </div>
+                    </div-->
                     
                     <div class="">
                         <button type="submit" class="btn btn--full">
