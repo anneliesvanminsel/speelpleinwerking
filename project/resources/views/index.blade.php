@@ -8,9 +8,9 @@
 			<div class="hero__image ctn-image">
 				<img src="https://images.pexels.com/photos/1250346/pexels-photo-1250346.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260" alt="Sfeerfoto">
 			</div>
-			<p class="hero__subtitel">
+			<h1 class="hero__subtitel">
 				Onze speelpleinwerking
-			</p>
+			</h1>
 			<p class="hero__description">
 				Speelpleinwerking is een unieke jeugdwerkvorm en gedragen door de kracht van jongeren.
 				Spelen om te spelen staat altijd voorop! <br>

@@ -1,3 +1,8 @@
+/*
+|--------------------------------------------------------------------------
+| Hoofdkleuren
+|--------------------------------------------------------------------------
+*/
 
 $ui-white: #ffffff;
 $ui-grey: #3C3D41;
@@ -6,44 +11,27 @@ $ui-black: #000000;
 $ui-blue: #007BFF;
 $ui-red: #DB3545;
 
-/* --- VOLUNTEER ---*/
-$vol-dark: #340913;
-$vol-medium: #7b0f28;
-$vol-accent: #d61a46;
-$vol-light: #ec6988;
-$vol-extralight: #fbdfe6;
+/*
+|--------------------------------------------------------------------------
+| Extra kleuren
+|--------------------------------------------------------------------------
+*/
 
-/* --- FAMILY ---*/
-$fam-dark: #263409;
-$fam-medium: #59761e;
-$fam-accent: #98ca32;
-$fam-light: #c0df81;
-$fam-extralight: #f1f8e2;
+//rood
+$red-dark: #340913;
+$red-medium: #7b0f28;
+$red-accent: #d61a46;
+$red-light: #ec6988;
+$red-extralight: #fbdfe6;
 
-/* --- ADMIN ---*/
-$admin-dark: #092834;
-$admin-medium: #1A3e4c;
-$admin-accent: #347b98;
-$admin-light: #67afcb;
-$admin-extralight: #e4f1f6;
-
-//EXTRA KLEUREN ALS GE WILT VERANDEREN
-
-//orange
+//oranje
 $or-dark: #342609;
 $or-medium: #9c6902;
 $or-accent: #fba90a;
 $or-light: #fdcd6d;
 $or-extralight: #fef3dc;
 
-//groen-blauw
-$gb-dark: #093426;
-$gb-medium: #23483c;
-$gb-accent: #448d76;
-$gb-light: #79bea8;
-$gb-extralight: #e7f3ef;
-
-//purple
+//paars
 $pur-dark: #210934;
 $pur-medium: #36065b;
 $pur-accent: #700cbc;
@@ -56,3 +44,57 @@ $blue-medium: #012998;
 $blue-accent: #0247fe;
 $blue-light: #678ffe;
 $blue-extralight: #dbe5ff;
+
+//groen
+$green-dark: #263409;
+$green-medium: #59761e;
+$green-accent: #98ca32;
+$green-light: #c0df81;
+$green-extralight: #f1f8e2;
+
+//groen-blauw
+$gb-dark: #093426;
+$gb-medium: #23483c;
+$gb-accent: #448d76;
+$gb-light: #79bea8;
+$gb-extralight: #e7f3ef;
+
+//blauw-groen
+$bg-dark: #092834;
+$bg-medium: #1A3e4c;
+$bg-accent: #347b98;
+$bg-light: #67afcb;
+$bg-extralight: #e4f1f6;
+
+/*
+|--------------------------------------------------------------------------
+| For Volunteer
+|--------------------------------------------------------------------------
+*/
+$vol-dark: $red-dark;
+$vol-medium: $red-medium;
+$vol-accent: $red-accent;
+$vol-light: $red-light;
+$vol-extralight: $red-extralight;
+
+/*
+|--------------------------------------------------------------------------
+| For Family
+|--------------------------------------------------------------------------
+*/
+$fam-dark: $green-dark;
+$fam-medium: $green-medium;
+$fam-accent: $green-accent;
+$fam-light: $green-light;
+$fam-extralight: $green-extralight;
+
+/*
+|--------------------------------------------------------------------------
+| For Admin
+|--------------------------------------------------------------------------
+*/
+$admin-dark: $bg-dark;
+$admin-medium: $bg-medium;
+$admin-accent: $bg-accent;
+$admin-light: $bg-light;
+$admin-extralight: $bg-extralight;
