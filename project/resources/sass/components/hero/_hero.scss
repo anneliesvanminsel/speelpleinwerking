@@ -1,0 +1,60 @@
+.hero {
+	position: relative;
+	height: 100%;
+	padding: 5%;
+	overflow: hidden;
+	color: $ui-grey;
+	text-align: center;
+
+	@media (min-width: $breakpoint-tablet-small) {
+		color: white;
+		padding: 10%;
+	}
+
+	&__subtitel {
+		margin-top: 1rem;
+		font-size: 1.2rem;
+		padding-bottom: 20px;
+	}
+
+	&__description {
+		font-size: 1.4rem;
+		padding-bottom: 5rem;
+
+		@media (min-width: $breakpoint-tablet-small) {
+			font-size: 1.8rem;
+		}
+	}
+
+	&__actions {
+		display: flex;
+	}
+
+	&__image {
+		position: absolute;
+		top: 0;
+		left: 0;
+		right: 0;
+		bottom: 0;
+		z-index: -1;
+
+		display: block;
+		height: 100%;
+
+
+		&::after {
+			content: '';
+			position: absolute;
+			top: 0;
+			left: 0;
+			right: 0;
+			bottom: 0;
+			background: rgba($fam-dark, .7);
+			z-index: 0;
+		}
+
+		img {
+			min-height: 100%;
+		}
+	}
+}

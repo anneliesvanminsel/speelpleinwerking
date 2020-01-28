@@ -1,0 +1,36 @@
+.btn {
+	display: inline-block;
+
+	padding: $spacing-xs $spacing-s;
+	margin: $spacing-s 0;
+	width: 100%;
+
+	color: $ui-white;
+	background-color: $ui-grey;
+
+	font-size: 16px;
+	text-align: center;
+	text-decoration: none;
+
+	border: none;
+
+	&:focus {
+		outline: 0;
+	}
+
+	&:hover {
+		cursor: pointer;
+	}
+
+	&.for-family {
+		background-color: $fam-accent;
+	}
+
+	&.for-volunteer {
+		background-color: $vol-accent;
+	}
+
+	&.for-admin {
+		background-color: $admin-accent;
+	}
+}

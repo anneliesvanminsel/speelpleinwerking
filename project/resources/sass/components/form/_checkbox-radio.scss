@@ -49,8 +49,15 @@ input[type=radio] {
 		background-color: transparent;
 		border: 1px solid transparent;
 
-		background-color: $fam-accent;
-		border-color: $fam-accent;
+		&.for-volunteer {
+			background-color: $vol-accent;
+			border-color: $vol-accent;
+		}
+
+		&.for-family {
+			background-color: $fam-accent;
+			border-color: $fam-accent;
+		}
 	}
 
 	&:before {
@@ -86,14 +93,14 @@ input[type=checkbox]:disabled,
 input[type=radio]:disabled {
 	transform: scale(1);
 
-	&.is-blue {
-		background-color: $ui-grey;
-		border-color: $ui-grey;
+	&.for-volunteer {
+		background-color: $vol-dark;
+		border-color: $vol-dark;
 	}
 
-	&.is-green {
-		background-color: $ui-grey;
-		border-color: $ui-grey;
+	&.for-family {
+		background-color: $fam-dark;
+		border-color: $fam-dark;
 	}
 }
 

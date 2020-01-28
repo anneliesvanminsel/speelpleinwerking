@@ -92,8 +92,8 @@ input[type=date],
 input[type=time],
 textarea {
   width: 100%;
-  padding: 20px;
-  margin-bottom: 20px;
+  padding: 15px;
+  margin-bottom: 15px;
   font-size: 16px;
   font-family: "Montserrat", sans-serif;
   border: 1px solid #000000;
@@ -124,6 +124,69 @@ textarea:valid {
   border: 1px solid #DB3545;
 }
 
+input[type=email]:focus.for-family,
+input[type=email]:valid.for-family,
+input[type=password]:focus.for-family,
+input[type=password]:valid.for-family,
+input[type=text]:focus.for-family,
+input[type=text]:valid.for-family,
+input[type=number]:focus.for-family,
+input[type=number]:valid.for-family,
+input[type=textarea]:focus.for-family,
+input[type=textarea]:valid.for-family,
+input[type=file]:focus.for-family,
+input[type=file]:valid.for-family,
+input[type=date]:focus.for-family,
+input[type=date]:valid.for-family,
+input[type=time]:focus.for-family,
+input[type=time]:valid.for-family,
+textarea:focus.for-family,
+textarea:valid.for-family {
+  border: 1px solid #98ca32;
+}
+
+input[type=email]:focus.for-volunteer,
+input[type=email]:valid.for-volunteer,
+input[type=password]:focus.for-volunteer,
+input[type=password]:valid.for-volunteer,
+input[type=text]:focus.for-volunteer,
+input[type=text]:valid.for-volunteer,
+input[type=number]:focus.for-volunteer,
+input[type=number]:valid.for-volunteer,
+input[type=textarea]:focus.for-volunteer,
+input[type=textarea]:valid.for-volunteer,
+input[type=file]:focus.for-volunteer,
+input[type=file]:valid.for-volunteer,
+input[type=date]:focus.for-volunteer,
+input[type=date]:valid.for-volunteer,
+input[type=time]:focus.for-volunteer,
+input[type=time]:valid.for-volunteer,
+textarea:focus.for-volunteer,
+textarea:valid.for-volunteer {
+  border: 1px solid #d61a46;
+}
+
+input[type=email]:focus.for-admin,
+input[type=email]:valid.for-admin,
+input[type=password]:focus.for-admin,
+input[type=password]:valid.for-admin,
+input[type=text]:focus.for-admin,
+input[type=text]:valid.for-admin,
+input[type=number]:focus.for-admin,
+input[type=number]:valid.for-admin,
+input[type=textarea]:focus.for-admin,
+input[type=textarea]:valid.for-admin,
+input[type=file]:focus.for-admin,
+input[type=file]:valid.for-admin,
+input[type=date]:focus.for-admin,
+input[type=date]:valid.for-admin,
+input[type=time]:focus.for-admin,
+input[type=time]:valid.for-admin,
+textarea:focus.for-admin,
+textarea:valid.for-admin {
+  border: 1px solid #347b98;
+}
+
 input:placeholder-shown + label,
 textarea:placeholder-shown + label {
   cursor: text;
@@ -132,8 +195,11 @@ textarea:placeholder-shown + label {
   max-width: fit-content;
   -webkit-transform-origin: left bottom;
           transform-origin: left bottom;
-  -webkit-transform: translate(20px, 40px) scale(1);
-          transform: translate(20px, 40px) scale(1);
+  -webkit-transform: translate(10px, 35px) scale(1);
+          transform: translate(10px, 35px) scale(1);
+  -webkit-transition: all 0.2s ease;
+  transition: all 0.2s ease;
+  touch-action: manipulation;
 }
 
 /**
@@ -169,16 +235,19 @@ textarea:focus + label {
   max-width: -webkit-fit-content;
   max-width: -moz-fit-content;
   max-width: fit-content;
-  -webkit-transform: translate(10px, 10px) scale(0.9);
-          transform: translate(10px, 10px) scale(0.9);
+  -webkit-transform: translate(11px, 10px) scale(0.9);
+          transform: translate(11px, 10px) scale(0.9);
   background-color: white;
-  padding: 0 10px;
+  padding: 0 5px;
   width: auto;
+  -webkit-transition: all 0.2s ease;
+  transition: all 0.2s ease;
+  touch-action: manipulation;
 }
 
 .select {
   width: 300px;
-  padding: 20px;
+  padding: 15px;
   font-size: 16px;
   font-family: "Montserrat", sans-serif;
   text-align: center;
@@ -203,15 +272,15 @@ textarea:focus + label {
   height: 100%;
   color: #000000;
   background-color: white;
-  padding: 20px;
-  margin-top: 120px;
+  padding: 15px;
+  margin-top: 80px;
   z-index: 1;
 }
 
 @media screen and (min-width: 640px) {
   .panel {
     width: 70%;
-    padding: 40px;
+    padding: 20px;
   }
 }
 
@@ -219,14 +288,14 @@ textarea:focus + label {
   .panel {
     max-width: 900px;
     width: 60%;
-    padding: 80px 120px;
+    padding: 40px 80px;
   }
 }
 
 .panel__title {
   font-family: "Poiret One", cursive;
   font-size: 30px;
-  margin-bottom: 20px;
+  margin-bottom: 15px;
   text-align: center;
 }
 
@@ -280,6 +349,20 @@ input[type=radio]:checked {
   outline: none;
   background-color: transparent;
   border: 1px solid transparent;
+}
+
+input[type=checkbox]:hover.for-volunteer,
+input[type=checkbox]:checked.for-volunteer,
+input[type=radio]:hover.for-volunteer,
+input[type=radio]:checked.for-volunteer {
+  background-color: #d61a46;
+  border-color: #d61a46;
+}
+
+input[type=checkbox]:hover.for-family,
+input[type=checkbox]:checked.for-family,
+input[type=radio]:hover.for-family,
+input[type=radio]:checked.for-family {
   background-color: #98ca32;
   border-color: #98ca32;
 }
@@ -324,16 +407,16 @@ input[type=radio]:disabled {
           transform: scale(1);
 }
 
-input[type=checkbox]:disabled.is-blue,
-input[type=radio]:disabled.is-blue {
-  background-color: #3C3D41;
-  border-color: #3C3D41;
+input[type=checkbox]:disabled.for-volunteer,
+input[type=radio]:disabled.for-volunteer {
+  background-color: #340913;
+  border-color: #340913;
 }
 
-input[type=checkbox]:disabled.is-green,
-input[type=radio]:disabled.is-green {
-  background-color: #3C3D41;
-  border-color: #3C3D41;
+input[type=checkbox]:disabled.for-family,
+input[type=radio]:disabled.for-family {
+  background-color: #263409;
+  border-color: #263409;
 }
 
 .is-total {
@@ -425,5 +508,107 @@ input[type=radio]:disabled.is-green {
   width: calc(33% - 10px);
   padding: 10px;
   text-align: center;
+}
+
+.btn {
+  display: inline-block;
+  padding: 10px 15px;
+  margin: 15px 0;
+  width: 100%;
+  color: #ffffff;
+  background-color: #3C3D41;
+  font-size: 16px;
+  text-align: center;
+  text-decoration: none;
+  border: none;
+}
+
+.btn:focus {
+  outline: 0;
+}
+
+.btn:hover {
+  cursor: pointer;
+}
+
+.btn.for-family {
+  background-color: #98ca32;
+}
+
+.btn.for-volunteer {
+  background-color: #d61a46;
+}
+
+.btn.for-admin {
+  background-color: #347b98;
+}
+
+.hero {
+  position: relative;
+  height: 100%;
+  padding: 5%;
+  overflow: hidden;
+  color: #3C3D41;
+  text-align: center;
+}
+
+@media (min-width: 640px) {
+  .hero {
+    color: white;
+    padding: 10%;
+  }
+}
+
+.hero__subtitel {
+  margin-top: 1rem;
+  font-size: 1.2rem;
+  padding-bottom: 20px;
+}
+
+.hero__description {
+  font-size: 1.4rem;
+  padding-bottom: 5rem;
+}
+
+@media (min-width: 640px) {
+  .hero__description {
+    font-size: 1.8rem;
+  }
+}
+
+.hero__actions {
+  display: -webkit-box;
+  display: flex;
+}
+
+.hero__image {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  z-index: -1;
+  display: block;
+  height: 100%;
+}
+
+.hero__image::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(38, 52, 9, 0.7);
+  z-index: 0;
+}
+
+.hero__image img {
+  min-height: 100%;
+}
+
+.ctn-image img {
+  width: 100%;
+  height: auto;
 }
 

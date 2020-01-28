@@ -7,3 +7,12 @@
 
 // Components
 @import "components/form/form";
+@import "components/button/btn";
+@import "components/hero/hero";
+
+.ctn-image {
+	img {
+		width: 100%;
+		height: auto;
+	}
+}

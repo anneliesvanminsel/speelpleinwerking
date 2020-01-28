@@ -23,6 +23,18 @@ textarea
 	&:valid {
 		outline: none;
 		@include border(1px, $ui-red);
+
+		&.for-family {
+			@include border(1px, $fam-accent);
+		}
+
+		&.for-volunteer {
+			@include border(1px, $vol-accent);
+		}
+
+		&.for-admin {
+			@include border(1px, $admin-accent);
+		}
 	}
 }
 
@@ -32,7 +44,9 @@ textarea:placeholder-shown + label {
 	cursor: text;
 	max-width: fit-content;
 	transform-origin: left bottom;
-	transform: translate($spacing-s, $spacing-m) scale(1);
+	transform: translate(10px, 35px) scale(1);
+	@include default-transition();
+	touch-action: manipulation;
 }
 /**
 * By default, the placeholder should be transparent. Also, it should
@@ -59,9 +73,11 @@ input:focus + label,
 textarea:not(:placeholder-shown) + label,
 textarea:focus + label {
 	max-width: fit-content;
-	transform: translate($spacing-xs, $spacing-xs) scale(.9);
+	transform: translate(11px, 10px) scale(.9);
 	background-color: white;
-	padding: 0 $spacing-xs;
+	padding: 0 $spacing-xxs;
 	width: auto;
+	@include default-transition();
+	touch-action: manipulation;
 }
 
