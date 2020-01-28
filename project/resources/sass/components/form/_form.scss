@@ -19,27 +19,28 @@
 		height: 100%;
 		min-width: 100%;
 		max-height: 100%;
-		opacity: .4;
 
 		img {
 			height: 100%;
 			width: 100%;
+		}
+
+		&::after {
+			content: '';
+			position: absolute;
+			top: 0;
+			left: 0;
+			right: 0;
+			bottom: 0;
+			background: rgba($fam-dark, .7);
+			z-index: 0;
 		}
 	}
 
 	&--auth {
 		color: $ui-white;
 
-		.logo {
-			position: relative;
-
-			&::after {
-				@include accentline(1px, $ui-white);
-				top: 65%;
-				right: 0;
-				width: 60%;
-			}
-		}
+		.logo {}
 	}
 }
 

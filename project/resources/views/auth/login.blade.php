@@ -9,10 +9,6 @@
             <img src="https://images.pexels.com/photos/1187086/pexels-photo-1187086.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260" alt="">
         </div>
         
-        <a class="logo logo--link" href="#">
-            Spleelpleinwerking
-        </a>
-        
         <div class="panel">
             
             <div class="panel__title">

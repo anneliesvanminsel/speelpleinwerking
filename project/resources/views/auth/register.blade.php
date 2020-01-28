@@ -8,7 +8,6 @@
         <div class="page__image">
             <img src="https://images.pexels.com/photos/697244/pexels-photo-697244.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260" alt="">
         </div>
-        
         <div class="panel">
             <div class="panel__title">
                 Account aanmaken
@@ -53,7 +52,6 @@
                         <label for="password" class="form__label text-md-right">
                             Wachtwoord
                         </label>
-                        
                         
                         @error('password')
                         <span class="invalid-feedback" role="alert">
