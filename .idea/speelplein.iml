@@ -27,6 +27,7 @@
       <excludeFolder url="file://$MODULE_DIR$/project/vendor/myclabs/deep-copy" />
       <excludeFolder url="file://$MODULE_DIR$/project/vendor/nesbot/carbon" />
       <excludeFolder url="file://$MODULE_DIR$/project/vendor/nikic/php-parser" />
+      <excludeFolder url="file://$MODULE_DIR$/project/vendor/nothingworks/blade-svg" />
       <excludeFolder url="file://$MODULE_DIR$/project/vendor/nunomaduro/collision" />
       <excludeFolder url="file://$MODULE_DIR$/project/vendor/opis/closure" />
       <excludeFolder url="file://$MODULE_DIR$/project/vendor/paragonie/random_compat" />

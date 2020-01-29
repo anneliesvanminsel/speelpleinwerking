@@ -9,6 +9,11 @@
             <img src="https://images.pexels.com/photos/697244/pexels-photo-697244.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260" alt="">
         </div>
         <div class="panel">
+            <div class="breadcrumb">
+                <a href="{{ route('index') }}" class="breadcrumb__link">
+                    @svg('back') Terug
+                </a>
+            </div>
             <div class="panel__title">
                 Account aanmaken
             </div>

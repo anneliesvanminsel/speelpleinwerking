@@ -84,6 +84,7 @@
       <path value="$PROJECT_DIR$/project/vendor/monolog/monolog" />
       <path value="$PROJECT_DIR$/project/vendor/sebastian/comparator" />
       <path value="$PROJECT_DIR$/project/vendor/sebastian/global-state" />
+      <path value="$PROJECT_DIR$/project/vendor/nothingworks/blade-svg" />
     </include_path>
   </component>
   <component name="PhpProjectSharedConfiguration" php_language_level="7.1" />

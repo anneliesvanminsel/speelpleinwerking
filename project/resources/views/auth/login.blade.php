@@ -10,6 +10,11 @@
         </div>
         
         <div class="panel">
+            <div class="breadcrumb">
+                <a href="{{ route('index') }}" class="breadcrumb__link">
+                    @svg('back') Terug
+                </a>
+            </div>
             
             <div class="panel__title">
                 Aanmelden
@@ -23,7 +28,7 @@
                         <input
                             id="email"
                             type="email"
-                            class="form__input @error('email') is-invalid @enderror"
+                            class="form__input for-family @error('email') is-invalid @enderror"
                             name="email"
                             placeholder="bv. jan.peeters@mail.be"
                             value="{{ old('email') }}"
@@ -47,7 +52,7 @@
                         <input
                             id="password"
                             type="password"
-                            class="form__input @error('password') is-invalid @enderror"
+                            class="form__input for-family @error('password') is-invalid @enderror"
                             name="password"
                             placeholder="Jouw wachtwoord"
                             required
@@ -58,33 +63,14 @@
                         </label>
                         
                         @error('password')
-                        <span class="invalid-feedback" role="alert">
+                            <span class="invalid-feedback" role="alert">
 									<strong>{{ $message }}</strong>
 							</span>
                         @enderror
-                    
                     </div>
                     
-                    <!--div class="">
-                        <div class="">
-                            <div class="">
-                                <input
-                                    class="form-check-input"
-                                    type="checkbox"
-                                    name="remember"
-                                    id="remember"
-                                    {{ old('remember') ? 'checked' : '' }}
-                                >
-                                
-                                <label class="" for="remember">
-                                    {{ __('Remember Me') }}
-                                </label>
-                            </div>
-                        </div>
-                    </div-->
-                    
-                    <div class="">
-                        <button type="submit" class="btn btn--full">
+                    <div class="form__actions">
+                        <button type="submit" class="btn for-family">
                             aanmelden
                         </button>
                         
