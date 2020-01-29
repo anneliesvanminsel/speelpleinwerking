@@ -38,18 +38,24 @@ class PageController extends Controller
 		}
 
 		if($user->role === 'admin') {
-			$kids = Kid::orderBy('familie_id', 'asc')->orderBy('name', 'asc')->paginate(10);
-			return view('admin.index', ['user_id' => $user['id'], 'kids' => $kids, 'oldSearch' => '', 'oldEvent' => '1']);
+
+			return view('content.admin.dashboard', ['user_id' => $user['id'] ]);
 		}
 
-		if($user->role === 'vw') {
+		if($user->role === 'vol') {
 			return view('volunteer.account', ['user' => $user]);
 		}
 
-		if($user->role === 'familie') {
+		if($user->role === 'fam') {
 			return view('ouders.account', ['user' => $user]);
 		}
 
 		return view('content.account', ['user' => $user]);
+	}
+
+	public function getDashboard($id){
+		$user = User::where('id', $id)->first();
+
+		return view('content.admin.dashboard', ['user_id' => $user['id'] ]);
 	}
 }

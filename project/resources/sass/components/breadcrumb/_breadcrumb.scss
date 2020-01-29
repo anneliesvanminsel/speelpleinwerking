@@ -1,0 +1,14 @@
+.breadcrumb {
+	font-size: 12px;
+
+	&__link {
+		display: flex;
+		align-items: center;
+	}
+
+	svg {
+		width: 10px;
+		height: 10px;
+		margin-right: 5px;
+	}
+}
