@@ -27,7 +27,7 @@
 					id="name"
 					type="text"
 					class="form__input for-admin @error('name') is-invalid @enderror"
-					name="title"
+					name="name"
 					placeholder="Naam van de speelgroep"
 					value="{{ old('name') }}"
 					required
@@ -75,8 +75,7 @@
 					id="image"
 					type="file"
 					class="form__input for-admin @error('image') is-invalid @enderror"
-					name="logo"
-					placeholder="bv. het event van de eeuw"
+					name="image"
 					value="{{ old('image') }}"
 					required
 					autocomplete="off"
@@ -101,20 +100,19 @@
 			</p>
 			<div class="form__group">
 				<input
-					id="starttime"
+					id="minAge"
 					type="date"
-					class="form__input for-admin @error('starttime') is-invalid @enderror"
-					name="starttime"
-					value="{{ old('starttime') }}"
+					class="form__input for-admin @error('minAge') is-invalid @enderror"
+					name="minAge"
+					value="{{ old('minAge') }}"
 					required
-					autocomplete="off"
 				>
 				
-				<label for="title" class="form__label">
-					Geboortejaar
+				<label for="minAge" class="form__label">
+					Eerste toegelate geboortedatum
 				</label>
 				
-				@error('starttime')
+				@error('minAge')
 				<span class="invalid-feedback" role="alert">
 						<strong>{{ $message }}</strong>
 					</span>
@@ -123,28 +121,28 @@
 			
 			<div class="form__group">
 				<input
-					id="endyear"
+					id="maxAge"
 					type="date"
-					class="form__input for-admin @error('endtime') is-invalid @enderror"
-					name="endtime"
+					class="form__input for-admin @error('maxAge') is-invalid @enderror"
+					name="maxAge"
 					placeholder="bv: 1/10/2022"
-					value="{{ old('endyear') }}"
-					autocomplete="off"
+					value="{{ old('maxAge') }}"
+					required
 				>
 				
-				<label for="title" class="form__label">
-					Geboortedatum
+				<label for="maxAge" class="form__label">
+					Laatste toegelaten geboortedatum
 				</label>
 				
-				@error('endtime')
-				<span class="invalid-feedback" role="alert">
+				@error('maxAge')
+					<span class="invalid-feedback" role="alert">
 						<strong>{{ $message }}</strong>
 					</span>
 				@enderror
 			</div>
 			<div class="form__actions">
 				<button type="submit" class="btn for-admin">
-					Maak het evenement aan
+					Maak de speelgroep aan
 				</button>
 			</div>
 		</form>

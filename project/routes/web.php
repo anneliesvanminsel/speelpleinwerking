@@ -68,5 +68,20 @@
 				'uses' => 'PlaygroupController@postCreate',
 				'as' => 'playgroup.postCreate'
 			]);
+
+			Route::get('edit/{playgroup_id}', [
+				'uses' => 'PlaygroupController@getEdit',
+				'as' => 'playgroup.edit'
+			]);
+
+			Route::post('edit/{playgroup_id}/post', [
+				'uses' => 'PlaygroupController@postEdit',
+				'as' => 'playgroup.postEdit'
+			]);
+
+			Route::post('delete/{playgroup_id}/post', [
+				'uses' => 'PlaygroupController@postDelete',
+				'as' => 'playgroup.postDelete'
+			]);
 		});
 	});

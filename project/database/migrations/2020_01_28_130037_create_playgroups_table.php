@@ -20,6 +20,7 @@ class CreatePlaygroupsTable extends Migration
             $table->string('description');
             $table->date('minAge');
             $table->date('maxAge')->nullable();
+			$table->softDeletes();
             $table->timestamps();
         });
     }

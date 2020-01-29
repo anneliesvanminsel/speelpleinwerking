@@ -1,6 +1,6 @@
 @extends('layouts.app')
 @section('title')
-	Lentekind Vakantiewerking
+	Speelpleinwerking
 @endsection
 @section('content')
 	<main class="l-main">
@@ -34,22 +34,22 @@
 					</p>
 				</div>
 				
-				<div class="section__content grid">
-					@foreach($playgroups as $group)
+				<div class="grid">
+					@foreach($playgroups as $playgroup)
 						<div class="grid__item">
 							<div class="grid__image ctn-image">
-								<img src="{{asset("/img/playgroup/auto.png")}}" alt="de autootjes">
+								@if(File::exists(public_path() . "/images/playgroup/" . $playgroup['image']))
+									<img src="{{ asset('/images/playgroup/' . $playgroup['image'] ) }}" alt="{{ $playgroup['name'] }}" loading="lazy">
+								@else
+									<img src="https://placekitten.com/600/600" alt="{{ $playgroup['name'] }}" loading="lazy">
+								@endif
 							</div>
 							<div class="grid__content">
-								<h4 class="grid__title">
-									De autootjes (2,5 tot 3 jaar)
-								</h4>
-								<div class="grid__text">
-									Onze jongste kinderen zitten bij de autootjes. Zij kunnen nog niet heel veel, maar vinden
-									het de max als je dingen doet die de zintuigen prikkelt: een blote-voetenpad, kneden met
-									klei, waterspelletjes...
-									<br>Dit is bij uitstek de meest geliefde groep als je een hele week schattige kinderen
-									rondom je wil.
+								<h3>
+									{{$playgroup['name']}}
+								</h3>
+								<div>
+									{{$playgroup['description']}}
 								</div>
 							</div>
 						</div>
@@ -68,21 +68,7 @@
 				allowfullscreen=""
 			></iframe>
 			
-			<div class="">
-				<h6 class="contact__title">Lentekind Vakantiewerking</h6>
-				<p class="contact__text">
-					<strong>E-mail</strong> <br>
-					speelplein@anneliesvanminsel.be <br>
-				</p>
-				<p class="contact__text">
-					<strong>Adres</strong> <br>
-					speelstraat 43, 1000 Speelplein <br>
-				</p>
-				<p class="contact__text">
-					<strong>​Tel</strong> <br>
-					0488 11 22 33 (enkel van juni tot en met augustus) <br>
-				</p>
-			</div>
+			
 		</div>
 	</main>
 @endsection

@@ -18,7 +18,6 @@ class CreateWeeksTable extends Migration
             $table->date('startdate');
             $table->date('enddate');
             $table->integer('maxVolunteers')->default(15);
-			$table->softDeletes();
 			$table->timestamps();
         });
     }
