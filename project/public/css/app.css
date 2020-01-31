@@ -976,6 +976,42 @@ ol.list .list__item.is-completed:before {
   opacity: 0.5;
 }
 
+.recap {
+  margin: 20px;
+  padding: 8px;
+  color: #ffffff;
+  border-radius: 10px;
+  width: calc(50% - 60px);
+}
+
+.recap.for-family {
+  background-color: #98ca32;
+}
+
+.recap.for-volunteer {
+  background-color: #d61a46;
+}
+
+.recap__wrapper {
+  padding: 15px;
+  border-radius: 10px;
+  border: 1px dashed #ffffff;
+}
+
+.recap__wrapper .h-row {
+  -webkit-box-pack: center;
+          justify-content: center;
+}
+
+.recap__text.is-bold {
+  font-size: 70px;
+  margin-right: 10px;
+}
+
+.recap__text.is-small {
+  font-size: 12px;
+}
+
 .breadcrumb {
   font-size: 12px;
 }

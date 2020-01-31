@@ -15,7 +15,10 @@
 			@foreach($families as $family)
 				<div class="grid__item">
 					<h3>
-						{{$family['name']}} {{$family['firstname']}}
+						@php
+							$user  = $family->users()->first()
+						@endphp
+						{{ $user['email'] }}
 					</h3>
 				</div>
 			@endforeach

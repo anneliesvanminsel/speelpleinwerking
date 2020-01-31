@@ -1,0 +1,36 @@
+.recap {
+	margin: 20px;
+	padding: 8px;
+	color: $ui-white;
+	border-radius: 10px;
+	width: calc(50% - 60px);
+
+	&.for-family {
+		background-color: $fam-accent;
+	}
+
+	&.for-volunteer {
+		background-color: $vol-accent;
+	}
+
+	&__wrapper {
+		padding: 15px;
+		border-radius: 10px;
+		border: 1px dashed $ui-white;
+
+		.h-row {
+			justify-content: center;
+		}
+	}
+
+	&__text {
+		&.is-bold {
+			font-size: 70px;
+			margin-right: 10px;
+		}
+
+		&.is-small {
+			font-size: 12px;
+		}
+	}
+}
