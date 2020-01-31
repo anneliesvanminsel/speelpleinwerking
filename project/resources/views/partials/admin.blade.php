@@ -74,6 +74,11 @@
 				Sponsors
 			</a>
 		</li>
+		<li class="nav__item">
+			<a class="nav__link {{ (request()->is('admin/faq*')) ? 'is-active' : '' }}" href="{{ route('faq.overview') }}">
+				FAQ
+			</a>
+		</li>
 		
 		<hr>
 		

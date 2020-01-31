@@ -223,4 +223,12 @@
 				'as' => 'activity.postDelete'
 			]);
 		});
+
+		//FAQ
+		Route::group(['prefix' => 'faq'], function() {
+			Route::get('overzicht', [
+				'uses' => 'FaqController@getOverview',
+				'as' => 'faq.overview'
+			]);
+		});
 	});
