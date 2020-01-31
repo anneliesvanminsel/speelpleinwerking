@@ -34,21 +34,21 @@
 						<div>
 							{{  date('d/m/Y', strtotime( $playgroup['minAge'])) }} - {{  date('d/m/Y', strtotime( $playgroup['maxAge'])) }}
 						</div>
-						<div class="grid__actions">
-							<a class="" href={{ route('playgroup.edit', ['playgroup_id' => $playgroup->id]) }}>
-								@svg('edit', 'is-small')
-							</a>
-							<form
-								class="form"
-								method="POST"
-								action="{{ route('playgroup.postDelete', ['playgroup_id' => $playgroup->id]) }}"
-							>
-								{{ csrf_field() }}
-								<button class="" type="submit">
-									@svg('delete', 'is-small')
-								</button>
-							</form>
-						</div>
+					</div>
+					<div class="grid__actions">
+						<a class="" href={{ route('playgroup.edit', ['playgroup_id' => $playgroup->id]) }}>
+							@svg('edit', 'is-small')
+						</a>
+						<form
+							class="form"
+							method="POST"
+							action="{{ route('playgroup.postDelete', ['playgroup_id' => $playgroup->id]) }}"
+						>
+							{{ csrf_field() }}
+							<button class="" type="submit">
+								@svg('delete', 'is-small')
+							</button>
+						</form>
 					</div>
 				</div>
 			@endforeach

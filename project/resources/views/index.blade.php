@@ -45,10 +45,10 @@
 								@endif
 							</div>
 							<div class="grid__content">
-								<h3>
+								<h3 class="grid__title">
 									{{$playgroup['name']}}
 								</h3>
-								<div>
+								<div class="grid__text">
 									{{$playgroup['description']}}
 								</div>
 							</div>

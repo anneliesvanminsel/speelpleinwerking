@@ -48,7 +48,7 @@ class PlaygroupController extends Controller
 	public function getEdit($playgroup_id) {
 		$playgroup = Playgroup::findOrFail($playgroup_id);
 
-		return view('content.playgroup.create', ['playgroup' => $playgroup]);
+		return view('content.playgroup.edit', ['playgroup' => $playgroup]);
 	}
 
 	public function postEdit(Request $request, $playgroup_id) {
@@ -57,16 +57,26 @@ class PlaygroupController extends Controller
 			'description' => 'required|string|max:1000',
 			'minAge'=> 'required|date',
 			'maxAge'=> 'required|date',
-			'image'=> 'required|image|mimes:jpeg,png,jpg,gif,svg|max:2048', //image
+			'image'=> 'nullable|image|mimes:jpeg,png,jpg,gif,svg|max:2048', //image
 		]);
 
-		$imageName = time().'.'.request()->image->getClientOriginalExtension();
-		request()->image->move(public_path('images/playgroup'), $imageName);
 
 		$playgroup = Playgroup::findOrFail($playgroup_id);
 
+		if (request()->image) {
+			$image_path = public_path() . "/images/playgroup/" . $playgroup['image'];  // Value is not URL but directory file path
+
+			if(File::exists($image_path)) {
+				File::delete($image_path);
+			}
+
+			$imageName = time().'.'.request()->image->getClientOriginalExtension();
+			request()->image->move(public_path('images/playgroup/'), $imageName);
+
+			$playgroup->image = $imageName;
+		}
+
 		$playgroup->name = $request->input('name');
-		$playgroup->image = $imageName;
 		$playgroup->description = $request->input('description');
 		$playgroup->minAge = $request->input('minAge');
 		$playgroup->maxAge = $request->input('maxAge');
