@@ -84,4 +84,61 @@
 				'as' => 'playgroup.postDelete'
 			]);
 		});
+
+		//Kid
+		Route::group(['prefix' => 'kinderen'], function() {
+			Route::get('overzicht', [
+				'uses' => 'KidController@getOverview',
+				'as' => 'kid.overview'
+			]);
+		});
+
+		//Volunteer
+		Route::group(['prefix' => 'vrijwilligers'], function() {
+			Route::get('overzicht', [
+				'uses' => 'VolunteerController@getOverview',
+				'as' => 'volunteer.overview'
+			]);
+		});
+
+		//Families
+		Route::group(['prefix' => 'families'], function() {
+			Route::get('overzicht', [
+				'uses' => 'FamilyController@getOverview',
+				'as' => 'family.overview'
+			]);
+		});
+
+		//Sponsors
+		Route::group(['prefix' => 'sponsors'], function() {
+			Route::get('overzicht', [
+				'uses' => 'SponsorController@getOverview',
+				'as' => 'sponsor.overview'
+			]);
+
+			Route::get('create', [
+				'uses' => 'SponsorController@getCreate',
+				'as' => 'sponsor.create'
+			]);
+
+			Route::post('create/post', [
+				'uses' => 'SponsorController@postCreate',
+				'as' => 'sponsor.postCreate'
+			]);
+
+			Route::get('edit/{sponsor_id}', [
+				'uses' => 'SponsorController@getEdit',
+				'as' => 'sponsor.edit'
+			]);
+
+			Route::post('edit/{sponsor_id}/post', [
+				'uses' => 'SponsorController@postEdit',
+				'as' => 'sponsor.postEdit'
+			]);
+
+			Route::post('delete/{sponsor_id}/post', [
+				'uses' => 'SponsorController@postDelete',
+				'as' => 'sponsor.postDelete'
+			]);
+		});
 	});
