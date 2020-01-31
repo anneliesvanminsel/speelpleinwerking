@@ -1,8 +1,53 @@
 .sidebar {
-	width: 300px;
 	flex-shrink: 1;
+	width: 300px;
+
+
+	background-color: $admin-dark;
+	color: $ui-white;
+
 	&--container {
 		display: flex;
 		min-height: 100vh;
+	}
+
+	hr {
+		margin-top: $spacing-m;
+		margin-bottom: $spacing-m;
+		padding: 0 $spacing-l;
+	}
+
+	.nav {
+		&__bar {
+			list-style: none;
+		}
+
+		&__title {
+			@include font-heading;
+			font-size: 20px;
+			margin-bottom: $spacing-s;
+			padding: 5px $spacing-l;
+			width: 100%;
+
+			&.is-active {
+				background-color: $ui-white;
+				color: $admin-dark;
+			}
+		}
+
+		&__item {
+
+		}
+
+		&__link {
+			width: 100%;
+			padding: 5px $spacing-l;
+
+			&:hover,
+			&.is-active {
+				background-color: $ui-white;
+				color: $admin-dark;
+			}
+		}
 	}
 }

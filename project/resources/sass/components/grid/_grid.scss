@@ -1,0 +1,25 @@
+.grid {
+
+	&__item {
+		display: flex;
+		width: calc(50% - 40px);
+		margin: 10px 0 10px 10px;
+	}
+
+	&__image {
+		width: 200px;
+		margin-right: 20px;
+	}
+
+	&__content {
+
+	}
+
+	&__title {
+		margin-bottom: 10px;
+	}
+
+	&__text {
+
+	}
+}

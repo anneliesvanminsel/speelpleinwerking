@@ -673,8 +673,10 @@ input[type=radio]:disabled.for-family {
 }
 
 .sidebar {
-  width: 300px;
   flex-shrink: 1;
+  width: 300px;
+  background-color: #092834;
+  color: #ffffff;
 }
 
 .sidebar--container {
@@ -683,9 +685,59 @@ input[type=radio]:disabled.for-family {
   min-height: 100vh;
 }
 
+.sidebar hr {
+  margin-top: 20px;
+  margin-bottom: 20px;
+  padding: 0 40px;
+}
+
+.sidebar .nav__bar {
+  list-style: none;
+}
+
+.sidebar .nav__title {
+  font-family: "Poiret One", cursive;
+  font-size: 20px;
+  margin-bottom: 15px;
+  padding: 5px 40px;
+  width: 100%;
+}
+
+.sidebar .nav__title.is-active {
+  background-color: #ffffff;
+  color: #092834;
+}
+
+.sidebar .nav__link {
+  width: 100%;
+  padding: 5px 40px;
+}
+
+.sidebar .nav__link:hover,
+.sidebar .nav__link.is-active {
+  background-color: #ffffff;
+  color: #092834;
+}
+
 iframe {
   width: 100%;
   height: 300px;
+}
+
+.grid__item {
+  display: -webkit-box;
+  display: flex;
+  width: calc(50% - 40px);
+  margin: 10px 0 10px 10px;
+}
+
+.grid__image {
+  width: 200px;
+  margin-right: 20px;
+}
+
+.grid__title {
+  margin-bottom: 10px;
 }
 
 .breadcrumb {
