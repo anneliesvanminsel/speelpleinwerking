@@ -4,10 +4,10 @@ namespace App;
 
 use Illuminate\Database\Eloquent\Model;
 
-class Sponsor extends Model
+class Activity extends Model
 {
     //
 	protected $fillable = [
-		'name', 'image', 'information',
+		'name', 'image', 'description', 'link', 'linkText',
 	];
 }
