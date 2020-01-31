@@ -40,6 +40,55 @@
 
 	/*
 	|--------------------------------------------------------------------------
+	| Web Routes - Family
+	|--------------------------------------------------------------------------
+	*/
+
+	Route::group(['prefix' => 'familie'], function() {
+
+		//ADDRESS
+		Route::group(['prefix' => 'adres'], function() {
+			Route::get('create', [
+				'uses' => 'AddressController@getCreateFamily',
+				'as' => 'family.createAddress'
+			]);
+
+			Route::post('create/post', [
+				'uses' => 'AddressController@postCreateFamily',
+				'as' => 'family.postCreateAddress'
+			]);
+		});
+
+		//GUARDIAN
+		Route::group(['prefix' => 'voogd'], function() {
+			Route::get('create/{family_id}', [
+				'uses' => 'GuardianController@getCreate',
+				'as' => 'guardian.create'
+			]);
+
+			Route::post('create/{family_id}/post', [
+				'uses' => 'GuardianController@postCreate',
+				'as' => 'guardian.postCreate'
+			]);
+		});
+
+		//KID
+		Route::group(['prefix' => 'kind'], function() {
+			Route::get('create/{family_id}', [
+				'uses' => 'KidController@getCreate',
+				'as' => 'kid.create'
+			]);
+
+			Route::post('create/{family_id}/post', [
+				'uses' => 'KidController@postCreate',
+				'as' => 'kid.postCreate'
+			]);
+		});
+
+	});
+
+	/*
+	|--------------------------------------------------------------------------
 	| Web Routes - Admin
 	|--------------------------------------------------------------------------
 	*/
