@@ -15,7 +15,7 @@ class CreateKidsTable extends Migration
     {
         Schema::create('kids', function (Blueprint $table) {
 			$table->increments('id');
-			$table->string('image');
+			$table->string('image')->nullable();
 			$table->string('first_name');
 			$table->string('name');
 			$table->date('birthday');
@@ -27,7 +27,7 @@ class CreateKidsTable extends Migration
 			$table->string('doc_name');
 			$table->string('doc_phone_nr');
 			$table->string('info')->nullable();
-			$table->integer('familie_id');
+			$table->integer('family_id');
 			$table->timestamps();
         });
     }

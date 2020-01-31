@@ -15,7 +15,6 @@ class CreateFamiliesTable extends Migration
     {
         Schema::create('families', function (Blueprint $table) {
             $table->increments('id');
-            $table->string('name')->nullable();
 			$table->integer('user_id')->nullable();
 			$table->integer('address_id')->nullable();
 			$table->softDeletes();

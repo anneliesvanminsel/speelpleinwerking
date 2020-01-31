@@ -45,11 +45,11 @@ class PageController extends Controller
 		}
 
 		if($user->role === 'vol') {
-			return view('volunteer.account', ['user' => $user]);
+			return view('content.volunteer.account', ['user' => $user]);
 		}
 
 		if($user->role === 'fam') {
-			return view('ouders.account', ['user' => $user]);
+			return view('content.family.account', ['user' => $user]);
 		}
 
 		return view('content.account', ['user' => $user]);
