@@ -1,0 +1,75 @@
+.header {
+	.nav {
+		display:none;
+		padding: 5px 20px;
+
+		@media (min-width: $breakpoint-desktop-small) {
+			display: block;
+			flex-shrink: 0;
+			padding: 0;
+		}
+
+		&__bar {
+			list-style: none;
+			display: flex;
+
+			align-items: center;
+		}
+
+		&__item {
+			flex-shrink: 0;
+			padding: 5px $spacing-m;
+
+			&:hover {
+				background-color: $ui-white;
+				color: $admin-dark;
+			}
+		}
+
+		&__link {
+			&:hover,
+			&.is-active {
+				background-color: $ui-white;
+				color: $admin-dark;
+			}
+		}
+	}
+
+	&.is-open {
+		&.for-family {
+			.nav {
+				background-color: $fam-dark;
+				color: $ui-white;
+			}
+		}
+
+		&.for-volunteer {
+			.nav {
+				background-color: $vol-dark;
+				color: $ui-white;
+			}
+		}
+
+		.nav {
+			display: block;
+			position: absolute;
+			top: 59px;
+			left: 0;
+			right: 0;
+
+			&__item {
+				display: block;
+				padding: 15px $spacing-l;
+				border-top: .5px solid $ui-white;
+
+				.button {
+					margin: 0;
+				}
+			}
+
+			&__bar {
+				flex-direction: column;
+			}
+		}
+	}
+}

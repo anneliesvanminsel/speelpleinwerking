@@ -1,0 +1,30 @@
+ol {
+	&.list {
+		margin: 5px 0;
+		list-style: none;
+		counter-reset: my-badass-counter;
+
+		.list__item {
+			counter-increment: my-badass-counter;
+			margin: 10px 0;
+
+			&:before {
+				content: counter(my-badass-counter) '. ';
+				color: $ui-black; /* Change the color */
+				font-weight: bold; /* If you want it to be bold */
+				font-size: 18px;
+				display: inline-block; /* Needed to add space between the bullet and the text */
+				width: 1em; /* Also needed for space (tweak if needed) */
+				margin-left: 1rem; /* Also needed for space (tweak if needed) */
+			}
+
+			&.is-completed {
+				opacity: .5;
+
+				&:before {
+					opacity: .5;
+				}
+			}
+		}
+	}
+}

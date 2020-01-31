@@ -1,0 +1,57 @@
+@import "nav";
+
+.header {
+	padding: 15px 0;
+
+	&__content {
+		@include grid();
+		display: flex;
+		align-items: center;
+	}
+
+	&__logo {
+		flex-grow: 1;
+		@include font-heading;
+		font-size: 25px;
+	}
+
+	&.for-family {
+		background-color: $fam-dark;
+		color: $ui-white;
+	}
+
+	&.for-volunteer {
+		background-color: $vol-dark;
+		color: $ui-white;
+	}
+
+	.menu-icon {
+		@media (min-width: $breakpoint-desktop-small) {
+			display: none;
+		}
+	}
+
+	.nav-icon {
+		width: 2rem;
+		fill: white;
+	}
+
+	&.is-open {
+		position: relative;
+		z-index: 5;
+
+		&.for-family {
+			.nav {
+				background-color: $fam-dark;
+				color: $ui-white;
+			}
+		}
+
+		&.for-volunteer {
+			.nav {
+				background-color: $vol-dark;
+				color: $ui-white;
+			}
+		}
+	}
+}

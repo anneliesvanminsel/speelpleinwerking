@@ -1,4 +1,8 @@
 .icon {
-	width: 40px;
-	height: 40px;
+	width: 20px;
+	height: 20px;
+
+	&.is-white {
+		fill: $ui-white;
+	}
 }
