@@ -9,7 +9,7 @@
 			<h1>
 				Overzicht sponsors
 			</h1>
-			<a href="{{ route('sponsor.create') }}">
+			<a href="{{ route('sponsor.create') }}" class="btn for-admin">
 				voeg een sponsor toe
 			</a>
 		</div>

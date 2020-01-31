@@ -14,6 +14,16 @@
 				Dashboard
 			</a>
 		</li>
+		<li class="nav__item">
+			<a class="nav__link" href="{{ route('admin.dashboard', ['user_id' => Auth::id() ]) }}">
+				Vandaag
+			</a>
+		</li>
+		<li class="nav__item">
+			<a class="nav__link" href="{{ route('admin.dashboard', ['user_id' => Auth::id() ]) }}">
+				Deze week
+			</a>
+		</li>
 		
 		<hr>
 		
@@ -55,13 +65,31 @@
 			</a>
 		</li>
 		<li class="nav__item">
-			<a class="nav__link {{ (request()->is('admin/activiteiten*')) ? 'is-active' : '' }}" href="{{ route('playgroup.overview') }}">
+			<a class="nav__link {{ (request()->is('admin/activiteiten*')) ? 'is-active' : '' }}" href="{{ route('activity.overview') }}">
 				Activiteiten
 			</a>
 		</li>
 		<li class="nav__item">
 			<a class="nav__link {{ (request()->is('admin/sponsors*')) ? 'is-active' : '' }}" href="{{ route('sponsor.overview') }}">
 				Sponsors
+			</a>
+		</li>
+		
+		<hr>
+		
+		<li class="nav__title">
+			Hoofdleiding
+		</li>
+		
+		<li class="nav__item">
+			<a class="nav__link" href="#">
+				Huidige hoofdleiding
+			</a>
+		</li>
+		
+		<li class="nav__item">
+			<a class="nav__link" href="#">
+				Oude hoofdleiding
 			</a>
 		</li>
 		

@@ -9,7 +9,7 @@
 			<h1>
 				Overzicht speelgroepen
 			</h1>
-			<a href="{{ route('playgroup.create') }}">
+			<a href="{{ route('playgroup.create') }}" class="btn for-admin">
 				voeg een speelgroep toe
 			</a>
 		</div>
