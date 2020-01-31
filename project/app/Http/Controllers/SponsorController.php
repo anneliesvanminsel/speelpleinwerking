@@ -36,7 +36,7 @@ class SponsorController extends Controller
 
 		$sponsor->save();
 
-		return redirect()->route('playgroup.overview');
+		return redirect()->route('sponsor.overview');
 	}
 
 	public function getEdit($sponsor_id) {
@@ -63,7 +63,7 @@ class SponsorController extends Controller
 			}
 
 			$imageName = time().'.'.request()->image->getClientOriginalExtension();
-			request()->image->move(public_path('images/playgroup/'), $imageName);
+			request()->image->move(public_path('images/sponsor/'), $imageName);
 
 			$sponsor->image = $imageName;
 		}
@@ -78,6 +78,13 @@ class SponsorController extends Controller
 
 	public function postDelete($sponsor_id) {
 		$sponsor = Sponsor::findOrFail($sponsor_id);
+
+		$image_path = public_path() . "/images/sponsor/" . $sponsor['image'];  // Value is not URL but directory file path
+
+		if(File::exists($image_path)) {
+			File::delete($image_path);
+		}
+
 		$sponsor->delete();
 
 		return redirect()->route('sponsor.overview');

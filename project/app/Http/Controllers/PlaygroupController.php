@@ -88,6 +88,13 @@ class PlaygroupController extends Controller
 
 	public function postDelete($playgroup_id) {
 		$playgroup = Playgroup::findOrFail($playgroup_id);
+
+		$image_path = public_path() . "/images/playgroup/" . $playgroup['image'];  // Value is not URL but directory file path
+
+		if(File::exists($image_path)) {
+			File::delete($image_path);
+		}
+
 		$playgroup->delete();
 
 		return redirect()->route('playgroup.overview');

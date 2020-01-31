@@ -6,16 +6,18 @@ use Illuminate\Http\Request;
 use App\Kid;
 use App\User;
 use App\Playgroup;
+use App\Sponsor;
+use App\Activity;
 
 class PageController extends Controller
 {
     //
 	public function getIndex(){
 		$playgroups = Playgroup::orderBy('created_at', 'desc')->get();
-		//$sponsors = Sponsor::orderBy('created_at', 'desc')->get();
-		//$activities = Activity::orderBy('created_at', 'desc')->get();
+		$sponsors = Sponsor::orderBy('created_at', 'desc')->get();
+		$activities = Activity::orderBy('created_at', 'desc')->get();
 
-		return view('index', ['playgroups' => $playgroups]);
+		return view('index', ['playgroups' => $playgroups, 'sponsors' => $sponsors, 'activities' => $activities]);
 	}
 
 	public function getHoofdleiding(){
