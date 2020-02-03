@@ -1,20 +1,17 @@
 @extends('layouts.admin')
 @section('title')
-	Leiding - kinderen
+	Leiding - oude hoofdleiding
 @endsection
 
 @section('content')
 	<div class="section">
 		<div class="row">
 			<h1>
-				Overzicht kinderen
+				Overzicht hoofdleiding
 			</h1>
 		</div>
 		
 		<div class="account__section card--container">
-			@foreach($kids as $kid)
-				@include('cards.kid', ['kid' => $kid])
-			@endforeach
-		</div>
+		
 	</div>
 @endsection

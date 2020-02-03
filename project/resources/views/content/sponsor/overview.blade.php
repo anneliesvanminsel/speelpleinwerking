@@ -6,10 +6,10 @@
 @section('content')
 	<div class="section">
 		<div class="row">
-			<h1>
+			<h1 class="grow">
 				Overzicht sponsors
 			</h1>
-			<a href="{{ route('sponsor.create') }}" class="btn for-admin">
+			<a href="{{ route('sponsor.create') }}" class="btn is-small for-admin">
 				voeg een sponsor toe
 			</a>
 		</div>

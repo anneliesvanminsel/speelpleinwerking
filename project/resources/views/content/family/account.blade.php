@@ -7,14 +7,14 @@
 	<div class="section account">
 		<div>
 			<h1>
-				Mijn account
+				Mijn account {{ config('global.max_kids') }}
 			</h1>
 		</div>
 		
 		<div class="grid">
 			@if($user['account_id'] === null)
 				<div class="account__section for-family">
-					<div class="account__sectionheading row">
+					<div class="account__subheading row">
 						<h2 class="account__title grow">
 							Account voltooien
 						</h2>
@@ -81,11 +81,11 @@
 								Schrijf een kind in
 							</a>
 						</div>
-					<div class="account__section card--container">
-						@foreach($family->kids()->get() as $kid)
-							@include('cards.kid', ['kid' => $kid])
-						@endforeach
-					</div>
+						<div class="account__section card--container">
+							@foreach($family->kids()->get() as $kid)
+								@include('cards.kid', ['kid' => $kid])
+							@endforeach
+						</div>
 					
 					@else
 						<div class="account__section for-family">
