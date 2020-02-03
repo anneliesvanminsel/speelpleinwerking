@@ -87,13 +87,13 @@
 		</li>
 		
 		<li class="nav__item">
-			<a class="nav__link" href="#">
+			<a class="nav__link" href="{{ route('admin.current-overview') }}">
 				Huidige hoofdleiding
 			</a>
 		</li>
 		
 		<li class="nav__item">
-			<a class="nav__link" href="#">
+			<a class="nav__link" href="{{ route('admin.old-overview') }}">
 				Oude hoofdleiding
 			</a>
 		</li>

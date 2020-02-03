@@ -118,6 +118,18 @@
 				'as' => 'kid.overview'
 			]);
 		});
+		//Families
+		Route::group(['prefix' => 'hoofdleiding'], function() {
+			Route::get('huidig-overzicht', [
+				'uses' => 'AdminController@getCurrentAdmins',
+				'as' => 'admin.current-overview'
+			]);
+
+			Route::get('oud-overzicht', [
+				'uses' => 'AdminController@getOldAdmins',
+				'as' => 'admin.old-overview'
+			]);
+		});
 
 		//Volunteer
 		Route::group(['prefix' => 'monitors'], function() {

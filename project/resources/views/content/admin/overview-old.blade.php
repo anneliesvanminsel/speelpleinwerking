@@ -12,6 +12,9 @@
 		</div>
 		
 		<div class="account__section card--container">
-		
+			@foreach($admins as $admin)
+				{{ $admin }}
+			@endforeach
+		</div>
 	</div>
 @endsection
