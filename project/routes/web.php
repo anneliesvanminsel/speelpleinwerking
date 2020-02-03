@@ -240,5 +240,30 @@
 				'uses' => 'FaqController@getOverview',
 				'as' => 'faq.overview'
 			]);
+
+			Route::get('create', [
+				'uses' => 'FaqController@getCreate',
+				'as' => 'faq.create'
+			]);
+
+			Route::post('create/post', [
+				'uses' => 'FaqController@postCreate',
+				'as' => 'faq.postCreate'
+			]);
+
+			Route::get('edit/{faq_id}', [
+				'uses' => 'FaqController@getEdit',
+				'as' => 'faq.edit'
+			]);
+
+			Route::post('edit/{faq_id}/post', [
+				'uses' => 'FaqController@postEdit',
+				'as' => 'faq.postEdit'
+			]);
+
+			Route::post('delete/{faq_id}/post', [
+				'uses' => 'FaqController@postDelete',
+				'as' => 'faq.postDelete'
+			]);
 		});
 	});

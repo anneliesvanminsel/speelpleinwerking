@@ -1,0 +1,32 @@
+.teaser {
+	margin-bottom: 20px;
+	padding: 20px;
+
+	&--container {
+		margin-top: 40px;
+	}
+
+	&__title {
+		margin-bottom: 10px;
+	}
+
+	&__content {
+
+	}
+
+	&__actions {
+		display: flex;
+
+		> * {
+			margin: 0 5px;
+		}
+	}
+
+	&.for-family {
+		@include border(1px, $fam-medium);
+	}
+
+	&.for-volunteer {
+		@include border(1px, $vol-medium);
+	}
+}

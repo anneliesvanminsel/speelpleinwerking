@@ -6,10 +6,10 @@
 @section('content')
 	<div class="section">
 		<div class="row">
-			<h1>
+			<h1 class="grow">
 				Overzicht activiteiten
 			</h1>
-			<a href="{{ route('activity.create') }}" class="btn for-admin">
+			<a href="{{ route('activity.create') }}" class="btn is-small for-admin">
 				voeg een activiteit toe
 			</a>
 		</div>
