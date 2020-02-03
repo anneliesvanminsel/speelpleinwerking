@@ -22,6 +22,10 @@
 			enctype="multipart/form-data"
 		>
 			@csrf
+			<h2>
+				Algemene gegevens
+			</h2>
+			
 			<div class="form__group">
 				<input
 					id="image"
@@ -32,7 +36,7 @@
 				>
 				
 				<label for="image" class="form__label">
-					Foto van jouw kind
+					Foto van jouw kind (optioneel)
 				</label>
 				
 				@error('image')
@@ -109,9 +113,12 @@
 			</div>
 			
 			<h2>
-				Enkele medische gegevens
+				Medische gegevens
 			</h2>
 			
+			<h3>
+				Heeft het kind allergieën?
+			</h3>
 			<div class="form__group">
 				<input
 					id="allergies"
@@ -123,7 +130,7 @@
 				>
 				
 				<label for="allergies" class="form__label">
-					allergies
+					Waaraan is het kind allergisch?
 				</label>
 				
 				@error('allergies')
@@ -132,6 +139,10 @@
 					</span>
 				@enderror
 			</div>
+			
+			<h3>
+				Neemt het kind medicatie?
+			</h3>
 			
 			<div class="form__group">
 				<input
@@ -144,7 +155,7 @@
 				>
 				
 				<label for="medicins" class="form__label">
-					medicins
+					Welke medicatie?
 				</label>
 				
 				@error('medicins')
@@ -153,7 +164,9 @@
 					</span>
 				@enderror
 			</div>
-			
+			<h3>
+				Tetanus vaccinatie
+			</h3>
 			<div class="checkbox">
 				<label class="checkbox__label">
 					<input
@@ -188,6 +201,10 @@
 				@enderror
 			</div>
 			
+			<h3>
+				Gegevens van de huisarts
+			</h3>
+			
 			<div class="form__group">
 				<input
 					id="doc_name"
@@ -200,7 +217,7 @@
 				>
 				
 				<label for="doc_name" class="form__label">
-					doc_name
+					Naam van de huisarts
 				</label>
 				
 				@error('doc_name')
@@ -222,7 +239,7 @@
 				>
 				
 				<label for="doc_phone_nr" class="form__label">
-					doc_phone_nr
+					Telefoonnummer van de huisarts
 				</label>
 				
 				@error('doc_phone_nr')
@@ -261,7 +278,7 @@
 				>
 				
 				<label for="info" class="form__label">
-					info
+					Wil je ons nog iets meedelen?
 				</label>
 				
 				@error('info')

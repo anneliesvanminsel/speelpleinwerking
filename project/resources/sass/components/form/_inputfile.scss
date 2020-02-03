@@ -1,0 +1,10 @@
+input[type=file]:placeholder-shown + label {
+	transform: translate(10px, 35px) scale(1);
+}
+
+input[type=file]:not(:placeholder-shown) + label,
+input[type=file]:focus + label {
+	transform: translate(11px, 8px) scale(1);
+	font-size: 13px;
+}
+

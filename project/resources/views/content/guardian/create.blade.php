@@ -28,7 +28,7 @@
 				>
 				
 				<label for="image" class="form__label">
-					Afbeelding
+					Duidelijke foto voor herkenning bij ophaling (optioneel)
 				</label>
 				
 				@error('image')

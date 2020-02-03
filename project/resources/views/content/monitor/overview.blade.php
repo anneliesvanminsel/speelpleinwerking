@@ -7,12 +7,12 @@
 	<div class="section">
 		<div class="row">
 			<h1>
-				Overzicht vrijwilligers
+				Overzicht monitoren
 			</h1>
 		</div>
 		
 		<div class="grid">
-			@foreach($volunteers as $volunteer)
+			@foreach($monitoren as $volunteer)
 				<div class="grid__item">
 					<h3>
 						{{$volunteer['name']}} {{$volunteer['firstname']}}

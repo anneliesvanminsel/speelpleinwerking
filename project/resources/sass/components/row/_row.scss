@@ -1,0 +1,12 @@
+.row {
+	display: flex;
+	align-items: center;
+	
+	.grow {
+		flex-grow: 1;
+	}
+
+	.btn {
+		margin: 0;
+	}
+}

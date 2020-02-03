@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateVolunteersTable extends Migration
+class CreateMonitorsTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,7 +13,7 @@ class CreateVolunteersTable extends Migration
      */
     public function up()
     {
-        Schema::create('volunteers', function (Blueprint $table) {
+        Schema::create('monitors', function (Blueprint $table) {
 			$table->increments('id');
 			$table->string('image')->nullable();
 			$table->string('name');
@@ -38,6 +38,6 @@ class CreateVolunteersTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('volunteers');
+        Schema::dropIfExists('monitors');
     }
 }

@@ -45,7 +45,7 @@ class PageController extends Controller
 		}
 
 		if($user->role === 'vol') {
-			return view('content.volunteer.account', ['user' => $user]);
+			return view('content.monitor.account', ['user' => $user]);
 		}
 
 		if($user->role === 'fam') {
@@ -59,5 +59,13 @@ class PageController extends Controller
 		$user = User::where('id', $id)->first();
 
 		return view('content.admin.dashboard', ['user_id' => $user['id'] ]);
+	}
+
+	public function getMonitorInformation(){
+		return view('page.moni-info');
+	}
+
+	public function getFamilyInformation(){
+		return view('page.fam-info');
 	}
 }

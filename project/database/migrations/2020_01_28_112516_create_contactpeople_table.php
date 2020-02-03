@@ -21,7 +21,7 @@ class CreateContactpeopleTable extends Migration
 			$table->string('phone_nr');
 			$table->string('mailaddress');
 			$table->string('role');
-			$table->integer('volunteer_id');
+			$table->integer('monitor_id');
 			$table->softDeletes();
             $table->timestamps();
         });

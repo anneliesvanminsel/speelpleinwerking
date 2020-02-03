@@ -5,7 +5,7 @@
 
 @section('content')
 	@php
-		$vwscount = App\Volunteer::all()->count();
+		$monicount = App\Monitor::all()->count();
 		$kidscount = App\Kid::all()->count();
 	@endphp
 	
@@ -17,15 +17,18 @@
 			analyses en grafieken
 		</div>
 	</div>
+	<div>
+		Hier komt de ingestelde maxCountKinderen,
+	</div>
 	<div class="section row">
 		<div class="recap for-volunteer">
 			<div class="recap__wrapper">
 				<div class="h-row">
 					<div class="recap__text is-bold">
-						{{ $vwscount }}
+						{{ $monicount }}
 					</div>
 					<div class="recap__text is-small">
-						vrijwilligers <br> ingeschreven
+						monitoren <br> ingeschreven
 					</div>
 				</div>
 			</div>

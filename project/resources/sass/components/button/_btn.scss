@@ -33,4 +33,15 @@
 	&.for-admin {
 		background-color: $admin-accent;
 	}
+
+	&.is-small {
+		width: 300px;
+		font-size: 14px;
+	}
+
+	&.has-icon {
+		.icon {
+			margin-right: 10px;
+		}
+	}
 }

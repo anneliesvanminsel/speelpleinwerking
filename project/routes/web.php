@@ -36,6 +36,16 @@
 		'as' => 'account'
 	]);
 
+	Route::get('monitor', [
+		'uses' => 'PageController@getMonitorInformation',
+		'as' => 'monitor'
+	]);
+
+	Route::get('familie', [
+		'uses' => 'PageController@getFamilyInformation',
+		'as' => 'family'
+	]);
+
 	Auth::routes();
 
 	/*
@@ -110,10 +120,10 @@
 		});
 
 		//Volunteer
-		Route::group(['prefix' => 'vrijwilligers'], function() {
+		Route::group(['prefix' => 'monitors'], function() {
 			Route::get('overzicht', [
-				'uses' => 'VolunteerController@getOverview',
-				'as' => 'volunteer.overview'
+				'uses' => 'MonitorController@getOverview',
+				'as' => 'monitor.overview'
 			]);
 		});
 

@@ -1,0 +1,15 @@
+.account {
+	&__section {
+		margin-top: 20px;
+
+		&.for-family {
+			margin-top: 40px;
+			padding: 20px 40px;
+			background-color: $fam-extralight;
+		}
+	}
+
+	&__subheading {
+		margin-bottom: 20px;
+	}
+}

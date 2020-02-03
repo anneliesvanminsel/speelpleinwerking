@@ -17,12 +17,12 @@
 				In onze speelpleinwerking streven we ernaar dat iedereen kan deelnemen.
 			</p>
 			<div class="hero__actions">
-				<a class="btn for-volunteer" href="">Vrijwilliger</a>
-				<a class="btn for-family" href="">Ouder</a>
+				<a class="btn for-family" href="{{ route('family') }}">Ouder</a>
+				<a class="btn for-volunteer" href="{{ route('monitor') }}">Monitor</a>
 			</div>
 		</div>
 		
-		@if($playgroups)
+		@if($playgroups->count() > 0)
 			<div class="section" id="playgroups">
 				<div class="section__header">
 					<h1 class="section__title">

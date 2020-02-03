@@ -33,8 +33,8 @@
 		
 		
 		<li class="nav__item">
-			<a class="nav__link {{ (request()->is('admin/vrijwilligers*')) ? 'is-active' : '' }}" href="{{ route('volunteer.overview') }}">
-				Vrijwilligers
+			<a class="nav__link {{ (request()->is('admin/monitors*')) ? 'is-active' : '' }}" href="{{ route('monitor.overview') }}">
+				Monitoren
 			</a>
 		</li>
 		
