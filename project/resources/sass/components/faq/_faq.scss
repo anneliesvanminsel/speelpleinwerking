@@ -14,8 +14,9 @@
                 color: $admin-accent;
             }
 
-            .fas {
-                transform: rotate(180deg);
+            .faq__icon {
+                transform: rotate(90deg);
+                @include default-transition();
             }
 
             .faq__answer {
@@ -24,13 +25,17 @@
         }
     }
 
+    &__icon {
+        transform: rotate(-90deg);
+    }
+
     &__question {
         display: flex;
         align-items: center;
         width: 100%;
         margin-bottom: 10px;
 
-        font-size: 2rem;
+        font-size: 20px;
         text-align: left;
 
         color: $ui-grey;

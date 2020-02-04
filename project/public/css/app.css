@@ -637,13 +637,20 @@ input[type=radio]:disabled.for-family {
   color: #347b98;
 }
 
-.faq__item.is-open .fas {
-  -webkit-transform: rotate(180deg);
-          transform: rotate(180deg);
+.faq__item.is-open .faq__icon {
+  -webkit-transform: rotate(90deg);
+          transform: rotate(90deg);
+  -webkit-transition: all 0.2s ease;
+  transition: all 0.2s ease;
 }
 
 .faq__item.is-open .faq__answer {
   display: block;
+}
+
+.faq__icon {
+  -webkit-transform: rotate(-90deg);
+          transform: rotate(-90deg);
 }
 
 .faq__question {
@@ -653,7 +660,7 @@ input[type=radio]:disabled.for-family {
           align-items: center;
   width: 100%;
   margin-bottom: 10px;
-  font-size: 2rem;
+  font-size: 20px;
   text-align: left;
   color: #3C3D41;
   background-color: transparent;
@@ -712,6 +719,19 @@ input[type=radio]:disabled.for-family {
   min-height: 100vh;
 }
 
+.sidebar__heading {
+  padding: 30px 40px 10px 40px;
+  width: 100%;
+}
+
+.sidebar__image {
+  width: 100px;
+  height: 100px;
+  border-radius: 50%;
+  overflow: hidden;
+  margin: 0 auto;
+}
+
 .sidebar hr {
   margin-top: 20px;
   margin-bottom: 20px;
@@ -749,6 +769,15 @@ input[type=radio]:disabled.for-family {
 iframe {
   width: 100%;
   height: 300px;
+}
+
+.grid.is-playgroup {
+  display: -webkit-box;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+          flex-direction: row;
+  flex-wrap: wrap;
 }
 
 .grid__item {
@@ -1158,6 +1187,39 @@ ol.list .list__item.is-completed:before {
   margin-bottom: 20px;
 }
 
+.article {
+  padding: 0 20px;
+  max-width: 960px;
+  width: 100%;
+  margin: 0 auto;
+  margin: 40px auto;
+}
+
+@media screen and (min-width: 640px) {
+  .article {
+    padding: 0 20px;
+  }
+}
+
+@media screen and (min-width: 960px) {
+  .article {
+    padding: 0 40px;
+  }
+}
+
+.article__title {
+  margin-bottom: 20px;
+}
+
+.article__subtitle {
+  margin-bottom: 10px;
+}
+
+.article .row {
+  -webkit-box-align: stretch;
+          align-items: stretch;
+}
+
 .breadcrumb {
   font-size: 12px;
 }
@@ -1211,6 +1273,17 @@ ol.list .list__item.is-completed:before {
 .ctn-image img {
   width: 100%;
   height: auto;
+}
+
+.ctn-image.is-large {
+  width: 100%;
+  max-height: 200px;
+  overflow: hidden;
+}
+
+.ctn-image.is-large img {
+  -webkit-transform: translateY(-30%);
+          transform: translateY(-30%);
 }
 
 h1,

@@ -20,7 +20,7 @@ class CreateAdminsTable extends Migration
 			$table->string('first_name');
 			$table->date('birthday');
 			$table->string('phone_nr')->nullable();
-			$table->string('introtext')->nullable();
+			$table->text('introtext')->nullable();
 			$table->string('extrainfo')->nullable();
 			$table->boolean('isVeggie')->default(0);
 			$table->boolean('hasAllergies')->default(0);

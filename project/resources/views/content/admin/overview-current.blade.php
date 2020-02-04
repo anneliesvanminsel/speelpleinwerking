@@ -16,7 +16,7 @@
 		
 		<div class="account__section card--container">
 			@foreach($admins as $admin)
-				{{ $admin }}
+				@include('cards.admin', ['admin' => $admin])
 			@endforeach
 		</div>
 	</div>

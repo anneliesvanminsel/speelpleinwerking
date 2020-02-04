@@ -34,7 +34,7 @@
 					</p>
 				</div>
 				
-				<div class="grid">
+				<div class="grid is-playgroup">
 					@foreach($playgroups as $playgroup)
 						<div class="grid__item">
 							<div class="grid__image ctn-image">

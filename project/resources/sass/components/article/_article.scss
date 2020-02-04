@@ -1,0 +1,16 @@
+.article {
+	@include grid();
+	margin: 40px auto;
+
+	&__title {
+		margin-bottom: 20px;
+	}
+
+	&__subtitle {
+		margin-bottom: 10px;
+	}
+
+	.row {
+		align-items: stretch;
+	}
+}

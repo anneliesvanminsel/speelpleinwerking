@@ -1,12 +1,22 @@
 
 <nav class="nav sidebar">
-	<div class="sidebar__heading">
-		<div class="sidebar__image">
-		</div>
-		<div class="sidebar__title">
-		</div>
-		
-	</div>
+	@if(Auth::user()->account_id != null)
+		@php
+			$admin = Auth::user()->account()->first();
+		@endphp
+	
+		<a href="" class="sidebar__heading">
+			@if(File::exists(public_path() . "/images/admin/" . $admin['image']))
+				<div class="sidebar__image ctn-image">
+					<img src="{{ asset('images/admin/' . $admin['image']) }}" alt="">
+				</div>
+			@endif
+			
+			<div class="sidebar__title">
+				{{$admin['first_name']}} {{$admin['name']}}
+			</div>
+		</a>
+	@endif
 	<hr>
 	<ul class="nav__bar">
 		<li class="nav__item">

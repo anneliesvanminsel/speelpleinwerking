@@ -11,6 +11,19 @@
 		min-height: 100vh;
 	}
 
+	&__heading {
+		padding: 30px $spacing-l 10px $spacing-l;
+		width: 100%;
+	}
+
+	&__image {
+		width: 100px;
+		height: 100px;
+		border-radius: 50%;
+		overflow: hidden;
+		margin: 0 auto;
+	}
+
 	hr {
 		margin-top: $spacing-m;
 		margin-bottom: $spacing-m;

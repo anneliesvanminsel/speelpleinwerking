@@ -1,6 +1,7 @@
 <?php
 
 namespace App\Http\Controllers;
+use App\Faq;
 use Illuminate\Http\Request;
 
 use App\Kid;
@@ -13,7 +14,7 @@ class PageController extends Controller
 {
     //
 	public function getIndex(){
-		$playgroups = Playgroup::orderBy('created_at', 'desc')->get();
+		$playgroups = Playgroup::orderBy('minAge', 'asc')->get();
 		$sponsors = Sponsor::orderBy('created_at', 'desc')->get();
 		$activities = Activity::orderBy('created_at', 'desc')->get();
 
@@ -62,10 +63,14 @@ class PageController extends Controller
 	}
 
 	public function getMonitorInformation(){
-		return view('page.moni-info');
+		$faqs = Faq::where('belongsTo', 'for-volunteer')->get();
+
+		return view('page.moni-info', ['faqs' => $faqs]);
 	}
 
 	public function getFamilyInformation(){
-		return view('page.fam-info');
+		$faqs = Faq::where('belongsTo', 'for-family')->get();
+
+		return view('page.fam-info', ['faqs' => $faqs]);
 	}
 }

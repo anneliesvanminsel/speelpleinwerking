@@ -1,4 +1,9 @@
 .grid {
+	&.is-playgroup {
+		display: flex;
+		flex-direction: row;
+		flex-wrap: wrap;
+	}
 
 	&__item {
 		display: flex;
