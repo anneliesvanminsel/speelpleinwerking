@@ -31,14 +31,16 @@
 						<div>
 							{{ $activity['description'] }}
 						</div>
-						<div>
+						@if($activity['link'])
 							<div>
-								Jouw knop naar inschrijvingsformulier:
+								<div>
+									Jouw knop naar inschrijvingsformulier:
+								</div>
+								<a href="{{$activity['link']}}" target="_blank" class="btn for-admin">
+									{{ $activity['linkText'] }}
+								</a>
 							</div>
-							<a href="{{$activity['link']}}" target="_blank" class="btn for-admin">
-								{{ $activity['linkText'] }}
-							</a>
-						</div>
+						@endif
 					</div>
 					<div class="grid__actions">
 						<a class="" href={{ route('activity.edit', ['activity_id' => $activity->id]) }}>

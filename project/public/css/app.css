@@ -780,16 +780,25 @@ iframe {
   flex-wrap: wrap;
 }
 
-.grid__item {
-  display: -webkit-box;
-  display: flex;
+.grid.is-playgroup .grid__item {
   width: calc(50% - 40px);
   margin: 10px 0 10px 10px;
 }
 
+.grid__item {
+  display: -webkit-box;
+  display: flex;
+  -webkit-box-align: center;
+          align-items: center;
+  width: 100%;
+  margin: 10px 0;
+}
+
 .grid__image {
-  width: 200px;
+  min-width: 100px;
+  max-width: 100px;
   margin-right: 20px;
+  overflow: hidden;
 }
 
 .grid__title {
@@ -1102,6 +1111,10 @@ ol.list .list__item.is-completed:before {
   margin-right: 0;
 }
 
+.card.is-activity {
+  width: calc(30% - 20px);
+}
+
 .card--container {
   display: -webkit-box;
   display: flex;
@@ -1112,6 +1125,8 @@ ol.list .list__item.is-completed:before {
 .card__image {
   height: 100px;
   width: 100px;
+  max-height: 100px;
+  max-width: 100px;
   margin: 20px auto;
   overflow: hidden;
   border-radius: 50%;
@@ -1120,6 +1135,8 @@ ol.list .list__item.is-completed:before {
 }
 
 .card__content {
+  -webkit-box-flex: 1;
+          flex-grow: 1;
   padding: 10px 20px 20px;
 }
 
@@ -1220,6 +1237,10 @@ ol.list .list__item.is-completed:before {
           align-items: stretch;
 }
 
+.article__text {
+  margin-bottom: 20px;
+}
+
 .breadcrumb {
   font-size: 12px;
 }
@@ -1293,5 +1314,9 @@ h4,
 h5,
 h6 {
   font-family: "Poiret One", cursive;
+}
+
+h1 {
+  margin-bottom: 20px;
 }
 

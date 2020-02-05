@@ -58,7 +58,44 @@
 			</div>
 		@endif
 		
-		<div class="contact--wrapper" id="contact">
+		@if($activities->count() > 0)
+			<div class="section" id="playgroups">
+				<div class="section__header">
+					<h1 class="section__title">
+						Onze activiteiten
+					</h1>
+				</div>
+				
+				<div class="card--container">
+					@foreach($activities as $activity)
+						<div class="card is-activity">
+							<div class="card__image ctn-image">
+								@if(File::exists(public_path() . "/images/activity/" . $activity['image']))
+									<img src="{{ asset('/images/activity/' . $activity['image'] ) }}" alt="{{ $activity['name'] }}" loading="lazy">
+								@else
+									<img src="https://placekitten.com/600/600" alt="{{ $activity['name'] }}" loading="lazy">
+								@endif
+							</div>
+							<div class="card__content">
+								<h3 class="card__title">
+									{{$activity['name']}}
+								</h3>
+								<div class="card__text">
+									{{$activity['description']}}
+								</div>
+							</div>
+							@if($activity['link'] && $activity['linkText'])
+								<div class="card__actions">
+									<a href="{{$activity['link']}}" class="btn for-family">{{$activity['linkText']}}</a>
+								</div>
+							@endif
+						</div>
+					@endforeach
+				</div>
+			</div>
+		@endif
+		
+		<div id="contact">
 			<iframe
 				src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2517.2431483702967!2d4.7122213158142365!3d50.88220997953733!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x47c160d33f0a3fa9%3A0xc05030830bac50f6!2sLeuven%20Station!5e0!3m2!1snl!2sbe!4v1580166635270!5m2!1snl!2sbe"
 				width="600"
@@ -67,8 +104,45 @@
 				style="border:0;"
 				allowfullscreen=""
 			></iframe>
+			<div>
 			
-			
+			</div>
 		</div>
+		
+		@if($sponsors->count() > 0)
+			<div class="section" id="playgroups">
+				<div class="section__header">
+					<h1 class="section__title">
+						Onze sponsors
+					</h1>
+					<p class="section__description">
+						We verdelen onze kinderen volgens leeftijd in groepen om hen samen met
+						leeftijdsgenoten een fijne dag te garanderen.
+					</p>
+				</div>
+				
+				<div class="grid is-playgroup">
+					@foreach($sponsors as $playgroup)
+						<div class="grid__item">
+							<div class="grid__image ctn-image">
+								@if(File::exists(public_path() . "/images/sponsor/" . $playgroup['image']))
+									<img src="{{ asset('/images/sponsor/' . $playgroup['image'] ) }}" alt="{{ $playgroup['name'] }}" loading="lazy">
+								@else
+									<img src="https://placekitten.com/600/600" alt="{{ $playgroup['name'] }}" loading="lazy">
+								@endif
+							</div>
+							<div class="grid__content">
+								<h3 class="grid__title">
+									{{$playgroup['name']}}
+								</h3>
+								<div class="grid__text">
+									{{$playgroup['description']}}
+								</div>
+							</div>
+						</div>
+					@endforeach
+				</div>
+			</div>
+		@endif
 	</main>
 @endsection

@@ -17,6 +17,10 @@
 		margin-right: 0;
 	}
 
+	&.is-activity {
+		width: calc(30% - 20px);
+	}
+
 	&--container {
 		display: flex;
 		align-items: stretch;
@@ -25,6 +29,8 @@
 	&__image {
 		height: 100px;
 		width: 100px;
+		max-height: 100px;
+		max-width: 100px;
 		margin: 20px auto;
 
 		overflow: hidden;
@@ -33,6 +39,7 @@
 	}
 
 	&__content {
+		flex-grow: 1;
 		padding: 10px 20px 20px;
 	}
 
