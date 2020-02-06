@@ -21,7 +21,8 @@ class SponsorController extends Controller
 	public function postCreate(Request $request) {
 		$this->validate($request, [
 			'name' => 'required|string|max:255',
-			'information' => 'required|string|max:1000',
+			'information' => 'nullable|string|max:1000',
+			'link' => 'nullable|string|max:255',
 			'image'=> 'required|image|mimes:jpeg,png,jpg,gif,svg|max:2048', //image
 		]);
 
@@ -30,6 +31,7 @@ class SponsorController extends Controller
 
 		$sponsor = new Sponsor([
 			'name' => $request->input('name'),
+			'link' => $request->input('link'),
 			'image' => $imageName,
 			'information'=> $request->input('information'),
 		]);
@@ -49,6 +51,7 @@ class SponsorController extends Controller
 		$this->validate($request, [
 			'name' => 'required|string|max:255',
 			'information' => 'required|string|max:1000',
+			'link' => 'nullable|string|max:255',
 			'image'=> 'nullable|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
 		]);
 
@@ -69,6 +72,7 @@ class SponsorController extends Controller
 		}
 
 		$sponsor->name = $request->input('name');
+		$sponsor->link = $request->input('link');
 		$sponsor->information = $request->input('information');
 
 		$sponsor->save();

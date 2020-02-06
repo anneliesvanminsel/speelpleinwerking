@@ -8,6 +8,6 @@ class Sponsor extends Model
 {
     //
 	protected $fillable = [
-		'name', 'image', 'information',
+		'name', 'image', 'information', 'link',
 	];
 }

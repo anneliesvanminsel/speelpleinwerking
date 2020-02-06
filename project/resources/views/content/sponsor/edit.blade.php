@@ -89,12 +89,35 @@
 				@enderror
 			</div>
 			
+			
+			<div class="form__group">
+				<input
+					id="link"
+					type="text"
+					class="form__input for-admin @error('link') is-invalid @enderror"
+					name="link"
+					placeholder="Website van sponsor"
+					value="{{ $sponsor['link'] }}"
+					autocomplete="off"
+				>
+				
+				<label for="link" class="form__label">
+					Link naar website van sponsor
+				</label>
+				
+				@error('link')
+				<span class="invalid-feedback" role="alert">
+						<strong>{{ $message }}</strong>
+					</span>
+				@enderror
+			</div>
+			
+			
 			<div class="form__actions">
 				<button type="submit" class="btn for-admin">
 					Bewerk gegevens van {{ $sponsor['name'] }}
 				</button>
 			</div>
-		
 		</form>
 	</div>
 @endsection

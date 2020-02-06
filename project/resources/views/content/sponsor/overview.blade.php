@@ -14,9 +14,9 @@
 			</a>
 		</div>
 		
-		<div class="grid">
+		<div class="teaser--container">
 			@foreach($sponsors as $sponsor)
-				<div class="grid__item">
+				<div class="teaser row">
 					<div class="grid__image ctn-image">
 						@if(File::exists(public_path() . "/images/sponsor/" . $sponsor['image']))
 							<img src="{{ asset('/images/sponsor/' . $sponsor['image'] ) }}" alt="{{ $sponsor['name'] }}" loading="lazy">
@@ -24,28 +24,31 @@
 							<img src="https://placekitten.com/600/600" alt="{{ $sponsor['name'] }}" loading="lazy">
 						@endif
 					</div>
-					<div class="grid__content">
-						<h3>
-							{{$sponsor['name']}}
-						</h3>
-						<div>
+					<div class="grow">
+						<div class="row">
+							<h3 class="grow">
+								{{$sponsor['name']}}
+							</h3>
+							<div class="teaser__actions">
+								<a class="" href={{ route('sponsor.edit', ['sponsor_id' => $sponsor->id]) }}>
+									@svg('edit', 'is-small')
+								</a>
+								<form
+									class="form"
+									method="POST"
+									action="{{ route('sponsor.postDelete', ['sponsor_id' => $sponsor->id]) }}"
+								>
+									{{ csrf_field() }}
+									<button class="" type="submit">
+										@svg('delete', 'is-small')
+									</button>
+								</form>
+							</div>
+						</div>
+						
+						<div class="teaser__content">
 							{{$sponsor['information']}}
 						</div>
-					</div>
-					<div class="grid__actions">
-						<a class="" href={{ route('sponsor.edit', ['sponsor_id' => $sponsor->id]) }}>
-							@svg('edit', 'is-small')
-						</a>
-						<form
-							class="form"
-							method="POST"
-							action="{{ route('sponsor.postDelete', ['sponsor_id' => $sponsor->id]) }}"
-						>
-							{{ csrf_field() }}
-							<button class="" type="submit">
-								@svg('delete', 'is-small')
-							</button>
-						</form>
 					</div>
 				</div>
 			@endforeach

@@ -3,7 +3,7 @@
 	Speelpleinwerking
 @endsection
 @section('content')
-	<main class="l-main">
+	<div>
 		<div class="hero">
 			<div class="hero__image ctn-image">
 				<img src="https://images.pexels.com/photos/1250346/pexels-photo-1250346.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260" alt="Sfeerfoto">
@@ -46,10 +46,10 @@
 							</div>
 							<div class="grid__content">
 								<h3 class="grid__title">
-									{{$playgroup['name']}}
+									{{ $playgroup['name'] }}
 								</h3>
 								<div class="grid__text">
-									{{$playgroup['description']}}
+									{{ $playgroup['description'] }}
 								</div>
 							</div>
 						</div>
@@ -59,7 +59,7 @@
 		@endif
 		
 		@if($activities->count() > 0)
-			<div class="section" id="playgroups">
+			<div class="section" id="activities">
 				<div class="section__header">
 					<h1 class="section__title">
 						Onze activiteiten
@@ -78,15 +78,15 @@
 							</div>
 							<div class="card__content">
 								<h3 class="card__title">
-									{{$activity['name']}}
+									{{ $activity['name'] }}
 								</h3>
 								<div class="card__text">
-									{{$activity['description']}}
+									{{ $activity['description'] }}
 								</div>
 							</div>
 							@if($activity['link'] && $activity['linkText'])
 								<div class="card__actions">
-									<a href="{{$activity['link']}}" class="btn for-family">{{$activity['linkText']}}</a>
+									<a href="{{ $activity['link'] }}" class="btn for-family">{{ $activity['linkText'] }}</a>
 								</div>
 							@endif
 						</div>
@@ -104,13 +104,10 @@
 				style="border:0;"
 				allowfullscreen=""
 			></iframe>
-			<div>
-			
-			</div>
 		</div>
 		
 		@if($sponsors->count() > 0)
-			<div class="section" id="playgroups">
+			<div class="section" id="sponsors">
 				<div class="section__header">
 					<h1 class="section__title">
 						Onze sponsors
@@ -121,22 +118,22 @@
 					</p>
 				</div>
 				
-				<div class="grid is-playgroup">
-					@foreach($sponsors as $playgroup)
+				<div class="grid">
+					@foreach($sponsors as $sponsor)
 						<div class="grid__item">
 							<div class="grid__image ctn-image">
-								@if(File::exists(public_path() . "/images/sponsor/" . $playgroup['image']))
-									<img src="{{ asset('/images/sponsor/' . $playgroup['image'] ) }}" alt="{{ $playgroup['name'] }}" loading="lazy">
+								@if(File::exists(public_path() . "/images/sponsor/" . $sponsor['image']))
+									<img src="{{ asset('/images/sponsor/' . $sponsor['image'] ) }}" alt="{{ $sponsor['name'] }}" loading="lazy">
 								@else
-									<img src="https://placekitten.com/600/600" alt="{{ $playgroup['name'] }}" loading="lazy">
+									<img src="https://placekitten.com/600/600" alt="{{ $sponsor['name'] }}" loading="lazy">
 								@endif
 							</div>
 							<div class="grid__content">
 								<h3 class="grid__title">
-									{{$playgroup['name']}}
+									{{ $sponsor['name'] }}
 								</h3>
 								<div class="grid__text">
-									{{$playgroup['description']}}
+									{{ $sponsor['information'] }}
 								</div>
 							</div>
 						</div>
@@ -144,5 +141,5 @@
 				</div>
 			</div>
 		@endif
-	</main>
+	</div>
 @endsection
