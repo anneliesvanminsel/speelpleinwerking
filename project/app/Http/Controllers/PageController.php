@@ -45,7 +45,7 @@ class PageController extends Controller
 			return view('content.admin.dashboard', ['user_id' => $user['id'] ]);
 		}
 
-		if($user->role === 'vol') {
+		if($user->role === 'moni') {
 			return view('content.monitor.account', ['user' => $user]);
 		}
 
@@ -53,7 +53,7 @@ class PageController extends Controller
 			return view('content.family.account', ['user' => $user]);
 		}
 
-		return view('content.account', ['user' => $user]);
+		return view('errors.401');
 	}
 
 	public function getDashboard($id){

@@ -88,10 +88,10 @@
                                     class="checkbox__input for-volunteer"
                                     type="radio"
                                     name="role"
-                                    value="vol"
+                                    value="moni"
                                 >
                                 <div class="checkbox__text">
-                                    Ik ben Vrijwilliger
+                                    Ik ben Monitor
                                 </div>
                             </label>
                         </div>
