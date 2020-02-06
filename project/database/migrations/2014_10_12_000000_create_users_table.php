@@ -17,7 +17,7 @@ class CreateUsersTable extends Migration
 			$table->increments('id')->unique();
 			$table->string('email')->unique();
 			$table->string('password');
-			$table->string('role')->default('fam');
+			$table->string('role');
 			$table->integer('account_id')->nullable();
 			$table->string('account_type')->nullable();
 			$table->softDeletes();
