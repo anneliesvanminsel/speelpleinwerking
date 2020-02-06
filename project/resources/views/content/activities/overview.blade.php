@@ -14,9 +14,9 @@
 			</a>
 		</div>
 		
-		<div class="grid">
+		<div class="container">
 			@foreach($activities as $activity)
-				<div class="grid__item">
+				<div class="teaser row">
 					<div class="grid__image ctn-image">
 						@if(File::exists(public_path() . "/images/activity/" . $activity['image']))
 							<img src="{{ asset('/images/activity/' . $activity['image'] ) }}" alt="{{ $activity['name'] }}" loading="lazy">
@@ -24,38 +24,31 @@
 							<img src="https://placekitten.com/600/600" alt="{{ $activity['name'] }}" loading="lazy">
 						@endif
 					</div>
-					<div class="grid__content">
-						<h3>
-							{{ $activity['name'] }}
-						</h3>
-						<div>
+					<div class="grow">
+						<div class="row">
+							<h3 class="grow">
+								{{ $activity['name'] }}
+							</h3>
+							<div class="teaser__actions">
+								<a class="" href={{ route('activity.edit', ['activity_id' => $activity->id]) }}>
+									@svg('edit', 'is-small')
+								</a>
+								<form
+									class="form"
+									method="POST"
+									action="{{ route('activity.postDelete', ['activity_id' => $activity->id]) }}"
+								>
+									{{ csrf_field() }}
+									<button class="" type="submit">
+										@svg('delete', 'is-small')
+									</button>
+								</form>
+							</div>
+						</div>
+						
+						<div class="teaser__content">
 							{{ $activity['description'] }}
 						</div>
-						@if($activity['link'])
-							<div>
-								<div>
-									Jouw knop naar inschrijvingsformulier:
-								</div>
-								<a href="{{$activity['link']}}" target="_blank" class="btn for-admin">
-									{{ $activity['linkText'] }}
-								</a>
-							</div>
-						@endif
-					</div>
-					<div class="grid__actions">
-						<a class="" href={{ route('activity.edit', ['activity_id' => $activity->id]) }}>
-							@svg('edit', 'is-small')
-						</a>
-						<form
-							class="form"
-							method="POST"
-							action="{{ route('activity.postDelete', ['activity_id' => $activity->id]) }}"
-						>
-							{{ csrf_field() }}
-							<button class="" type="submit">
-								@svg('delete', 'is-small')
-							</button>
-						</form>
 					</div>
 				</div>
 			@endforeach

@@ -38,9 +38,11 @@
 				@endif
 			</ul>
 		</nav>
-		<button class="button ctn-icon menu-icon">
-			blabla
-		</button>
+		<div class="ctn-icon menu-icon">
+			<span></span>
+			<span></span>
+			<span></span>
+		</div>
 	</div>
 </header>
 <script src="{{ asset('js/header.js') }}" > </script>

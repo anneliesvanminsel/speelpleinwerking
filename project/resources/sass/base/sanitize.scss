@@ -27,3 +27,10 @@ a {
 	text-decoration: none;
 	color: inherit;
 }
+
+button {
+	-webkit-appearance: none;
+	background-color: transparent;
+	border: none;
+	cursor: pointer;
+}
