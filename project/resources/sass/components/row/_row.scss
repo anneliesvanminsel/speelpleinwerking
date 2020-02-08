@@ -9,4 +9,12 @@
 	.btn {
 		margin: 0;
 	}
+
+	&.has-two {
+		margin-top: 20px;
+
+		> * {
+			width: 50%;
+		}
+	}
 }

@@ -15,4 +15,11 @@ class Kid extends Model
 	public function family() {
 		return $this->belongsTo('App\Family', 'family_id');
 	}
+
+	public function days(){
+		return $this->belongsToMany('App\Day',
+			'kid_day',
+			'kid_id',
+			'day_id')->withPivot('isPresent', 'hasPaid')->withTimestamps();
+	}
 }

@@ -10,7 +10,7 @@ ol {
 
 			&:before {
 				content: counter(my-badass-counter) '. ';
-				color: $ui-black; /* Change the color */
+				color: $admin-medium; /* Change the color */
 				font-weight: bold; /* If you want it to be bold */
 				font-size: 18px;
 				display: inline-block; /* Needed to add space between the bullet and the text */
@@ -24,6 +24,22 @@ ol {
 				&:before {
 					opacity: .5;
 				}
+			}
+		}
+	}
+
+	&.for-family {
+		.list__item {
+			&:before {
+				color: $fam-medium; /* Change the color */
+			}
+		}
+	}
+
+	&.for-volunteer {
+		.list__item {
+			&:before {
+				color: $vol-medium; /* Change the color */
 			}
 		}
 	}

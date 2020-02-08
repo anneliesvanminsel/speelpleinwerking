@@ -28,6 +28,19 @@
 
 	&__actions {
 		display: flex;
+
+		.btn {
+			padding: 15px 20px;
+			font-size: 18px;
+
+			&:first-child {
+				margin-right: 20px;
+			}
+
+			&:last-child {
+				margin-left: 20px;
+			}
+		}
 	}
 
 	&__image {

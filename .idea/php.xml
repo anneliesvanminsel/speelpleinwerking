@@ -85,6 +85,7 @@
       <path value="$PROJECT_DIR$/project/vendor/sebastian/comparator" />
       <path value="$PROJECT_DIR$/project/vendor/sebastian/global-state" />
       <path value="$PROJECT_DIR$/project/vendor/nothingworks/blade-svg" />
+      <path value="$PROJECT_DIR$/project/vendor/maddhatter/laravel-fullcalendar" />
     </include_path>
   </component>
   <component name="PhpProjectSharedConfiguration" php_language_level="7.1" />

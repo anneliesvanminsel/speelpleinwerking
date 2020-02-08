@@ -9,8 +9,8 @@
 		<nav class="nav">
 			<ul class="nav__bar">
 				<li class="nav__item">
-					<a class="nav__link" href="{{ route('index') }}#playgroups">
-						Onze speelgroepen
+					<a class="nav__link" href="{{ route('index') }}">
+						Algemeen
 					</a>
 				</li>
 				<li class="nav__item">

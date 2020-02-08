@@ -21,7 +21,6 @@ class CreateMonitorsTable extends Migration
 			$table->date('birthday');
 			$table->string('extra_info')->nullable();
 			$table->boolean('isVeggie')->default(0);
-			$table->boolean('hasAllergies')->default(0);
 			$table->string('allergies')->nullable();
 			$table->string('phone_nr')->nullable();
 			$table->integer('user_id')->nullable();

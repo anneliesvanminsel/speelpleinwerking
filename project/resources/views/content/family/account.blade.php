@@ -27,7 +27,7 @@
 						Voor je gebruik kan maken van dit platform, vragen wij om een aantal gegevens met ons te delen.
 					</div>
 					<div class="account__text">
-						<ol class="list">
+						<ol class="list for-family">
 							<li class="list__item">Voeg adresgegevens toe.</li>
 							<li class="list__item">Voeg de contactgegevens van een ouder of voogd toe.</li>
 							<li class="list__item">Schrijf een kind in.</li>
@@ -102,7 +102,7 @@
 								Voor je gebruik kan maken van dit platform, vragen wij om een aantal gegevens met ons te delen.
 							</div>
 							<div class="account__text">
-								<ol class="list">
+								<ol class="list for-family">
 									<li class="list__item is-completed">Voeg adresgegevens toe.</li>
 									<li class="list__item is-completed">Voeg de contactgegevens van een ouder of voogd toe.</li>
 									<li class="list__item">Schrijf een kind in.</li>
@@ -125,7 +125,7 @@
 							Voor je gebruik kan maken van dit platform, vragen wij om een aantal gegevens met ons te delen.
 						</div>
 						<div class="account__text">
-							<ol class="list">
+							<ol class="list for-family">
 								<li class="list__item is-completed">Voeg adresgegevens toe.</li>
 								<li class="list__item">Voeg de contactgegevens van een ouder of voogd toe.</li>
 								<li class="list__item">Schrijf een kind in.</li>

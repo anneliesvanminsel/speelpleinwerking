@@ -19,6 +19,7 @@
 			<div class="hero__actions">
 				<a class="btn for-family" href="{{ route('family') }}">Ouder</a>
 				<a class="btn for-volunteer" href="{{ route('monitor') }}">Monitor</a>
+				<a class="btn for-admin" href="{{ route('hoofdmonitoren') }}">Hoofdmonitor</a>
 			</div>
 		</div>
 		

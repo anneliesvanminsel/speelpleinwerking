@@ -1,11 +1,27 @@
-<div class="account__section is-green">
-	<div class="account__text is-bold">
-		{{$contactperson['first_name']}} {{$contactperson['name']}}
+<a class="card for-volunteer" href="">
+	@if($contact['image'] && File::exists(public_path() . "/images/contact/" . $contact['image']))
+		<div class="card__image ctn-image">
+			<img src="{{ asset('images/contact/' . $contact['image']) }}" alt="">
+		</div>
+	@endif
+	<div class="card__content">
+		<div class="card__title">
+			{{$contact['first_name']}} {{$contact['name']}}
+		</div>
+		<div class="card__text">
+			{{$contact['phone_nr']}}
+		</div>
+		<div class="card__text is-role">
+			{{$contact['role']}}
+		</div>
 	</div>
-	<div class="account__text">
-		{{$contactperson['phone_nr']}}
+	<div class="card__actions">
+		
+		<div>
+			@svg('edit')
+		</div>
+		<div>
+			@svg('delete')
+		</div>
 	</div>
-	<div class="account__text">
-		{{$contactperson['role']}}
-	</div>
-</div>
+</a>

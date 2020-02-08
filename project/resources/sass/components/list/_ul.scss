@@ -1,0 +1,38 @@
+ul {
+	&.list {
+		margin: 5px 0;
+		list-style: none;
+
+		.list__item {
+			margin: 10px 15px;
+
+			&:before {
+				content: "\2022";  /* Add content: \2022 is the CSS Code/unicode for a bullet */
+				color: $admin-medium; /* Change the color */
+				font-weight: bold; /* If you want it to be bold */
+				font-size: 20px;
+				text-align: center;
+				display: inline-block; /* Needed to add space between the bullet and the text */
+				width: 20px; /* Also needed for space (tweak if needed) */
+				height: 100%;
+				margin-left: -.5rem; /* Also needed for space (tweak if needed) */
+			}
+		}
+	}
+
+	&.for-family {
+		.list__item {
+			&:before {
+				color: $fam-medium; /* Change the color */
+			}
+		}
+	}
+
+	&.for-volunteer {
+		.list__item {
+			&:before {
+				color: $vol-medium; /* Change the color */
+			}
+		}
+	}
+}

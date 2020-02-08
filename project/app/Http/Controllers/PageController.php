@@ -1,6 +1,7 @@
 <?php
 
 namespace App\Http\Controllers;
+use App\Admin;
 use App\Faq;
 use Illuminate\Http\Request;
 
@@ -19,10 +20,6 @@ class PageController extends Controller
 		$activities = Activity::orderBy('created_at', 'desc')->get();
 
 		return view('index', ['playgroups' => $playgroups, 'sponsors' => $sponsors, 'activities' => $activities]);
-	}
-
-	public function getHoofdleiding(){
-		return view('content.hoofdleiding');
 	}
 
 	public function getCookiebeleid(){
@@ -72,5 +69,11 @@ class PageController extends Controller
 		$faqs = Faq::where('belongsTo', 'for-family')->get();
 
 		return view('page.fam-info', ['faqs' => $faqs]);
+	}
+
+	public function getHoofdMonitor(){
+		$admins = Admin::orderBy('created_at', 'desc')->get();
+
+		return view('page.admin-info', ['admins' => $admins]);
 	}
 }

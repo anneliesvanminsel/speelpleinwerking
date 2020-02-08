@@ -9,15 +9,22 @@
 		$kidscount = App\Kid::all()->count();
 	@endphp
 	
-	<div class="section">
-		<h1>
-			dashboard
-		</h1>
-		<div>
-			analyses en grafieken
+	<div class="section row">
+		<div class="grow">
+			<h1>
+				dashboard
+			</h1>
+			<div>
+				analyses en grafieken
+			</div>
 		</div>
+		<a href="{{ route('admin.newSummer') }}" class="btn is-small for-admin">
+			Nieuwe zomer
+		</a>
 	</div>
-	<div>
+	
+	
+	<div class="section">
 		Hier komt de ingestelde maxCountKinderen,
 	</div>
 	<div class="section row">

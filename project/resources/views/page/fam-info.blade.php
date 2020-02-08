@@ -38,23 +38,23 @@
 					<img src="https://images.pexels.com/photos/296301/pexels-photo-296301.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260" alt="">
 				</div>
 			</div>
-			<div class="row">
+			<div class="row has-two">
 				<div class="grow">
 					<h3 class="article__subtitle">
 						Wat moeten jouw kinderen meebrengen?
 					</h3>
-					<ul>
-						<li>
+					<ul class="list for-family">
+						<li class="list__item">
 							Lunchpakket
 						</li>
-						<li>
+						<li class="list__item">
 							Regenjas
 						</li>
-						<li>
+						<li class="list__item">
 							Eventueel reservekleren
 						
 						</li>
-						<li>
+						<li class="list__item">
 							Bij heel mooi weer: zwemkleren
 						</li>
 					</ul>
@@ -66,11 +66,11 @@
 					<h3 class="article__subtitle">
 						Wat laten ze beter thuis?
 					</h3>
-					<ul>
-						<li>
+					<ul class="list for-family">
+						<li class="list__item">
 							Snoep (een koekje voor bij het eten mag, verder zorgen wij voor alles)
 						</li>
-						<li>
+						<li class="list__item">
 							GSM, Smartphones, tablets en andere kostbare voorwerpen (als deze stuk of verloren gaan is dit
 							niet onze verantwoordelijkheid).
 						</li>

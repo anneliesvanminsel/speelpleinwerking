@@ -1,4 +1,6 @@
-@import url(https://fonts.googleapis.com/css?family=Nunito);@import url(https://fonts.googleapis.com/css?family=Montserrat|Poiret+One&display=swap);/*--------------------------------------------------------------
+@import url(https://fonts.googleapis.com/css?family=Nunito);@import url(https://fonts.googleapis.com/css?family=Montserrat|Poiret+One&display=swap);@import url(https://fonts.googleapis.com/css?family=Bad+Script&display=swap);@charset "UTF-8";
+
+/*--------------------------------------------------------------
 pseudo
 --------------------------------------------------------------*/
 
@@ -83,6 +85,13 @@ a {
   display: inline-block;
   text-decoration: none;
   color: inherit;
+}
+
+button {
+  -webkit-appearance: none;
+  background-color: transparent;
+  border: none;
+  cursor: pointer;
 }
 
 textarea {
@@ -175,7 +184,7 @@ input[type=time]:focus.for-family,
 input[type=time]:valid.for-family,
 textarea:focus.for-family,
 textarea:valid.for-family {
-  border: 1px solid #98ca32;
+  border: 1px solid #448d76;
 }
 
 input[type=email]:focus.for-volunteer,
@@ -196,7 +205,7 @@ input[type=time]:focus.for-volunteer,
 input[type=time]:valid.for-volunteer,
 textarea:focus.for-volunteer,
 textarea:valid.for-volunteer {
-  border: 1px solid #d61a46;
+  border: 1px solid #fba90a;
 }
 
 input[type=email]:focus.for-admin,
@@ -217,7 +226,7 @@ input[type=time]:focus.for-admin,
 input[type=time]:valid.for-admin,
 textarea:focus.for-admin,
 textarea:valid.for-admin {
-  border: 1px solid #347b98;
+  border: 1px solid #700cbc;
 }
 
 input:placeholder-shown + label,
@@ -390,16 +399,16 @@ input[type=checkbox]:hover.for-volunteer,
 input[type=checkbox]:checked.for-volunteer,
 input[type=radio]:hover.for-volunteer,
 input[type=radio]:checked.for-volunteer {
-  background-color: #d61a46;
-  border-color: #d61a46;
+  background-color: #fba90a;
+  border-color: #fba90a;
 }
 
 input[type=checkbox]:hover.for-family,
 input[type=checkbox]:checked.for-family,
 input[type=radio]:hover.for-family,
 input[type=radio]:checked.for-family {
-  background-color: #98ca32;
-  border-color: #98ca32;
+  background-color: #448d76;
+  border-color: #448d76;
 }
 
 input[type=checkbox]:before,
@@ -444,14 +453,14 @@ input[type=radio]:disabled {
 
 input[type=checkbox]:disabled.for-volunteer,
 input[type=radio]:disabled.for-volunteer {
-  background-color: #340913;
-  border-color: #340913;
+  background-color: #342609;
+  border-color: #342609;
 }
 
 input[type=checkbox]:disabled.for-family,
 input[type=radio]:disabled.for-family {
-  background-color: #263409;
-  border-color: #263409;
+  background-color: #093426;
+  border-color: #093426;
 }
 
 .is-total {
@@ -525,15 +534,15 @@ input[type=radio]:disabled.for-family {
 }
 
 .btn.for-family {
-  background-color: #98ca32;
+  background-color: #448d76;
 }
 
 .btn.for-volunteer {
-  background-color: #d61a46;
+  background-color: #fba90a;
 }
 
 .btn.for-admin {
-  background-color: #347b98;
+  background-color: #700cbc;
 }
 
 .btn.is-small {
@@ -583,6 +592,19 @@ input[type=radio]:disabled.for-family {
   display: flex;
 }
 
+.hero__actions .btn {
+  padding: 15px 20px;
+  font-size: 18px;
+}
+
+.hero__actions .btn:first-child {
+  margin-right: 20px;
+}
+
+.hero__actions .btn:last-child {
+  margin-left: 20px;
+}
+
 .hero__image {
   position: absolute;
   top: 0;
@@ -601,7 +623,7 @@ input[type=radio]:disabled.for-family {
   left: 0;
   right: 0;
   bottom: 0;
-  background: rgba(38, 52, 9, 0.7);
+  background: rgba(9, 52, 38, 0.7);
   z-index: 0;
 }
 
@@ -621,7 +643,7 @@ input[type=radio]:disabled.for-family {
 .faq__item {
   margin: 10px 0;
   padding: 20px 0;
-  border-bottom: 1px solid #e4f1f6;
+  border-bottom: 1px solid #efddfd;
 }
 
 .faq__item .fas {
@@ -634,7 +656,7 @@ input[type=radio]:disabled.for-family {
 }
 
 .faq__item.is-open .faq__question {
-  color: #347b98;
+  color: #700cbc;
 }
 
 .faq__item.is-open .faq__icon {
@@ -709,7 +731,7 @@ input[type=radio]:disabled.for-family {
 .sidebar {
   flex-shrink: 1;
   width: 300px;
-  background-color: #092834;
+  background-color: #210934;
   color: #ffffff;
 }
 
@@ -752,7 +774,7 @@ input[type=radio]:disabled.for-family {
 
 .sidebar .nav__title.is-active {
   background-color: #ffffff;
-  color: #092834;
+  color: #210934;
 }
 
 .sidebar .nav__link {
@@ -763,7 +785,7 @@ input[type=radio]:disabled.for-family {
 .sidebar .nav__link:hover,
 .sidebar .nav__link.is-active {
   background-color: #ffffff;
-  color: #092834;
+  color: #210934;
 }
 
 iframe {
@@ -771,18 +793,30 @@ iframe {
   height: 300px;
 }
 
-.grid.is-playgroup {
-  display: -webkit-box;
-  display: flex;
-  -webkit-box-orient: horizontal;
-  -webkit-box-direction: normal;
-          flex-direction: row;
-  flex-wrap: wrap;
+.grid {
+  margin-top: 20px;
+}
+
+@media screen and (min-width: 640px) {
+  .grid.is-playgroup {
+    display: -webkit-box;
+    display: flex;
+    -webkit-box-orient: horizontal;
+    -webkit-box-direction: normal;
+            flex-direction: row;
+    flex-wrap: wrap;
+  }
 }
 
 .grid.is-playgroup .grid__item {
-  width: calc(50% - 40px);
-  margin: 10px 0 10px 10px;
+  margin: 20px 0;
+}
+
+@media screen and (min-width: 768px) {
+  .grid.is-playgroup .grid__item {
+    width: calc((100% / 2) - 20px);
+    margin: 10px;
+  }
 }
 
 .grid__item {
@@ -833,22 +867,22 @@ iframe {
 
 .header .nav__item:hover {
   background-color: #ffffff;
-  color: #092834;
+  color: #210934;
 }
 
 .header .nav__link:hover,
 .header .nav__link.is-active {
   background-color: #ffffff;
-  color: #092834;
+  color: #210934;
 }
 
 .header.is-open.for-family .nav {
-  background-color: #263409;
+  background-color: #093426;
   color: #ffffff;
 }
 
 .header.is-open.for-volunteer .nav {
-  background-color: #340913;
+  background-color: #342609;
   color: #ffffff;
 }
 
@@ -862,6 +896,7 @@ iframe {
 
 .header.is-open .nav__item {
   display: block;
+  width: 100%;
   padding: 15px 40px;
   border-top: 0.5px solid #ffffff;
 }
@@ -911,13 +946,40 @@ iframe {
 }
 
 .header.for-family {
-  background-color: #263409;
+  background-color: #093426;
   color: #ffffff;
 }
 
 .header.for-volunteer {
-  background-color: #340913;
+  background-color: #342609;
   color: #ffffff;
+}
+
+.header .menu-icon span {
+  display: block;
+  width: 20px;
+  height: 1px;
+  margin-bottom: 5px;
+  position: relative;
+  background: #cdcdcd;
+  border-radius: 3px;
+  z-index: 1;
+  -webkit-transform-origin: 4px 0;
+          transform-origin: 4px 0;
+  -webkit-transition: background 0.5s cubic-bezier(0.77, 0.2, 0.05, 1), opacity 0.55s ease, -webkit-transform 0.5s cubic-bezier(0.77, 0.2, 0.05, 1);
+  transition: background 0.5s cubic-bezier(0.77, 0.2, 0.05, 1), opacity 0.55s ease, -webkit-transform 0.5s cubic-bezier(0.77, 0.2, 0.05, 1);
+  transition: transform 0.5s cubic-bezier(0.77, 0.2, 0.05, 1), background 0.5s cubic-bezier(0.77, 0.2, 0.05, 1), opacity 0.55s ease;
+  transition: transform 0.5s cubic-bezier(0.77, 0.2, 0.05, 1), background 0.5s cubic-bezier(0.77, 0.2, 0.05, 1), opacity 0.55s ease, -webkit-transform 0.5s cubic-bezier(0.77, 0.2, 0.05, 1);
+}
+
+.header .menu-icon span:first-child {
+  -webkit-transform-origin: 0 0;
+          transform-origin: 0 0;
+}
+
+.header .menu-icon span:nth-last-child(2) {
+  -webkit-transform-origin: 0 100%;
+          transform-origin: 0 100%;
 }
 
 @media (min-width: 960px) {
@@ -937,13 +999,30 @@ iframe {
 }
 
 .header.is-open.for-family .nav {
-  background-color: #263409;
+  background-color: #093426;
   color: #ffffff;
 }
 
 .header.is-open.for-volunteer .nav {
-  background-color: #340913;
+  background-color: #342609;
   color: #ffffff;
+}
+
+.header.is-open .menu-icon span {
+  opacity: 1;
+  -webkit-transform: rotate(-45deg) translate(0px, -2px);
+          transform: rotate(-45deg) translate(0px, -2px);
+}
+
+.header.is-open .menu-icon span:nth-last-child(2) {
+  opacity: 0;
+  -webkit-transform: rotate(0deg) scale(0.2, 0.2);
+          transform: rotate(0deg) scale(0.2, 0.2);
+}
+
+.header.is-open .menu-icon span:nth-last-child(3) {
+  -webkit-transform: rotate(45deg) translate(0px, -1px);
+          transform: rotate(45deg) translate(0px, -1px);
 }
 
 .footer {
@@ -981,12 +1060,12 @@ iframe {
 }
 
 .footer.for-family {
-  background-color: #263409;
+  background-color: #093426;
   color: #ffffff;
 }
 
 .footer.for-volunteer {
-  background-color: #340913;
+  background-color: #342609;
   color: #ffffff;
 }
 
@@ -1015,7 +1094,7 @@ ol.list .list__item {
 
 ol.list .list__item:before {
   content: counter(my-badass-counter) ". ";
-  color: #000000;
+  color: #36065b;
   /* Change the color */
   font-weight: bold;
   /* If you want it to be bold */
@@ -1036,6 +1115,53 @@ ol.list .list__item.is-completed:before {
   opacity: 0.5;
 }
 
+ol.for-family .list__item:before {
+  color: #23483c;
+  /* Change the color */
+}
+
+ol.for-volunteer .list__item:before {
+  color: #9c6902;
+  /* Change the color */
+}
+
+ul.list {
+  margin: 5px 0;
+  list-style: none;
+}
+
+ul.list .list__item {
+  margin: 10px 15px;
+}
+
+ul.list .list__item:before {
+  content: "\2022";
+  /* Add content: \2022 is the CSS Code/unicode for a bullet */
+  color: #36065b;
+  /* Change the color */
+  font-weight: bold;
+  /* If you want it to be bold */
+  font-size: 20px;
+  text-align: center;
+  display: inline-block;
+  /* Needed to add space between the bullet and the text */
+  width: 20px;
+  /* Also needed for space (tweak if needed) */
+  height: 100%;
+  margin-left: -0.5rem;
+  /* Also needed for space (tweak if needed) */
+}
+
+ul.for-family .list__item:before {
+  color: #23483c;
+  /* Change the color */
+}
+
+ul.for-volunteer .list__item:before {
+  color: #9c6902;
+  /* Change the color */
+}
+
 .recap {
   margin: 20px;
   padding: 8px;
@@ -1045,11 +1171,11 @@ ol.list .list__item.is-completed:before {
 }
 
 .recap.for-family {
-  background-color: #98ca32;
+  background-color: #448d76;
 }
 
 .recap.for-volunteer {
-  background-color: #d61a46;
+  background-color: #fba90a;
 }
 
 .recap__wrapper {
@@ -1088,6 +1214,51 @@ ol.list .list__item.is-completed:before {
   margin: 0;
 }
 
+.row.has-two {
+  margin-top: 20px;
+}
+
+.row.has-two > * {
+  width: 50%;
+}
+
+.polaroid {
+  position: relative;
+  width: calc((100% /3) - 20px);
+  box-shadow: 3px 3px 3px #777;
+  border: 10px solid #efddfd;
+  background-color: #efddfd;
+  margin: 10px;
+}
+
+.polaroid--container {
+  display: -webkit-box;
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.polaroid__image {
+  max-height: 200px;
+  overflow: hidden;
+}
+
+.polaroid__content {
+  padding: 10px 20px;
+}
+
+.polaroid__title {
+  text-align: center;
+  width: 100%;
+  font-size: 30px;
+  font-family: "Bad Script", cursive;
+  color: #36065b;
+  margin: 10px 0;
+}
+
+.polaroid__text {
+  margin-bottom: 20px;
+}
+
 .card {
   box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
   -webkit-transition: 0.3s;
@@ -1107,12 +1278,27 @@ ol.list .list__item.is-completed:before {
   box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.2);
 }
 
-.card:last-child {
+.card.is-activity {
+  width: 100%;
   margin-right: 0;
+  margin-bottom: 20px;
 }
 
-.card.is-activity {
-  width: calc(30% - 20px);
+@media screen and (min-width: 640px) {
+  .card.is-activity {
+    width: calc((100% / 2) - 20px);
+    margin-right: 20px;
+  }
+}
+
+@media screen and (min-width: 960px) {
+  .card.is-activity {
+    width: calc((100% / 3) - 20px);
+  }
+}
+
+.card:last-child {
+  margin-right: 0;
 }
 
 .card--container {
@@ -1120,6 +1306,8 @@ ol.list .list__item.is-completed:before {
   display: flex;
   -webkit-box-align: stretch;
           align-items: stretch;
+  flex-wrap: wrap;
+  margin-top: 20px;
 }
 
 .card__image {
@@ -1137,13 +1325,18 @@ ol.list .list__item.is-completed:before {
 .card__content {
   -webkit-box-flex: 1;
           flex-grow: 1;
-  padding: 10px 20px 20px;
+  padding: 20px;
 }
 
 .card__title {
   font-family: "Poiret One", cursive;
   font-size: 20px;
   margin-bottom: 10px;
+}
+
+.card__text {
+  margin: 10px 0;
+  font-size: 14px;
 }
 
 .card__text.is-role {
@@ -1183,11 +1376,11 @@ ol.list .list__item.is-completed:before {
 }
 
 .teaser.for-family {
-  border: 1px solid #59761e;
+  border: 1px solid #23483c;
 }
 
 .teaser.for-volunteer {
-  border: 1px solid #7b0f28;
+  border: 1px solid #9c6902;
 }
 
 .account__section {
@@ -1197,7 +1390,13 @@ ol.list .list__item.is-completed:before {
 .account__section.for-family {
   margin-top: 40px;
   padding: 20px 40px;
-  background-color: #f1f8e2;
+  background-color: #e7f3ef;
+}
+
+.account__section.for-volunteer {
+  margin-top: 40px;
+  padding: 20px 40px;
+  background-color: #fef3dc;
 }
 
 .account__subheading {
@@ -1241,8 +1440,13 @@ ol.list .list__item.is-completed:before {
   margin-bottom: 20px;
 }
 
+.article p {
+  margin-bottom: 10px;
+}
+
 .breadcrumb {
   font-size: 12px;
+  margin-bottom: 20px;
 }
 
 .breadcrumb__link {
@@ -1287,7 +1491,7 @@ ol.list .list__item.is-completed:before {
   left: 0;
   right: 0;
   bottom: 0;
-  background: rgba(38, 52, 9, 0.7);
+  background: rgba(9, 52, 38, 0.7);
   z-index: 0;
 }
 
@@ -1305,6 +1509,11 @@ ol.list .list__item.is-completed:before {
 .ctn-image.is-large img {
   -webkit-transform: translateY(-30%);
           transform: translateY(-30%);
+}
+
+.ctn-image.is-small {
+  width: 500px;
+  overflow: hidden;
 }
 
 h1,

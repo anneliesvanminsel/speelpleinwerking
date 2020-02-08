@@ -21,6 +21,7 @@
 @import "components/list/ul";
 @import "components/recap/recap";
 @import "components/row/row";
+@import "components/polaroid/polaroid";
 @import "components/card/card";
 @import "components/teaser/teaser";
 @import "components/account/account";
@@ -42,6 +43,11 @@
 		img {
 			transform: translateY(-30%);
 		}
+	}
+
+	&.is-small {
+		width: 500px;
+		overflow: hidden;
 	}
 }
 

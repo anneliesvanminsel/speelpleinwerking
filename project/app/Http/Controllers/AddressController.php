@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Address;
 use App\Family;
+use App\Monitor;
 use App\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
@@ -48,5 +49,39 @@ class AddressController extends Controller
 		$family->save();
 
 		return redirect()->route('account', ['user_id' => $user['id']]);
+	}
+
+	public function getCreateMoni($moni_id) {
+		$monitor = Monitor::findOrFail($moni_id);
+
+		return view('content.address.moni-create', ['monitor' => $monitor]);
+	}
+
+	public function postCreateMoni(Request $request, $moni_id) {
+		$monitor = Monitor::findOrFail($moni_id);
+
+		$this->validate($request, [
+			'street' => 'required|string|max:255',
+			'streetnumber'=> 'required|string|max:255',
+			'postalcode'=> 'required|integer|min:1000|max:10000',
+			'city'=> 'required|string|max:255',
+			'box'=> 'nullable|string|max:255',
+		]);
+
+		$address = new Address;
+
+		$address->street = $request->input('street');
+		$address->streetnumber = $request->input('streetnumber');
+		$address->box = $request->input('box');
+		$address->postalcode = $request->input('postalcode');
+		$address->city = $request->input('city');
+
+		$address->address()->associate($monitor);
+		$address->save();
+
+		$monitor->address_id = $address['id'];
+		$monitor->save();
+
+		return redirect()->route('account', ['user_id' => $monitor['user_id']]);
 	}
 }

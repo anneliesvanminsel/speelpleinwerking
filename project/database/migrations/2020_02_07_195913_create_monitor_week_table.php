@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateContactpeopleTable extends Migration
+class CreateMonitorWeekTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,16 +13,11 @@ class CreateContactpeopleTable extends Migration
      */
     public function up()
     {
-        Schema::create('contactpeople', function (Blueprint $table) {
-            $table->increments('id');
-			$table->string('image')->nullable();
-			$table->string('first_name');
-			$table->string('name');
-			$table->string('phone_nr');
-			$table->string('mailaddress');
-			$table->string('role');
+        Schema::create('monitor_week', function (Blueprint $table) {
+            $table->bigIncrements('id');
 			$table->integer('monitor_id');
-			$table->softDeletes();
+			$table->integer('week_id');
+			$table->boolean('wantsIntern');
             $table->timestamps();
         });
     }
@@ -34,6 +29,6 @@ class CreateContactpeopleTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('contactpeople');
+        Schema::dropIfExists('monitor_week');
     }
 }

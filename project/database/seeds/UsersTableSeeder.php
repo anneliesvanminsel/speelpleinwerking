@@ -27,16 +27,16 @@ class UsersTableSeeder extends Seeder
 
 		$admin = new Admin(
 			[
-				'name' => 'Peeters',
-				'first_name' => 'Jan',
-				'birthday' => '2000-01-01',
+				'name' => 'Van Minsel',
+				'first_name' => 'Annelies',
+				'birthday' => '1994-04-28',
 				'phone_nr' => '0475 689 345',
 				'introtext' => 'Pie marshmallow sesame snaps candy canes carrot cake bonbon. 
 								Caramels chocolate muffin cheesecake icing. Powder croissant jelly-o pastry.',
 				'extrainfo' => 'Pie marshmallow sesame snaps candy canes carrot cake bonbon.',
 				'isVeggie' => 1,
 				'hasAllergies' => 1,
-				'allergies' => 'noten',
+				'allergies' => 'noten, tomaten, etc.',
 				'isActive' => 1,
 				'user_id' => 1,
 			]

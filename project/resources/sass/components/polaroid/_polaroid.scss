@@ -1,0 +1,37 @@
+@import url('https://fonts.googleapis.com/css?family=Bad+Script&display=swap');
+
+.polaroid {
+	position: relative;
+	width: calc((100% /3) - 20px);
+	box-shadow: 3px 3px 3px #777;
+	border: 10px solid $admin-extralight;
+	background-color: $admin-extralight;
+	margin: 10px;
+
+	&--container {
+		display: flex;
+		flex-wrap: wrap;
+	}
+
+	&__image {
+		max-height: 200px;
+		overflow: hidden;
+	}
+
+	&__content {
+		padding: 10px 20px;
+	}
+
+	&__title {
+		text-align: center;
+		width: 100%;
+		font-size: 30px;
+		font-family: 'Bad Script', cursive;
+		color: $admin-medium;
+		margin: 10px 0;
+	}
+
+	&__text {
+		margin-bottom: 20px;
+	}
+}

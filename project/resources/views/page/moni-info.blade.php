@@ -1,4 +1,4 @@
-@extends('layouts.app')
+@extends('layouts.moni')
 @section('title')
 	Speelplein voor monitoren
 @endsection
@@ -33,14 +33,14 @@
 			<h2 class="article__title">
 				Takenpakket
 			</h2>
-			<ul>
-				<li>
+			<ul class="list for-volunteer">
+				<li class="list__item">
 					met kinderen omgaan op een stimulerende en spontane manier, met oog voor het individuele kind
 				</li>
-				<li>
+				<li class="list__item">
 					kinderen begeleiden bij spel-, knutselactiviteiten en eetmomenten
 				</li>
-				<li>
+				<li class="list__item">
 					onthaal kinderen en ouders op het speelplein
 				</li>
 			</ul>
@@ -54,7 +54,7 @@
 			<h2 class="article__title">
 				Praktische informatie
 			</h2>
-			<div class="row">
+			<div class="row has-two">
 				<div class="grow">
 					<h3 class="article__subtitle">
 						Aankomen
@@ -72,19 +72,19 @@
 					</p>
 				</div>
 			</div>
-			<div class="row">
+			<div class="row has-two">
 				<div class="grow">
 					<h3 class="article__subtitle">
 						Wat breng je mee?
 					</h3>
-					<ul>
-						<li>
+					<ul class="list for-volunteer">
+						<li class="list__item">
 							hoofdkussen, hoeslaken en slaapzak
 						</li>
-						<li class="u-list__item">
+						<li class="list__item">
 							eigen mediactie
 						</li>
-						<li class="u-list__item">
+						<li class="list__item">
 							kleren die tegen een stootje kunnen
 							<p>
 								<i class="accent">
@@ -92,22 +92,22 @@
 								</i>
 							</p>
 						</li>
-						<li>
+						<li class="list__item">
 							zwemgerief
 						</li>
-						<li>
+						<li class="list__item">
 							handdoekken
 						</li>
-						<li>
+						<li class="list__item">
 							brooddoos
 						</li>
-						<li>
+						<li class="list__item">
 							rugzak
 						</li>
-						<li>
+						<li class="list__item">
 							toiletgerief
 						</li>
-						<li>
+						<li class="list__item">
 							regenkledij
 						</li>
 					</ul>
@@ -116,11 +116,11 @@
 					<h3 class="article__subtitle">
 						Wat laat je thuis?
 					</h3>
-					<ul>
-						<li>
+					<ul class="list for-volunteer">
+						<li class="list__item">
 							Kostbare voorwerpen
 						</li>
-						<li>
+						<li class="list__item">
 							drank en drugs
 						</li>
 					</ul>

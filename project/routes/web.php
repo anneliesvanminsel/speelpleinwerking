@@ -16,9 +16,9 @@
 		'as' => 'index'
 	]);
 
-	Route::get('hoofdleiding', [
-		'uses' => 'PageController@getHoofdleiding',
-		'as' => 'hoofdleiding'
+	Route::get('hoofdmonitoren', [
+		'uses' => 'PageController@getHoofdmonitor',
+		'as' => 'hoofdmonitoren'
 	]);
 
 	Route::get('cookiebeleid', [
@@ -47,6 +47,64 @@
 	]);
 
 	Auth::routes();
+
+	/*
+	|--------------------------------------------------------------------------
+	| Web Routes - Monitor / Volunteer
+	|--------------------------------------------------------------------------
+	*/
+
+	Route::group(['prefix' => 'monitor'], function() {
+
+		Route::get('create/{user_id}', [
+			'uses' => 'MonitorController@getCreate',
+			'as' => 'monitor.create'
+		]);
+
+		Route::post('create/{user_id}/post', [
+			'uses' => 'MonitorController@postCreate',
+			'as' => 'monitor.postCreate'
+		]);
+
+		//ADDRESS
+		Route::group(['prefix' => 'adres'], function() {
+			Route::get('create/{moni_id}', [
+				'uses' => 'AddressController@getCreateMoni',
+				'as' => 'monitor.createAddress'
+			]);
+
+			Route::post('create/{moni_id}/post', [
+				'uses' => 'AddressController@postCreateMoni',
+				'as' => 'monitor.postCreateAddress'
+			]);
+		});
+
+		//GUARDIAN
+		Route::group(['prefix' => 'voogd'], function() {
+			Route::get('create/{moni_id}', [
+				'uses' => 'ContactpersonController@getCreate',
+				'as' => 'contact.create'
+			]);
+
+			Route::post('create/{moni_id}/post', [
+				'uses' => 'ContactpersonController@postCreate',
+				'as' => 'contact.postCreate'
+			]);
+		});
+
+		//WEEK
+		Route::group(['prefix' => 'week'], function() {
+			Route::get('create/{moni_id}', [
+				'uses' => 'MonitorController@getAddWeek',
+				'as' => 'moni.addWeek'
+			]);
+
+			Route::post('create/{moni_id}/post', [
+				'uses' => 'MonitorController@postAddWeek',
+				'as' => 'moni.postAddWeek'
+			]);
+		});
+	});
 
 	/*
 	|--------------------------------------------------------------------------
@@ -111,13 +169,27 @@
 			'as' => 'admin.dashboard'
 		]);
 
-		//Kid
+		//SUMMER
+		Route::group(['prefix' => 'zomer'], function() {
+			Route::get('create', [
+				'uses' => 'SummerController@getCreate',
+				'as' => 'admin.newSummer'
+			]);
+
+			Route::post('create/post', [
+				'uses' => 'SummerController@postCreate',
+				'as' => 'admin.postNewSummer'
+			]);
+		});
+
+		//KID
 		Route::group(['prefix' => 'kinderen'], function() {
 			Route::get('overzicht', [
 				'uses' => 'KidController@getOverview',
 				'as' => 'kid.overview'
 			]);
 		});
+
 		//Families
 		Route::group(['prefix' => 'hoofdleiding'], function() {
 			Route::get('huidig-overzicht', [
@@ -136,6 +208,11 @@
 			Route::get('overzicht', [
 				'uses' => 'MonitorController@getOverview',
 				'as' => 'monitor.overview'
+			]);
+
+			Route::get('overzicht/zoek', [
+				'uses' => 'MonitorController@search',
+				'as' => 'monitor.search'
 			]);
 		});
 
