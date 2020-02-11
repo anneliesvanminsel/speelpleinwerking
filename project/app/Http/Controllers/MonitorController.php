@@ -74,7 +74,8 @@ class MonitorController extends Controller
 	}
 
 	public function getAddWeek($moni_id) {
-		$monitor = Monitor::findOrFail('id', $moni_id);
+		$monitor = Monitor::findOrFail($moni_id);
+
 		$weeks = Week::orderBy('startdate', 'desc')->get();
 
 		return view('content.week.add-week',
@@ -86,7 +87,7 @@ class MonitorController extends Controller
 
 	public function postAddWeek(Request $request, $moni_id){
 		$nullEvent = Week::where('id', '0')->get();
-		$monitor = Monitor::findOrFail('id', $moni_id);
+		$monitor = Monitor::findOrFail($moni_id);
 		$user = $monitor->users()->first();
 
 		$monitor->weeks()->sync(
@@ -95,7 +96,7 @@ class MonitorController extends Controller
 				: $request->input('events')
 		);
 
-		return view('account',
+		return redirect()->route('account',
 			['user_id' => $user['id']]);
 	}
 }

@@ -30,6 +30,7 @@
 						<ol class="list for-volunteer">
 							<li class="list__item">Voeg jouw gegevens toe.</li>
 							<li class="list__item">Voeg de contactgegevens van een ouder of voogd toe.</li>
+							<li class="list__item">Schrijf je in voor een week (of twee)</li>
 						</ol>
 					</div>
 				</div>
@@ -69,12 +70,54 @@
 							@include('cards.contactperson', ['contact' => $contact])
 						@endforeach
 					</div>
-					
-					<div>
-						<a href="{{ route('moni.addWeek', ['moni_id' => $monitor['id']]) }}">
-							voeg week toe
-						</a>
-					</div>
+					@if($monitor->contacts()->exists())
+						<div class="account__section">
+							<div class="row">
+								<h2 class="grow">
+									Mijn weken
+								</h2>
+								<a href="{{ route('moni.addWeek', ['moni_id' => $monitor['id']]) }}" class="btn for-volunteer is-small">
+									voeg week toe
+								</a>
+							</div>
+							@php
+								$weeks = $monitor->weeks()->get();
+							@endphp
+							
+							@foreach($weeks as $week)
+								<div class="article__section">
+									@php
+										$start_time = strtotime($week['start_time']);
+										$end_time = strtotime($week['end_time']);
+									@endphp
+									{{ date('l d/m/Y',strtotime($week['startdate'])) }} t.e.m. {{ date('l d/m/Y',strtotime($week['enddate'])) }}
+								</div>
+							@endforeach
+						</div>
+					@else
+						<div class="account__section for-volunteer">
+							<div class="account__subheading row">
+								<h2 class="grow">
+									Account voltooien
+								</h2>
+								<a href="{{ route('moni.addWeek', ['moni_id' => $monitor['id']]) }}" class="btn for-volunteer is-small">
+									voeg week toe
+								</a>
+							</div>
+							<div class="account__text">
+								Voor je gebruik kan maken van dit platform, vragen wij om een aantal gegevens met ons te delen.
+								<br>
+								Deze contactgegevens worden gebruikt in geval van nood.
+							</div>
+							<div class="account__text">
+								<ol class="list for-volunteer">
+									<li class="list__item is-completed">Voeg jouw gegevens toe.</li>
+									<li class="list__item is-completed">Voeg de contactgegevens van een ouder of voogd toe.</li>
+									<li class="list__item">Schrijf je in voor een week (of twee)</li>
+								</ol>
+							</div>
+						</div>
+					@endif
 				@else
 					<div class="account__section for-volunteer">
 						<div class="account__subheading row">
@@ -95,12 +138,11 @@
 							<ol class="list for-volunteer">
 								<li class="list__item is-completed">Voeg jouw gegevens toe.</li>
 								<li class="list__item">Voeg de contactgegevens van een ouder of voogd toe.</li>
-								<li class="list__item">Schrijf een kind in.</li>
+								<li class="list__item">Schrijf je in voor een week (of twee)</li>
 							</ol>
 						</div>
 					</div>
 				@endif
-			
 			@endif
 		</div>
 	</div>
