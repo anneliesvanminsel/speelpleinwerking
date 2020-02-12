@@ -76,7 +76,7 @@ class MonitorController extends Controller
 	public function getAddWeek($moni_id) {
 		$monitor = Monitor::findOrFail($moni_id);
 
-		$weeks = Week::orderBy('startdate', 'desc')->get();
+		$weeks = Week::orderBy('startdate', 'asc')->get();
 
 		return view('content.week.add-week',
 			[

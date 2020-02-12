@@ -1,4 +1,4 @@
-@import url(https://fonts.googleapis.com/css?family=Nunito);@import url(https://fonts.googleapis.com/css?family=Montserrat|Poiret+One&display=swap);@import url(https://fonts.googleapis.com/css?family=Bad+Script&display=swap);@charset "UTF-8";
+@import url(https://fonts.googleapis.com/css?family=Nunito);@import url(https://fonts.googleapis.com/css?family=Quicksand:400,700&display=swap);@import url(https://fonts.googleapis.com/css?family=Comfortaa|Special+Elite&display=swap);@import url(https://fonts.googleapis.com/css?family=Bad+Script&display=swap);@charset "UTF-8";
 
 /*--------------------------------------------------------------
 pseudo
@@ -72,7 +72,7 @@ body {
   -webkit-box-orient: vertical;
   -webkit-box-direction: normal;
           flex-direction: column;
-  font-family: "Montserrat", sans-serif;
+  font-family: "Quicksand", sans-serif;
   width: 100%;
 }
 
@@ -137,7 +137,7 @@ textarea {
   padding: 15px;
   margin-bottom: 15px;
   font-size: 16px;
-  font-family: "Montserrat", sans-serif;
+  font-family: "Quicksand", sans-serif;
   border: 1px solid #000000;
   -webkit-transition: all 0.2s ease;
   transition: all 0.2s ease;
@@ -291,7 +291,7 @@ textarea:focus + label {
   width: 100%;
   padding: 15px;
   font-size: 16px;
-  font-family: "Montserrat", sans-serif;
+  font-family: "Quicksand", sans-serif;
   text-align: center;
   border: 1px solid #000000;
   border-radius: 0;
@@ -337,7 +337,7 @@ textarea:focus + label {
 }
 
 .panel__title {
-  font-family: "Poiret One", cursive;
+  font-family: "Comfortaa", cursive;
   font-size: 30px;
   margin-bottom: 15px;
   text-align: center;
@@ -577,8 +577,24 @@ input[type=radio]:disabled.for-family {
 }
 
 .hero__description {
+  padding: 0 20px;
+  max-width: 960px;
+  width: 100%;
+  margin: 0 auto;
   font-size: 1.4rem;
   padding-bottom: 5rem;
+}
+
+@media screen and (min-width: 640px) {
+  .hero__description {
+    padding: 0 20px;
+  }
+}
+
+@media screen and (min-width: 960px) {
+  .hero__description {
+    padding: 0 40px;
+  }
 }
 
 @media (min-width: 640px) {
@@ -765,7 +781,7 @@ input[type=radio]:disabled.for-family {
 }
 
 .sidebar .nav__title {
-  font-family: "Poiret One", cursive;
+  font-family: "Comfortaa", cursive;
   font-size: 20px;
   margin-bottom: 15px;
   padding: 5px 40px;
@@ -941,7 +957,7 @@ iframe {
 .header__logo {
   -webkit-box-flex: 1;
           flex-grow: 1;
-  font-family: "Poiret One", cursive;
+  font-family: "Special Elite", cursive;
   font-size: 25px;
 }
 
@@ -1055,7 +1071,7 @@ iframe {
 .footer__logo {
   -webkit-box-flex: 1;
           flex-grow: 1;
-  font-family: "Poiret One", cursive;
+  font-family: "Special Elite", cursive;
   font-size: 20px;
 }
 
@@ -1329,7 +1345,7 @@ ul.for-volunteer .list__item:before {
 }
 
 .card__title {
-  font-family: "Poiret One", cursive;
+  font-family: "Comfortaa", cursive;
   font-size: 20px;
   margin-bottom: 10px;
 }
@@ -1522,7 +1538,7 @@ h3,
 h4,
 h5,
 h6 {
-  font-family: "Poiret One", cursive;
+  font-family: "Comfortaa", cursive;
 }
 
 h1 {

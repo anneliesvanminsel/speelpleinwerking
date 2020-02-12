@@ -11,7 +11,7 @@
 
 	&__logo {
 		flex-grow: 1;
-		@include font-heading;
+		@include font-logo;
 		font-size: 25px;
 	}
 

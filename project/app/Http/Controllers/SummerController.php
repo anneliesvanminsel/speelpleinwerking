@@ -29,12 +29,14 @@ class SummerController extends Controller
 			'maxVolunteers'=> 'required|integer',
 		]);
 
+
 		$starttime = new DateTime($request->input('startdate'));
 		$endtime = new DateTime($request->input('enddate'));
 
 		$difference = $starttime->diff($endtime);
+		$diff = $difference->format('%a');
 
-		for($i = 0; $i < $difference->d + 1; $i = ($i + 7)) {
+		for($i = 0; $i < $diff; $i = ($i + 7)) {
 			$j = $i + 6;
 			$week = new Week([
 				'startdate' => Carbon::parse(strtotime($request->input('startdate'). ' + ' . $i . ' days')),
@@ -43,8 +45,12 @@ class SummerController extends Controller
 			]);
 			$week->save();
 
-			for($x = 0; $x < $j + 1; $x++) {
-				$date = Carbon::parse(strtotime($week['startdate']. ' + ' . $x . ' days'));
+
+			$diffDays = $week['startdate']->diff($week['enddate']);
+			$diffdd = $diffDays->format('%d');
+
+			for($x = 0; $x < $diffdd; $x++) {
+				$date = Carbon::parse(strtotime($week['startdate'] . ' + ' . $x . ' days'));
 
 				if ($date->dayOfWeek === Carbon::MONDAY || $date->dayOfWeek === Carbon::TUESDAY || $date->dayOfWeek === Carbon::WEDNESDAY || $date->dayOfWeek === Carbon::THURSDAY || $date->dayOfWeek === Carbon::FRIDAY ) {
 					$day = new Day([

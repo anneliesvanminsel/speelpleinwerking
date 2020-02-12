@@ -1,4 +1,3 @@
-@import url('https://fonts.googleapis.com/css?family=Bad+Script&display=swap');
 
 .polaroid {
 	position: relative;
@@ -26,7 +25,7 @@
 		text-align: center;
 		width: 100%;
 		font-size: 30px;
-		font-family: 'Bad Script', cursive;
+		@include font-handwritten;
 		color: $admin-medium;
 		margin: 10px 0;
 	}

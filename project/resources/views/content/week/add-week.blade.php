@@ -47,28 +47,15 @@
 							<input type="hidden" name="events[]" value="{{$week['id']}}" />
 						@endif
 						
-						<div class="checkbox__title">
-							@php
-								$stuff = $week->monitors()->count();
-							@endphp
-							{{ $week['id'] }}: {{ date('l d/m/Y',strtotime($week['startdate'])) }} t.e.m. {{ date('l d/m/Y',strtotime($week['enddate'])) }}
+						<div>
+							<span class="checkbox__title">
+								Week {{ $week['id'] }}:
+							</span>
+							{{ \Jenssegers\Date\Date::parse(strtotime($week['startdate']))->format('l j F Y') }}
+							t.e.m. {{ \Jenssegers\Date\Date::parse(strtotime($week['enddate']))->format('l j F Y') }}
 						</div>
 						<div class="accent is-total">
-							{{ $stuff  }} / {{ $week->maxVolunteers }}
-						</div>
-					</label>
-				</div>
-				<div class="checkbox">
-					<label class="checkbox__label">
-						<input
-							class="checkbox__input for-volunteer"
-							type="checkbox"
-							name="wantsIntern"
-							value="{{ $week['id'] }}"
-						>
-						
-						<div class="checkbox__text">
-							Ik wil deze week stage doen!
+							{{ $week->monitors()->count() }}/ {{ $week->maxVolunteers }}
 						</div>
 					</label>
 				</div>

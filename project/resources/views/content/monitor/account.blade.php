@@ -70,7 +70,7 @@
 							@include('cards.contactperson', ['contact' => $contact])
 						@endforeach
 					</div>
-					@if($monitor->contacts()->exists())
+					@if($monitor->weeks()->exists())
 						<div class="account__section">
 							<div class="row">
 								<h2 class="grow">
@@ -90,7 +90,8 @@
 										$start_time = strtotime($week['start_time']);
 										$end_time = strtotime($week['end_time']);
 									@endphp
-									{{ date('l d/m/Y',strtotime($week['startdate'])) }} t.e.m. {{ date('l d/m/Y',strtotime($week['enddate'])) }}
+									{{ \Jenssegers\Date\Date::parse(strtotime($week['startdate']))->format('l j F Y') }}
+									t.e.m. {{ \Jenssegers\Date\Date::parse(strtotime($week['enddate']))->format('l j F Y') }}
 								</div>
 							@endforeach
 						</div>

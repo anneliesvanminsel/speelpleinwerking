@@ -14,8 +14,8 @@ class Week extends Model
 	public function monitors(){
 		return $this->belongsToMany('App\Monitor',
 			'monitor_week',
-			'monitor_id',
-			'week_id')->withPivot('wantsIntern')->withTimestamps();
+			'week_id',
+			'monitor_id')->withPivot('wantsIntern')->withTimestamps();
 	}
 
 	public function days(){

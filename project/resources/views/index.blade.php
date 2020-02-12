@@ -16,6 +16,9 @@
 				Spelen om te spelen staat altijd voorop! <br>
 				In onze speelpleinwerking streven we ernaar dat iedereen kan deelnemen.
 			</p>
+		</div>
+		
+		<div class="section">
 			<div class="hero__actions">
 				<a class="btn for-family" href="{{ route('family') }}">Ouder</a>
 				<a class="btn for-volunteer" href="{{ route('monitor') }}">Monitor</a>

@@ -80,7 +80,7 @@ return [
     |
     */
 
-    'locale' => 'en',
+    'locale' => 'nl',
 
     /*
     |--------------------------------------------------------------------------
@@ -93,7 +93,7 @@ return [
     |
     */
 
-    'fallback_locale' => 'en',
+    'fallback_locale' => 'nl',
 
     /*
     |--------------------------------------------------------------------------
@@ -166,6 +166,8 @@ return [
          * Package Service Providers...
          */
 		MaddHatter\LaravelFullcalendar\ServiceProvider::class,
+		Jenssegers\Date\DateServiceProvider::class,
+
 
         /*
          * Application Service Providers...
@@ -227,6 +229,7 @@ return [
         'Validator' => Illuminate\Support\Facades\Validator::class,
         'View' => Illuminate\Support\Facades\View::class,
 		'Calendar' => MaddHatter\LaravelFullcalendar\Facades\Calendar::class,
+		'Date' => Jenssegers\Date\Date::class,
 
     ],
 
