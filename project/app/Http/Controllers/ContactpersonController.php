@@ -32,7 +32,7 @@ class ContactpersonController extends Controller
 
 		if(request()->image) {
 			$imageName = time().'.'.request()->image->getClientOriginalExtension();
-			request()->image->move(public_path('images/guardian/'), $imageName);
+			request()->image->move(public_path('images/contact/'), $imageName);
 
 			$contact->image = $imageName;
 		}

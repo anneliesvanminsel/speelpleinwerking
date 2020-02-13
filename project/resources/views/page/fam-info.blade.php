@@ -19,25 +19,28 @@
 			</h2>
 			
 			<div class="row">
-				<div>
+				<div class="grow">
 					<h3 class="article__subtitle">
-						Kids brengen:
+						Kinderen brengen:
 					</h3>
 					<p>
-						Vanaf 09u tot 09u45.
+						tussen 09u tot 09u45.
 					</p>
-					
+					<br>
+					<br>
 					<h3 class="article__subtitle">
-						Kids ophalen:
+						Kinderen ophalen:
 					</h3>
 					<p>
-						Vanaf 16u tot 17u30.
+						tussen 16u tot 17u30.
 					</p>
 				</div>
-				<div class="ctn-image">
+				<div class="ctn-image is-small">
 					<img src="https://images.pexels.com/photos/296301/pexels-photo-296301.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260" alt="">
 				</div>
 			</div>
+		</article>
+		<article class="article">
 			<div class="row has-two">
 				<div class="grow">
 					<h3 class="article__subtitle">
@@ -83,27 +86,29 @@
 			<img src="https://images.pexels.com/photos/754769/pexels-photo-754769.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260" alt="">
 		</div>
 		
-		<article id="faq" class="article">
-			<h2 class="article__title">
-				Veelgestelde vragen
-			</h2>
-			
-			<div class="faq">
-				@foreach($faqs as $faq)
-					<div class="faq__item" id="faq-{{$loop->iteration}}">
-						<button class="faq__question" data-target="faq-{{$loop->iteration}}">
-							<div class="faq__title">
-								{{ $faq['question'] }}
+		@if($faqs->count() > 0)
+			<article id="faq" class="article">
+				<h2 class="article__title">
+					Veelgestelde vragen
+				</h2>
+				
+				<div class="faq">
+					@foreach($faqs as $faq)
+						<div class="faq__item" id="faq-{{$loop->iteration}}">
+							<button class="faq__question" data-target="faq-{{$loop->iteration}}">
+								<div class="faq__title">
+									{{ $faq['question'] }}
+								</div>
+								@svg('back', 'faq__icon')
+							</button>
+							<div class="faq__answer">
+								{{ $faq['answer'] }}
 							</div>
-							@svg('back', 'faq__icon')
-						</button>
-						<div class="faq__answer">
-							{{ $faq['answer'] }}
 						</div>
-					</div>
-				@endforeach
-			</div>
-		</article>
+					@endforeach
+				</div>
+			</article>
+		@endif
 		<script src="{{ asset('js/faq.js') }}" > </script>
 	</main>
 @endsection

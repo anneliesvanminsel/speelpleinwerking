@@ -7,7 +7,7 @@
 	<div class="section account">
 		<div>
 			<h1>
-				Mijn account {{ config('global.max_kids') }}
+				Mijn account
 			</h1>
 		</div>
 		
@@ -65,6 +65,7 @@
 						</a>
 					</div>
 				
+				
 					<div class="account__section card--container">
 						@foreach($family->guardians()->get() as $guardian)
 							@include('cards.guardian', ['guardian' => $guardian])
@@ -80,6 +81,18 @@
 								@svg('plus', 'is-white')
 								Schrijf een kind in
 							</a>
+						</div>
+						<div class="account__section for-family">
+							<div class="account__subheading row">
+								<h3 class="account__title grow">
+									Hoe kan je jouw kind inschrijven voor de zomer?
+								</h3>
+							</div>
+							<div class="account__text">
+								Om jouw kinderen in te schrijven voor verschillende dagen klik je hieronder op @svg('calendar (3)').
+								<br>
+								Dit geeft jouw een overzicht naar alle zomerdagen waarop jouw kind naar onze speelpleinwerking kan komen.
+							</div>
 						</div>
 						<div class="account__section card--container">
 							@foreach($family->kids()->get() as $kid)

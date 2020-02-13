@@ -4,6 +4,8 @@ namespace App\Http\Controllers;
 
 use App\Family;
 use App\Kid;
+use App\Day;
+use App\Week;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 
@@ -13,6 +15,12 @@ class KidController extends Controller
 	public function getOverview() {
 		$kids = Kid::orderBy('name', 'desc')->get();
 		return view('content.kid.overview', ['kids' => $kids]);
+	}
+
+	public function getDetail($kid_id) {
+		$kid = Kid::findOrFail($kid_id);
+
+		return view('content.kid.detail', ['kid' => $kid]);
 	}
 
 	public function getCreate($family_id) {
@@ -68,5 +76,33 @@ class KidController extends Controller
         $family->kids()->save($kid);
 
 		return redirect()->route('account', ['user_id' => Auth::id()]);
+	}
+
+	public function addDays($kid_id){
+		$kid = Kid::findOrFail($kid_id);
+		$days = Day::orderBy('date', 'asc')->get();
+		$weeks = Week::orderBy('startdate', 'asc')->get();
+
+		return view('content.day.add-days',
+			[
+				'kid' => $kid,
+				'days' => $days,
+				'weeks' => $weeks
+			]);
+	}
+
+	public function postDays(Request $request, $kid_id){
+
+		$kid = Kid::where('id', $kid_id)->first();
+		$familie = $kid->familie()->first();
+		$user = User::where('id', $familie['user_id'])->first();
+
+		$kid->events()->sync(
+			$request->input('events') === null
+				? $nullEvent
+				: $request->input('events')
+		);
+
+		return redirect()->route('account', ['id' => $user['id']]);
 	}
 }

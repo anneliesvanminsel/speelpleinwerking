@@ -72,6 +72,8 @@
 					</p>
 				</div>
 			</div>
+		</article>
+		<article class="article">
 			<div class="row has-two">
 				<div class="grow">
 					<h3 class="article__subtitle">
@@ -86,11 +88,6 @@
 						</li>
 						<li class="list__item">
 							kleren die tegen een stootje kunnen
-							<p>
-								<i class="accent">
-									Voorzie genoeg want ze kunnen vuil en/of bezweet worden na een hele dag spelen
-								</i>
-							</p>
 						</li>
 						<li class="list__item">
 							zwemgerief
@@ -132,27 +129,29 @@
 			<img src="https://images.pexels.com/photos/3621227/pexels-photo-3621227.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260" alt="de huidige hoofdleiding">
 		</div>
 		
-		<article class="article">
-			<h2 class="article__title">
-				Veelgestelde vragen
-			</h2>
-			
-			<div class="faq">
-				@foreach($faqs as $faq)
-					<div class="faq__item" id="faq-{{$loop->iteration}}">
-						<button class="faq__question" data-target="faq-{{$loop->iteration}}">
-							<div class="faq__title">
-								{{ $faq['question'] }}
+		@if($faqs->count() > 0)
+			<article class="article">
+				<h2 class="article__title">
+					Veelgestelde vragen
+				</h2>
+				
+				<div class="faq">
+					@foreach($faqs as $faq)
+						<div class="faq__item" id="faq-{{$loop->iteration}}">
+							<button class="faq__question" data-target="faq-{{$loop->iteration}}">
+								<div class="faq__title">
+									{{ $faq['question'] }}
+								</div>
+								@svg('back', 'faq__icon')
+							</button>
+							<div class="faq__answer">
+								{{ $faq['answer'] }}
 							</div>
-							@svg('back', 'faq__icon')
-						</button>
-						<div class="faq__answer">
-							{{ $faq['answer'] }}
 						</div>
-					</div>
-				@endforeach
-			</div>
-		</article>
+					@endforeach
+				</div>
+			</article>
+		@endif
 		<script src="{{ asset('js/faq.js') }}" > </script>
 	</main>
 @endsection

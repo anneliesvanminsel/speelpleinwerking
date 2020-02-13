@@ -66,4 +66,17 @@ class SummerController extends Controller
 
 		return redirect()->route('admin.dashboard', ['user_id', Auth::id()]);
 	}
+
+	public function getWeeks() {
+		$weeks = Week::orderBy('startdate', 'asc')->get();
+
+		return view('content.week.overview', ['weeks' => $weeks]);
+	}
+
+	public function getDays() {
+		$weeks = Week::orderBy('startdate', 'asc')->get();
+		$days = Day::orderBy('date', 'asc')->get();
+
+		return view('content.day.overview', ['weeks' => $weeks, 'days' => $days]);
+	}
 }

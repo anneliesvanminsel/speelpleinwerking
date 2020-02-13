@@ -16,6 +16,12 @@ class MonitorController extends Controller
 		return view('content.monitor.overview', ['monitoren' => $monitoren, 'oldSearch' => '']);
 	}
 
+	public function getDetail($moni_id) {
+		$monitor = Monitor::findOrFail($moni_id);
+
+		return view('content.monitor.detail', ['monitor' => $monitor]);
+	}
+
 	public function getCreate($user_id) {
 		$user = User::findOrFail($user_id);
 
@@ -85,6 +91,8 @@ class MonitorController extends Controller
 			]);
 	}
 
+
+
 	public function postAddWeek(Request $request, $moni_id){
 		$nullEvent = Week::where('id', '0')->get();
 		$monitor = Monitor::findOrFail($moni_id);
@@ -98,5 +106,16 @@ class MonitorController extends Controller
 
 		return redirect()->route('account',
 			['user_id' => $user['id']]);
+	}
+
+	public function postDeleteWeek($moni_id, $week_id) {
+		$monitor = Monitor::findOrFail($moni_id);
+		$week = Week::findOrFail($week_id);
+
+		$weeks = Week::orderBy('startdate', 'asc')->get();
+
+		$monitor->weeks()->detach($week['id']);
+
+		return redirect()->route('week.overview', ['weeks' => $weeks]);
 	}
 }

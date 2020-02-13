@@ -25,13 +25,13 @@
 			</a>
 		</li>
 		<li class="nav__item">
-			<a class="nav__link" href="{{ route('admin.dashboard', ['user_id' => Auth::id() ]) }}">
-				Vandaag
+			<a class="nav__link {{ (strpos(Route::currentRouteName(), 'day.overview') === 0) ? 'is-active' : '' }}" href="{{ route('day.overview') }}">
+				Dagoverzicht
 			</a>
 		</li>
 		<li class="nav__item">
-			<a class="nav__link" href="{{ route('admin.dashboard', ['user_id' => Auth::id() ]) }}">
-				Deze week
+			<a class="nav__link {{ (strpos(Route::currentRouteName(), 'week.overview') === 0) ? 'is-active' : '' }}" href="{{ route('week.overview') }}">
+				Weekoverzicht
 			</a>
 		</li>
 		

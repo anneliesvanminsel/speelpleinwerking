@@ -1,11 +1,11 @@
 @extends('layouts.admin')
 @section('title')
-	Speelplein - {{$kid['first_name']}} {{$kid['name']}}
+	Speelplein - {{$monitor['first_name']}} {{$monitor['name']}}
 @endsection
 @section('content')
 	<div class="article">
 		<h1>
-			{{$kid['first_name']}} {{$kid['name']}}
+			{{$monitor['first_name']}} {{$monitor['name']}}
 		</h1>
 	</div>
 	<div class="article">
@@ -14,10 +14,10 @@
 				Account gegevens
 			</h2>
 			<div class="account__text">
-				{{ $kid->family()->first()->users()->first()->email }}
+				{{ $monitor->users()->first()->email }}
 			</div>
 			<div class="account__text">
-				{{$kid['phone_nr']}}
+				{{$monitor['phone_nr']}}
 			</div>
 		</div>
 		
@@ -25,11 +25,11 @@
 			<h3 class="account__text is-bold">
 				Adresgegevens
 			</h3>
-			@include('cards.address', ['address' => $kid->family()->first()->address()->first()])
+			@include('cards.address', ['address' => $monitor->address()->first()])
 		</div>
 	</div>
 	<div class="article">
-		@if($kid->family()->first()->guardians()->exists())
+		@if($monitor->contacts()->exists())
 			<div  class="account__section row">
 				<h2>
 					Contactpersonen
@@ -37,14 +37,14 @@
 			</div>
 			
 			<div class="account__section card--container">
-				@foreach($kid->family()->first()->guardians()->get() as $contact)
-					@include('cards.guardian', ['guardian' => $contact])
+				@foreach($monitor->contacts()->get() as $contact)
+					@include('cards.contactperson', ['contact' => $contact])
 				@endforeach
 			</div>
 		@endif
 	</div>
 	<div class="article">
-		@if($kid->days()->exists())
+		@if($monitor->weeks()->exists())
 			<div class="account__section">
 				<div class="row">
 					<h2 class="grow">
@@ -52,7 +52,7 @@
 					</h2>
 				</div>
 				<div class="account__section">
-					@foreach($kid->days()->get() as $week)
+					@foreach($monitor->weeks()->get() as $week)
 						<div class="article__section">
 							@php
 								$start_time = strtotime($week['start_time']);

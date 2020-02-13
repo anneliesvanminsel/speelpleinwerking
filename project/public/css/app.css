@@ -1283,11 +1283,15 @@ ul.for-volunteer .list__item:before {
   overflow: hidden;
   width: 200px;
   margin-right: 20px;
+  margin-top: 20px;
   display: -webkit-box;
   display: flex;
   -webkit-box-orient: vertical;
   -webkit-box-direction: normal;
           flex-direction: column;
+  -webkit-column-break-inside: avoid;
+     -moz-column-break-inside: avoid;
+          break-inside: avoid;
 }
 
 .card:hover {
@@ -1326,16 +1330,39 @@ ul.for-volunteer .list__item:before {
   margin-top: 20px;
 }
 
+.card--mc-container {
+  padding: 5px;
+}
+
+.card--masonry {
+  margin-top: 20px;
+  -webkit-column-count: 4;
+     -moz-column-count: 4;
+          column-count: 4;
+  -webkit-column-gap: 0;
+     -moz-column-gap: 0;
+          column-gap: 0;
+}
+
 .card__image {
-  height: 100px;
-  width: 100px;
-  max-height: 100px;
-  max-width: 100px;
+  width: 150px;
+  height: 150px;
+  max-height: 150px;
+  max-width: 150px;
   margin: 20px auto;
   overflow: hidden;
   border-radius: 50%;
   -webkit-box-flex: 1;
           flex-grow: 1;
+}
+
+.card__image img {
+  display: inline;
+  margin: 0 auto;
+  min-height: 100%;
+  min-width: 100%;
+  height: 100% !important;
+  width: auto !important;
 }
 
 .card__content {
@@ -1353,6 +1380,7 @@ ul.for-volunteer .list__item:before {
 .card__text {
   margin: 10px 0;
   font-size: 14px;
+  word-break: break-all;
 }
 
 .card__text.is-role {
@@ -1363,8 +1391,7 @@ ul.for-volunteer .list__item:before {
   padding: 10px 20px 20px;
   display: -webkit-box;
   display: flex;
-  -webkit-box-pack: justify;
-          justify-content: space-between;
+  justify-content: space-around;
   -webkit-box-align: center;
           align-items: center;
 }
@@ -1399,8 +1426,76 @@ ul.for-volunteer .list__item:before {
   border: 1px solid #9c6902;
 }
 
+/* Style the tab */
+
+.tab {
+  overflow: hidden;
+  border: 1px solid #3C3D41;
+  background-color: #ffffff;
+}
+
+.tab__heading {
+  display: -webkit-box;
+  display: flex;
+}
+
+.tab__button {
+  font-family: "Comfortaa", cursive;
+  -webkit-box-flex: 1;
+          flex-grow: 1;
+  font-size: 18px;
+  background-color: inherit;
+  border: none;
+  outline: none;
+  cursor: pointer;
+  padding: 14px 16px;
+  -webkit-transition: 0.3s;
+  transition: 0.3s;
+  border-bottom: 1px solid #3C3D41;
+}
+
+.tab__button:hover {
+  background-color: #700cbc;
+  color: #ffffff;
+}
+
+.tab__button.active {
+  background-color: #36065b;
+  color: #ffffff;
+}
+
+.tab__content {
+  display: none;
+  padding: 15px 15px;
+  border-top: none;
+  -webkit-animation: fadeEffect 1s;
+          animation: fadeEffect 1s;
+  /* Fading effect takes 1 second */
+}
+
+@-webkit-keyframes fadeEffect {
+  from {
+    opacity: 0;
+  }
+
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes fadeEffect {
+  from {
+    opacity: 0;
+  }
+
+  to {
+    opacity: 1;
+  }
+}
+
 .account__section {
   margin-top: 20px;
+  padding-bottom: 25px;
 }
 
 .account__section.for-family {
@@ -1413,6 +1508,10 @@ ul.for-volunteer .list__item:before {
   margin-top: 40px;
   padding: 20px 40px;
   background-color: #fef3dc;
+}
+
+.account__section.row {
+  padding-bottom: 0;
 }
 
 .account__subheading {
@@ -1528,8 +1627,10 @@ ul.for-volunteer .list__item:before {
 }
 
 .ctn-image.is-small {
-  width: 500px;
+  min-width: 300px;
+  max-width: 300px;
   overflow: hidden;
+  margin-left: 40px;
 }
 
 h1,
@@ -1539,6 +1640,7 @@ h4,
 h5,
 h6 {
   font-family: "Comfortaa", cursive;
+  margin-bottom: 10px;
 }
 
 h1 {

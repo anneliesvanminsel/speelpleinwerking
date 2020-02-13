@@ -40,7 +40,7 @@
 				@enderror
 			</div>
 			
-			<div class="row row--stretch">
+			<div class="row row--stretch form__row">
 				<div class="form__group">
 					<input
 						id="streetnumber"
@@ -86,11 +86,13 @@
 			<div class="form__group">
 				<input
 					id="postalcode"
-					type="text"
+					type="number"
 					class="form__input for-family @error('postalcode') is-invalid @enderror"
 					name="postalcode"
 					placeholder="tussen 1000 en 9999"
 					value="{{ old('postalcode') }}"
+					min="1000"
+					max="9999"
 					required
 				>
 				<label for="postalcode" class="form__label">
