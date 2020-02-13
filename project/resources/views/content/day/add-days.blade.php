@@ -1,6 +1,6 @@
-@extends('layouts.moni')
+@extends('layouts.app')
 @section('title')
-	Monitor - inschrijven
+	{{ $kid['first_name'] }} - inschrijven
 @endsection
 @section('content')
 	<div class="section">
@@ -39,7 +39,8 @@
 									type="checkbox"
 									name="events[]"
 									value="{{ $day['id'] }}"
-									{{ $kid->days->contains($day['id']) ? 'checked disabled' : '' }}
+									{{ $day['date'] <= \Carbon\Carbon::tomorrow() ? 'disabled' : '' }}
+									{{ $kid->days->contains($day['id']) ? 'checked' : '' }}
 								>
 								
 								@if($kid->days->contains($day['id']))
@@ -56,8 +57,8 @@
 			@endforeach
 			
 			<div class="form__actions">
-				<button type="submit" class="btn for-volunteer">
-					Voeg de weken toe
+				<button type="submit" class="btn for-family">
+					Schrijf {{ $kid['first_name'] }} in voor deze dagen
 				</button>
 			</div>
 		
