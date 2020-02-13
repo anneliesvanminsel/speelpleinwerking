@@ -1,4 +1,4 @@
-<a class="card for-volunteer" href="">
+<div class="card for-volunteer" href="">
 	@if($contact['image'] && File::exists(public_path() . "/images/contact/" . $contact['image']))
 		<div class="card__image ctn-image">
 			<img src="{{ asset('images/contact/' . $contact['image']) }}" alt="">
@@ -15,13 +15,15 @@
 			{{$contact['role']}}
 		</div>
 	</div>
-	<div class="card__actions">
-		
-		<div>
-			@svg('edit')
+	
+	@if(Auth::user()->role != 'admin')
+		<div class="card__actions">
+			<div>
+				@svg('edit')
+			</div>
+			<div>
+				@svg('delete')
+			</div>
 		</div>
-		<div>
-			@svg('delete')
-		</div>
-	</div>
-</a>
+	@endif
+</div>

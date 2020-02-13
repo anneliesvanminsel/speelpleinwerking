@@ -1,4 +1,4 @@
-<a class="card for-volunteer" href="">
+<a class="card for-volunteer" href="{{ route('monitor.detail', ['moni_id' => $moni['id']]) }}">
 	@if($moni['image'] && File::exists(public_path() . "/images/monitor/" . $moni['image']))
 		<div class="card__image ctn-image">
 			<img src="{{ asset('images/monitor/' . $moni['image']) }}" alt="">

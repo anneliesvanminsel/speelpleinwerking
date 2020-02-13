@@ -5,12 +5,12 @@
 	overflow: hidden;
 	width: 200px;
 	margin-right: 20px;
+	margin-top: 20px;
 
 	display: flex;
 	flex-direction: column;
 
 	break-inside: avoid;
-	break-outside: avoid;
 
 
 	&:hover {
@@ -41,6 +41,16 @@
 		align-items: stretch;
 		flex-wrap: wrap;
 		margin-top: 20px;
+	}
+
+	&--mc-container {
+		padding: 5px;
+	}
+
+	&--masonry {
+		margin-top: 20px;
+		column-count: 4;
+		column-gap: 0;
 	}
 
 	&__image {
