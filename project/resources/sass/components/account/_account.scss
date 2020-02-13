@@ -1,6 +1,7 @@
 .account {
 	&__section {
 		margin-top: 20px;
+		padding-bottom: 25px;
 
 		&.for-family {
 			margin-top: 40px;
@@ -12,6 +13,10 @@
 			margin-top: 40px;
 			padding: 20px 40px;
 			background-color: $vol-extralight;
+		}
+
+		&.row {
+			padding-bottom: 0;
 		}
 	}
 
