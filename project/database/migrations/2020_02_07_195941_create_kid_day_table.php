@@ -17,8 +17,8 @@ class CreateKidDayTable extends Migration
             $table->increments('id');
 			$table->integer('kid_id');
 			$table->integer('day_id');
-			$table->boolean('isPresent');
-			$table->boolean('hasPaid');
+			$table->boolean('isPresent')->default(0);
+			$table->boolean('hasPaid')->default(0);
             $table->timestamps();
         });
     }

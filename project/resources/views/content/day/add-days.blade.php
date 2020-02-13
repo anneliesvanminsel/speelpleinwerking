@@ -21,7 +21,7 @@
 		</div>
 	</div>
 	
-		<form class="form article" method="POST" action="{{route('moni.postAddWeek', ['moni_id' => $kid['id'] ])}}">
+		<form class="form article" method="POST" action="{{route('kid.postDays', ['kid_id' => $kid['id'] ])}}">
 			@csrf
 			
 			@foreach($weeks as $week)
@@ -37,14 +37,14 @@
 								<input
 									class="checkbox__input for-volunteer"
 									type="checkbox"
-									name="events[]"
+									name="days[]"
 									value="{{ $day['id'] }}"
 									{{ $day['date'] <= \Carbon\Carbon::tomorrow() ? 'disabled' : '' }}
 									{{ $kid->days->contains($day['id']) ? 'checked' : '' }}
 								>
 								
 								@if($kid->days->contains($day['id']))
-									<input type="hidden" name="events[]" value="{{$day['id']}}" />
+									<input type="hidden" name="days[]" value="{{$day['id']}}" />
 								@endif
 								
 								<div>

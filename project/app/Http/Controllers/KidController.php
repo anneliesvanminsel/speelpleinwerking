@@ -6,6 +6,7 @@ use App\Family;
 use App\Kid;
 use App\Day;
 use App\Week;
+use App\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 
@@ -80,27 +81,26 @@ class KidController extends Controller
 
 	public function addDays($kid_id){
 		$kid = Kid::findOrFail($kid_id);
-		$days = Day::orderBy('date', 'asc')->get();
 		$weeks = Week::orderBy('startdate', 'asc')->get();
 
 		return view('content.day.add-days',
 			[
 				'kid' => $kid,
-				'days' => $days,
 				'weeks' => $weeks
 			]);
 	}
 
 	public function postDays(Request $request, $kid_id){
+		$nullEvent = Day::where('id', '0')->get();
 
 		$kid = Kid::where('id', $kid_id)->first();
-		$familie = $kid->familie()->first();
-		$user = User::where('id', $familie['user_id'])->first();
+		$familie = $kid->family()->first();
+		$user = User::findOrfail($familie['user_id']);
 
-		$kid->events()->sync(
-			$request->input('events') === null
+		$kid->days()->sync(
+			$request->input('days') === null
 				? $nullEvent
-				: $request->input('events')
+				: $request->input('days')
 		);
 
 		return redirect()->route('account', ['id' => $user['id']]);
