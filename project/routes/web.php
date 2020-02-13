@@ -151,6 +151,16 @@
 				'uses' => 'KidController@postCreate',
 				'as' => 'kid.postCreate'
 			]);
+
+			Route::get('days/{kid_id}', [
+				'uses' => 'KidController@addDays',
+				'as' => 'kid.addDays'
+			]);
+
+			Route::post('days/{kid_id}/post', [
+				'uses' => 'KidController@postDays',
+				'as' => 'kid.postDays'
+			]);
 		});
 
 	});
@@ -180,6 +190,27 @@
 				'uses' => 'SummerController@postCreate',
 				'as' => 'admin.postNewSummer'
 			]);
+
+			//WEEK
+			Route::group(['prefix' => 'week'], function() {
+				Route::get('overzicht', [
+					'uses' => 'SummerController@getWeeks',
+					'as' => 'week.overview'
+				]);
+
+				Route::post('delete/{moni_id}/{week_id}', [
+					'uses' => 'MonitorController@postDeleteWeek',
+					'as' => 'monitor.postDeleteWeek'
+				]);
+			});
+
+			//DAT
+			Route::group(['prefix' => 'day'], function() {
+				Route::get('overzicht', [
+					'uses' => 'SummerController@getDays',
+					'as' => 'day.overview'
+				]);
+			});
 		});
 
 		//KID
@@ -187,6 +218,11 @@
 			Route::get('overzicht', [
 				'uses' => 'KidController@getOverview',
 				'as' => 'kid.overview'
+			]);
+
+			Route::get('detail/{kid_id}', [
+				'uses' => 'KidController@getDetail',
+				'as' => 'kid.detail'
 			]);
 		});
 
@@ -213,6 +249,11 @@
 			Route::get('overzicht/zoek', [
 				'uses' => 'MonitorController@search',
 				'as' => 'monitor.search'
+			]);
+
+			Route::get('detail/{moni_id}', [
+				'uses' => 'MonitorController@getDetail',
+				'as' => 'monitor.detail'
 			]);
 		});
 

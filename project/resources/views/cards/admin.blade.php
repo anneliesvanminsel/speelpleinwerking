@@ -1,5 +1,5 @@
 <a class="card for-family" href="#">
-	@if(File::exists(public_path() . "/images/admin/" . $admin['image']))
+	@if($admin['image'] && File::exists(public_path() . "/images/admin/" . $admin['image']))
 		<div class="card__image ctn-image">
 			<img src="{{ asset('images/admin/' . $admin['image']) }}" alt="">
 		</div>
