@@ -13,13 +13,13 @@
 		</div>
 		
 		<h1>
-			Bewerk speelgroep {{ $activity['name'] }}
+			Bewerk activiteit '{{ $activity['name'] }}'
 		</h1>
 		
 		<form
 			method="POST"
 			id="form-create"
-			action="{{ route('activity.postEdit', ['playgroup_id' => $activity['id']]) }}"
+			action="{{ route('activity.postEdit', ['activity_id' => $activity['id']]) }}"
 			class="form"
 			enctype="multipart/form-data"
 		>
@@ -38,7 +38,7 @@
 				>
 				
 				<label for="name" class="form__label">
-					Naam van de speelgroep
+					Naam van de activiteit
 				</label>
 				
 				@error('name')
@@ -55,7 +55,7 @@
 					id="description"
 					class="form__input for-admin @error('description') is-invalid @enderror"
 					name="description"
-					placeholder="Een beschrijving van de speelgroep."
+					placeholder="Een beschrijving van de activiteit."
 					required
 					autocomplete="off"
 					maxlength="1000"
@@ -71,16 +71,8 @@
 					</span>
 				@enderror
 			</div>
-			<div>
-				<div class="ctn-image">
-					@if(File::exists(public_path() . "/images/activity/" . $activity['image']))
-						<img src="{{ asset('/images/activity/' . $activity['image'] ) }}" alt="{{ $activity['name'] }}" loading="lazy">
-					@else
-						<img src="https://placekitten.com/600/600" alt="{{ $activity['name'] }}" loading="lazy">
-					@endif
-				</div>
-				
-				<div class="form__group">
+			<div class="row">
+				<div class="form__group grow">
 					<input
 						id="image"
 						type="file"
@@ -98,60 +90,67 @@
 					</span>
 					@enderror
 				</div>
+				
+				@if($activity['image'] && File::exists(public_path() . "/images/activity/" . $activity['image']))
+					<div class="ctn-image is-small">
+						<img src="{{ asset('/images/activity/' . $activity['image'] ) }}" alt="{{ $activity['name'] }}" loading="lazy">
+					</div>
+				@endif
 			</div>
 			
-			<h2>
-				Inschrijvingsformulier
-			</h2>
-			<p>
-				Indien mensen zich moeten inschrijven voor deze activiteit kan je hieronder een link meegeven. <br>
-				Je kan ook de tekst op de knop aanpassen. Indien je geen tekst opgeeft, zal deze 'schrijf je nu in' weergeven.
-			</p>
-			<div class="form__group">
-				<input
-					id="link"
-					type="text"
-					class="form__input for-admin @error('link') is-invalid @enderror"
-					name="link"
-					placeholder="Link naar inschrijvingsformulier"
-					value="{{ $activity['link'] }}"
-				>
-				
-				<label for="link" class="form__label">
-					Link naar inschrijvingsformulier
-				</label>
-				
-				@error('name')
-				<span class="invalid-feedback" role="alert">
+			<div class="account__section">
+				<h2 class="account__subheading">
+					Inschrijvingsformulier
+				</h2>
+				<p>
+					Indien mensen zich moeten inschrijven voor deze activiteit kan je hieronder een link meegeven. <br>
+					Je kan ook de tekst op de knop aanpassen. Indien je geen tekst opgeeft, zal deze 'schrijf je nu in' weergeven.
+				</p>
+				<div class="form__group">
+					<input
+						id="link"
+						type="text"
+						class="form__input for-admin @error('link') is-invalid @enderror"
+						name="link"
+						placeholder="Link naar inschrijvingsformulier"
+						value="{{ $activity['link'] }}"
+					>
+					
+					<label for="link" class="form__label">
+						Link naar inschrijvingsformulier
+					</label>
+					
+					@error('name')
+					<span class="invalid-feedback" role="alert">
 						<strong>{{ $message }}</strong>
 					</span>
-				@enderror
-			</div>
-			<div class="form__group">
-				<input
-					id="linkText"
-					type="text"
-					class="form__input for-admin @error('linkText') is-invalid @enderror"
-					name="linkText"
-					placeholder="dd"
-					value="{{ $activity['linkText'] }}"
-				>
-				
-				<label for="linkText" class="form__label">
-					Tekst voor de knop
-				</label>
-				
-				@error('linkText')
-				<span class="invalid-feedback" role="alert">
+					@enderror
+				</div>
+				<div class="form__group">
+					<input
+						id="linkText"
+						type="text"
+						class="form__input for-admin @error('linkText') is-invalid @enderror"
+						name="linkText"
+						placeholder="dd"
+						value="{{ $activity['linkText'] }}"
+					>
+					
+					<label for="linkText" class="form__label">
+						Tekst voor de knop
+					</label>
+					
+					@error('linkText')
+					<span class="invalid-feedback" role="alert">
 						<strong>{{ $message }}</strong>
 					</span>
-				@enderror
+					@enderror
+				</div>
 			</div>
-			
 			
 			<div class="form__actions">
 				<button type="submit" class="btn for-admin">
-					Bewerk gegevens van activiteit {{ $activity['name'] }}
+					Bewerk gegevens van activiteit '{{ $activity['name'] }}'
 				</button>
 			</div>
 		</form>

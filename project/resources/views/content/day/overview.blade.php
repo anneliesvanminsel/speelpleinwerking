@@ -1,6 +1,6 @@
 @extends('layouts.admin')
 @section('title')
-	Leiding - weken
+	Leiding - Dagen
 @endsection
 
 @section('content')
@@ -39,18 +39,18 @@
 										@svg('back', 'faq__icon')
 									</button>
 									<div class="faq__answer">
-										@foreach($day->kids()->get() as $moni)
+										@foreach($day->kids()->get() as $kid)
 											<div class="row">
 												<div class="grow">
-													<a href="{{ route('monitor.detail', ['moni_id' => $moni['id']]) }}">
-														{{ $moni->first_name }} {{ $moni->name }}
+													<a href="{{ route('kid.detail', ['moni_id' => $kid['id']]) }}">
+														{{ $kid->first_name }} {{ $kid->name }}
 													</a>
 												</div>
 												<form
 													class="form"
-													onsubmit="return confirm('Ben je zeker dat je {{$moni["first_name"]}} {{$moni["name"]}} wilt verwijderen uit Week {{ $day['id'] }}?');"
+													onsubmit="return confirm('Ben je zeker dat je {{$kid["first_name"]}} {{$kid["name"]}} wilt verwijderen uit dag {{ $day['date'] }}?');"
 													method="POST"
-													action="{{route('monitor.postDeleteWeek', ['moni_id' => $moni['id'], 'week_id' => $day['id'] ])}}"
+													action="{{route('kid.postDeleteDay', ['$kid' => $kid['id'], 'day_id' => $day['id'] ])}}"
 												>
 													{{ csrf_field() }}
 													<button class="" type="submit">

@@ -69,26 +69,32 @@
 				@enderror
 			</div>
 			
-			<div class="form__group">
-				<input
-					id="image"
-					type="file"
-					class="form__input for-admin @error('image') is-invalid @enderror"
-					name="image"
-					autocomplete="off"
-				>
-				
-				<label for="image" class="form__label">
-					Afbeelding
-				</label>
-				
-				@error('image')
-				<span class="invalid-feedback" role="alert">
+			<div class="row">
+				<div class="form__group grow">
+					<input
+						id="image"
+						type="file"
+						class="form__input for-admin @error('image') is-invalid @enderror"
+						name="image"
+						autocomplete="off"
+					>
+					
+					<label for="image" class="form__label">
+						Afbeelding
+					</label>
+					
+					@error('image')
+					<span class="invalid-feedback" role="alert">
 						<strong>{{ $message }}</strong>
 					</span>
-				@enderror
+					@enderror
+				</div>
+				@if($sponsor['image'] && File::exists(public_path() . "/images/sponsor/" . $sponsor['image']))
+					<div class="ctn-image is-small">
+						<img src="{{ asset('/images/sponsor/' . $sponsor['image'] ) }}" alt="{{ $sponsor['name'] }}" loading="lazy">
+					</div>
+				@endif
 			</div>
-			
 			
 			<div class="form__group">
 				<input

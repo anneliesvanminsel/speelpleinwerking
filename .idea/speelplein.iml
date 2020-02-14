@@ -6,6 +6,8 @@
       <sourceFolder url="file://$MODULE_DIR$/project/tests" isTestSource="true" packagePrefix="Tests\" />
       <excludeFolder url="file://$MODULE_DIR$/project/vendor/beyondcode/laravel-dump-server" />
       <excludeFolder url="file://$MODULE_DIR$/project/vendor/composer" />
+      <excludeFolder url="file://$MODULE_DIR$/project/vendor/consoletvs/charts" />
+      <excludeFolder url="file://$MODULE_DIR$/project/vendor/consoletvs/support" />
       <excludeFolder url="file://$MODULE_DIR$/project/vendor/dnoegel/php-xdg-base-dir" />
       <excludeFolder url="file://$MODULE_DIR$/project/vendor/doctrine/inflector" />
       <excludeFolder url="file://$MODULE_DIR$/project/vendor/doctrine/instantiator" />
@@ -16,10 +18,13 @@
       <excludeFolder url="file://$MODULE_DIR$/project/vendor/fideloper/proxy" />
       <excludeFolder url="file://$MODULE_DIR$/project/vendor/filp/whoops" />
       <excludeFolder url="file://$MODULE_DIR$/project/vendor/fzaninotto/faker" />
+      <excludeFolder url="file://$MODULE_DIR$/project/vendor/guzzlehttp/psr7" />
       <excludeFolder url="file://$MODULE_DIR$/project/vendor/hamcrest/hamcrest-php" />
+      <excludeFolder url="file://$MODULE_DIR$/project/vendor/intervention/image" />
       <excludeFolder url="file://$MODULE_DIR$/project/vendor/jakub-onderka/php-console-color" />
       <excludeFolder url="file://$MODULE_DIR$/project/vendor/jakub-onderka/php-console-highlighter" />
       <excludeFolder url="file://$MODULE_DIR$/project/vendor/jenssegers/date" />
+      <excludeFolder url="file://$MODULE_DIR$/project/vendor/jlawrence/eos" />
       <excludeFolder url="file://$MODULE_DIR$/project/vendor/laravel/framework" />
       <excludeFolder url="file://$MODULE_DIR$/project/vendor/laravel/tinker" />
       <excludeFolder url="file://$MODULE_DIR$/project/vendor/league/flysystem" />
@@ -47,9 +52,11 @@
       <excludeFolder url="file://$MODULE_DIR$/project/vendor/phpunit/php-token-stream" />
       <excludeFolder url="file://$MODULE_DIR$/project/vendor/phpunit/phpunit" />
       <excludeFolder url="file://$MODULE_DIR$/project/vendor/psr/container" />
+      <excludeFolder url="file://$MODULE_DIR$/project/vendor/psr/http-message" />
       <excludeFolder url="file://$MODULE_DIR$/project/vendor/psr/log" />
       <excludeFolder url="file://$MODULE_DIR$/project/vendor/psr/simple-cache" />
       <excludeFolder url="file://$MODULE_DIR$/project/vendor/psy/psysh" />
+      <excludeFolder url="file://$MODULE_DIR$/project/vendor/ralouphie/getallheaders" />
       <excludeFolder url="file://$MODULE_DIR$/project/vendor/ramsey/uuid" />
       <excludeFolder url="file://$MODULE_DIR$/project/vendor/sebastian/code-unit-reverse-lookup" />
       <excludeFolder url="file://$MODULE_DIR$/project/vendor/sebastian/comparator" />
@@ -87,6 +94,7 @@
       <excludeFolder url="file://$MODULE_DIR$/project/vendor/symfony/var-dumper" />
       <excludeFolder url="file://$MODULE_DIR$/project/vendor/theseer/tokenizer" />
       <excludeFolder url="file://$MODULE_DIR$/project/vendor/tijsverkoyen/css-to-inline-styles" />
+      <excludeFolder url="file://$MODULE_DIR$/project/vendor/umpirsky/language-list" />
       <excludeFolder url="file://$MODULE_DIR$/project/vendor/vlucas/phpdotenv" />
       <excludeFolder url="file://$MODULE_DIR$/project/vendor/webmozart/assert" />
     </content>

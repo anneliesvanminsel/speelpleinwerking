@@ -28,7 +28,7 @@
 					type="text"
 					class="form__input for-admin @error('name') is-invalid @enderror"
 					name="name"
-					placeholder="Naam van de speelgroep"
+					placeholder="Naam van de sponsor"
 					value="{{ old('name') }}"
 					required
 					autofocus
@@ -53,7 +53,7 @@
 					id="information"
 					class="form__input for-admin @error('information') is-invalid @enderror"
 					name="information"
-					placeholder="Een beschrijving van de speelgroep."
+					placeholder="Informatie over de sponsoring"
 					required
 					maxlength="255"
 				>{{ old('information') }}</textarea>

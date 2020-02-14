@@ -17,13 +17,12 @@
 		<div class="container">
 			@foreach($activities as $activity)
 				<div class="teaser row">
-					<div class="grid__image ctn-image">
-						@if(File::exists(public_path() . "/images/activity/" . $activity['image']))
+					@if($activity['image'] && File::exists(public_path() . "/images/activity/" . $activity['image']))
+						<div class="grid__image ctn-image">
 							<img src="{{ asset('/images/activity/' . $activity['image'] ) }}" alt="{{ $activity['name'] }}" loading="lazy">
-						@else
-							<img src="https://placekitten.com/600/600" alt="{{ $activity['name'] }}" loading="lazy">
-						@endif
-					</div>
+						</div>
+					@endif
+					
 					<div class="grow">
 						<div class="row">
 							<h3 class="grow">

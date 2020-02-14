@@ -36,6 +36,11 @@
 											{{ $moni->first_name }} {{ $moni->name }} - {{ $moni->users()->first()->email }}
 										</a>
 									</div>
+									<div class="grow">
+										@if($moni->weeks()->findOrFail($week['id'], ['week_id'])->pivot->wantsIntern === 1)
+											Wilt deze week stage lopen
+										@endif
+									</div>
 									<form
 										class="form"
 										onsubmit="return confirm('Ben je zeker dat je {{$moni["first_name"]}} {{$moni["name"]}} wilt verwijderen uit Week {{ $week['id'] }}?');"

@@ -11,7 +11,7 @@
 			</a>
 		</div>
 		<h1>
-			Maak een sponsor aan
+			Maak een FAQ aan
 		</h1>
 		
 		<form

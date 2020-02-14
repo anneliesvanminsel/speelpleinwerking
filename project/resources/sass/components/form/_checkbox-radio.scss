@@ -58,6 +58,11 @@ input[type=radio] {
 			background-color: $fam-accent;
 			border-color: $fam-accent;
 		}
+
+		&.for-admin {
+			background-color: $admin-accent;
+			border-color: $admin-accent;
+		}
 	}
 
 	&:before {

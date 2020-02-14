@@ -63,6 +63,9 @@
 		@endif
 		
 		@if($activities->count() > 0)
+			<div class="ctn-image is-large">
+				<img src="https://images.pexels.com/photos/296301/pexels-photo-296301.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260" alt="">
+			</div>
 			<div class="section" id="activities">
 				<div class="section__header">
 					<h1 class="section__title">
@@ -73,13 +76,12 @@
 				<div class="card--container">
 					@foreach($activities as $activity)
 						<div class="card is-activity">
-							<div class="card__image ctn-image">
-								@if(File::exists(public_path() . "/images/activity/" . $activity['image']))
+							@if($activity['image'] && File::exists(public_path() . "/images/activity/" . $activity['image']))
+								<div class="card__image ctn-image">
 									<img src="{{ asset('/images/activity/' . $activity['image'] ) }}" alt="{{ $activity['name'] }}" loading="lazy">
-								@else
-									<img src="https://placekitten.com/600/600" alt="{{ $activity['name'] }}" loading="lazy">
-								@endif
-							</div>
+								</div>
+							@endif
+							
 							<div class="card__content">
 								<h3 class="card__title">
 									{{ $activity['name'] }}
@@ -117,8 +119,7 @@
 						Onze sponsors
 					</h1>
 					<p class="section__description">
-						We verdelen onze kinderen volgens leeftijd in groepen om hen samen met
-						leeftijdsgenoten een fijne dag te garanderen.
+						Onze speelpleinwerking wordt regelmatig gesponsord om de kinderen beter in te watten te kunnen leggen.
 					</p>
 				</div>
 				

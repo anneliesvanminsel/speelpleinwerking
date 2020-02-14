@@ -4,6 +4,11 @@
 @endsection
 @section('content')
 	<div class="article">
+		<div class="breadcrumb">
+			<a href="{{ url()->previous() }}" class="breadcrumb__link">
+				@svg('back') Terug
+			</a>
+		</div>
 		<h1>
 			{{$kid['first_name']}} {{$kid['name']}}
 		</h1>
@@ -48,20 +53,56 @@
 			<div class="account__section">
 				<div class="row">
 					<h2 class="grow">
-						Ingeschreven voor de onderstaande weken
+						Ingeschreven voor de onderstaande dagen
 					</h2>
 				</div>
-				<div class="account__section">
-					@foreach($kid->days()->get() as $week)
-						<div class="article__section">
-							@php
-								$start_time = strtotime($week['start_time']);
-								$end_time = strtotime($week['end_time']);
-							@endphp
-							{{ \Jenssegers\Date\Date::parse(strtotime($week['startdate']))->format('l j F Y') }}
-							t.e.m. {{ \Jenssegers\Date\Date::parse(strtotime($week['enddate']))->format('l j F Y') }}
+				<div class="account__section card--container">
+					@foreach($kid->days()->get() as $day)
+						<div class="card">
+							<div class="card__content">
+								<b>
+									{{ \Jenssegers\Date\Date::parse(strtotime($day['date']))->format('l j F Y') }}
+								</b>
+							</div>
+							<div class="card__content">
+								<form action="{{ route('kid.attendance', ['kid_id' => $kid['id'], 'day_id' => $day['id']]) }}" method="POST" class="search">
+									@csrf
+									<div class="search__group">
+										<div class="checkbox">
+											<label class="checkbox__label">
+												<input
+													class="checkbox__input for-admin"
+													type="checkbox"
+													name="attendance"
+													value="1"
+													onchange="this.form.submit()"
+													{{ $kid->days()->findOrFail($day['id'], ['day_id'])->pivot->isPresent === 1 ? 'checked' : '' }}
+												>
+												Aanwezig
+											</label>
+										</div>
+									</div>
+								</form>
+								<form action="{{ route('kid.paid', ['kid_id' => $kid['id'], 'day_id' => $day['id']]) }}" method="POST" class="search">
+									@csrf
+									<div class="search__group">
+										<div class="checkbox">
+											<label class="checkbox__label">
+												<input
+													class="checkbox__input for-admin"
+													type="checkbox"
+													name="paid"
+													onchange="this.form.submit()"
+													value="1"
+													{{ $kid->days()->findOrFail($day['id'], ['day_id'])->pivot->hasPaid === 1 ? 'checked' : '' }}
+												>
+												Betaald
+											</label>
+										</div>
+									</div>
+								</form>
+							</div>
 						</div>
-						<br>
 					@endforeach
 				</div>
 			</div>

@@ -168,7 +168,6 @@ return [
 		MaddHatter\LaravelFullcalendar\ServiceProvider::class,
 		Jenssegers\Date\DateServiceProvider::class,
 
-
         /*
          * Application Service Providers...
          */
@@ -230,6 +229,7 @@ return [
         'View' => Illuminate\Support\Facades\View::class,
 		'Calendar' => MaddHatter\LaravelFullcalendar\Facades\Calendar::class,
 		'Date' => Jenssegers\Date\Date::class,
+		'Charts' => ConsoleTVs\Charts\Facades\Charts::class,
 
     ],
 

@@ -1,15 +1,22 @@
 <?php
 
 namespace App\Http\Controllers;
-use App\Admin;
-use App\Faq;
+
+use Carbon\Carbon;
 use Illuminate\Http\Request;
+use App\Charts\SampleChart;
+use Charts;
+use Illuminate\Support\Facades\DB;
 
 use App\Kid;
+use App\Day;
+use App\Monitor;
 use App\User;
 use App\Playgroup;
 use App\Sponsor;
 use App\Activity;
+use App\Admin;
+use App\Faq;
 
 class PageController extends Controller
 {
@@ -38,8 +45,7 @@ class PageController extends Controller
 		}
 
 		if($user->role === 'admin') {
-
-			return view('content.admin.dashboard', ['user_id' => $user['id'] ]);
+			return redirect()->route('admin.dashboard', ['user_id' => $user['id']]);
 		}
 
 		if($user->role === 'moni') {
@@ -55,9 +61,30 @@ class PageController extends Controller
 
 	public function getDashboard($id){
 		$user = User::where('id', $id)->first();
+		$day = Day::where('date', '=', Carbon::today())->first();
+		$kids = $day->kids()->get();
 
-		return view('content.admin.dashboard', ['user_id' => $user['id'] ]);
+		$monitors = Monitor::where(DB::raw("(DATE_FORMAT(created_at,'%Y'))"), date('Y'))->get();
+		$kiddos = Kid::where(DB::raw("(DATE_FORMAT(created_at,'%Y'))"), date('Y'))->get();
+
+		$chart = Charts::database($monitors, 'bar', 'highcharts')
+			->title('Registratie vrijwilligers')
+			->elementLabel('Totaal aantal vrijwilligers')
+			->dimensions(300, 500)
+			->colors(['red', 'green', 'blue', 'yellow', 'orange', 'cyan', 'magenta'])
+			->groupByMonth(date('Y'), true);
+
+		$kidchart = Charts::database($kiddos, 'bar', 'highcharts')
+			->title('Registratie Kinderen')
+			->elementLabel('Totaal aantal kinderen')
+			->dimensions(300, 500)
+			->colors(['yellow', 'orange', 'cyan', 'magenta', 'red', 'green', 'blue'])
+			->groupByMonth(date('Y'), true);
+
+
+		return view('content.admin.dashboard', ['user_id' => $user['id'], 'kids' => $kids, 'day' => $day , 'chart' => $chart, 'kidchart' => $kidchart]);
 	}
+
 
 	public function getMonitorInformation(){
 		$faqs = Faq::where('belongsTo', 'for-volunteer')->get();

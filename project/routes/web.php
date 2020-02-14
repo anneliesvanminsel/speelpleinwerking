@@ -103,6 +103,11 @@
 				'uses' => 'MonitorController@postAddWeek',
 				'as' => 'moni.postAddWeek'
 			]);
+
+			Route::post('internship/{moni_id}/{week_id}/post', [
+				'uses' => 'MonitorController@postInternship',
+				'as' => 'monitor.internship'
+			]);
 		});
 	});
 
@@ -204,11 +209,26 @@
 				]);
 			});
 
-			//DAT
+			//DAY
 			Route::group(['prefix' => 'day'], function() {
 				Route::get('overzicht', [
 					'uses' => 'SummerController@getDays',
 					'as' => 'day.overview'
+				]);
+
+				Route::post('delete/{kid_id}/{day_id}', [
+					'uses' => 'KidController@postDeleteDay',
+					'as' => 'kid.postDeleteDay'
+				]);
+
+				Route::post('attendance/{kid_id}/{day_id}/post', [
+					'uses' => 'KidController@postAttendance',
+					'as' => 'kid.attendance'
+				]);
+
+				Route::post('paid/{kid_id}/{day_id}/post', [
+					'uses' => 'KidController@postPayment',
+					'as' => 'kid.paid'
 				]);
 			});
 		});
@@ -236,6 +256,11 @@
 			Route::get('oud-overzicht', [
 				'uses' => 'AdminController@getOldAdmins',
 				'as' => 'admin.old-overview'
+			]);
+
+			Route::get('overzicht/zoek', [
+				'uses' => 'KidController@search',
+				'as' => 'kid.search'
 			]);
 		});
 
@@ -394,6 +419,11 @@
 			Route::post('delete/{faq_id}/post', [
 				'uses' => 'FaqController@postDelete',
 				'as' => 'faq.postDelete'
+			]);
+
+			Route::get('overzicht/zoek', [
+				'uses' => 'FaqController@search',
+				'as' => 'faq.search'
 			]);
 		});
 	});

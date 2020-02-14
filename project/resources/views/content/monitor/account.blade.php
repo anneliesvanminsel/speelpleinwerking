@@ -80,20 +80,33 @@
 									voeg week toe
 								</a>
 							</div>
-							@php
-								$weeks = $monitor->weeks()->get();
-							@endphp
-							
-							@foreach($weeks as $week)
-								<div class="article__section">
-									@php
-										$start_time = strtotime($week['start_time']);
-										$end_time = strtotime($week['end_time']);
-									@endphp
-									{{ \Jenssegers\Date\Date::parse(strtotime($week['startdate']))->format('l j F Y') }}
-									t.e.m. {{ \Jenssegers\Date\Date::parse(strtotime($week['enddate']))->format('l j F Y') }}
-								</div>
-							@endforeach
+							<div class="account__section">
+								@foreach($monitor->weeks()->get() as $week)
+									<div class="row">
+										<div class="grow checkbox__title">
+											{{ \Jenssegers\Date\Date::parse(strtotime($week['startdate']))->format('l j F Y') }}
+											t.e.m. {{ \Jenssegers\Date\Date::parse(strtotime($week['enddate']))->format('l j F Y') }}
+										</div>
+										<div>
+											<form
+												class="form"
+												method="POST"
+												action="{{ route('monitor.internship', ['monitor_id' => $monitor['id'], 'week_id' => $week['id']]) }}"
+											>
+												{{ csrf_field() }}
+												<button class="" type="submit">
+													@if($monitor->weeks()->findOrFail($week['id'], ['week_id'])->pivot->wantsIntern === 1)
+														ik wil deze week geen stage doen
+													@else
+														ik wil deze week stage doen
+													@endif
+												</button>
+											</form>
+										</div>
+									</div>
+									<br>
+								@endforeach
+							</div>
 						</div>
 					@else
 						<div class="account__section for-volunteer">

@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Faq;
+use App\Monitor;
 use Illuminate\Http\Request;
 
 class FaqController extends Controller
@@ -10,6 +11,11 @@ class FaqController extends Controller
     //'question', 'answer', 'belongsTo',
 	public function getOverview() {
 		$faqs = Faq::orderBy('created_at', 'desc')->get();
+		return view('content.faq.overview', ['faqs' => $faqs]);
+	}
+
+	public function search(Request $request) {
+		$faqs = Faq::where('belongsTo', '=', $request->input('belongsTo'))->get();
 		return view('content.faq.overview', ['faqs' => $faqs]);
 	}
 

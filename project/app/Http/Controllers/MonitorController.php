@@ -91,8 +91,6 @@ class MonitorController extends Controller
 			]);
 	}
 
-
-
 	public function postAddWeek(Request $request, $moni_id){
 		$nullEvent = Week::where('id', '0')->get();
 		$monitor = Monitor::findOrFail($moni_id);
@@ -117,5 +115,16 @@ class MonitorController extends Controller
 		$monitor->weeks()->detach($week['id']);
 
 		return redirect()->route('week.overview', ['weeks' => $weeks]);
+	}
+
+	public function postInternship($moni_id, $week_id) {
+		$monitor = Monitor::findOrFail($moni_id);
+		$week = Week::findOrFail($week_id);
+		$user = $monitor->users()->first();
+
+		$monitor->weeks()->sync([$week['id'] => [ 'wantsIntern' => true] ], false);
+
+		return redirect()->route('account',
+			['user_id' => $user['id']]);
 	}
 }

@@ -87,6 +87,14 @@
       <path value="$PROJECT_DIR$/project/vendor/nothingworks/blade-svg" />
       <path value="$PROJECT_DIR$/project/vendor/maddhatter/laravel-fullcalendar" />
       <path value="$PROJECT_DIR$/project/vendor/jenssegers/date" />
+      <path value="$PROJECT_DIR$/project/vendor/umpirsky/language-list" />
+      <path value="$PROJECT_DIR$/project/vendor/guzzlehttp/psr7" />
+      <path value="$PROJECT_DIR$/project/vendor/intervention/image" />
+      <path value="$PROJECT_DIR$/project/vendor/consoletvs/charts" />
+      <path value="$PROJECT_DIR$/project/vendor/consoletvs/support" />
+      <path value="$PROJECT_DIR$/project/vendor/jlawrence/eos" />
+      <path value="$PROJECT_DIR$/project/vendor/ralouphie/getallheaders" />
+      <path value="$PROJECT_DIR$/project/vendor/psr/http-message" />
     </include_path>
   </component>
   <component name="PhpProjectSharedConfiguration" php_language_level="7.1" />

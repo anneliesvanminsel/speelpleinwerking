@@ -15,13 +15,20 @@ class KidController extends Controller
     //
 	public function getOverview() {
 		$kids = Kid::orderBy('name', 'desc')->get();
-		return view('content.kid.overview', ['kids' => $kids]);
+		return view('content.kid.overview', ['kids' => $kids, 'oldSearch' => '']);
 	}
 
 	public function getDetail($kid_id) {
 		$kid = Kid::findOrFail($kid_id);
 
 		return view('content.kid.detail', ['kid' => $kid]);
+	}
+
+	public function search(Request $request) {
+		$search = $request->input('search');
+		$kids = Kid::where('name', 'like', '%' . $search . '%')->orWhere('first_name', 'like', '%' . $search . '%')->get();
+
+		return view('content.kid.overview', ['kids' => $kids, 'oldSearch' => $search]);
 	}
 
 	public function getCreate($family_id) {
@@ -104,5 +111,49 @@ class KidController extends Controller
 		);
 
 		return redirect()->route('account', ['id' => $user['id']]);
+	}
+
+	public function postDeleteDay($kid_id, $day_id) {
+		$kid = Kid::findOrFail($kid_id);
+		$day = Day::findOrFail($day_id);
+
+		$weeks = Week::orderBy('startdate', 'asc')->get();
+
+		$kid->days()->detach($day['id']);
+
+		return redirect()->route('day.overview', ['weeks' => $weeks]);
+	}
+
+	public function postAttendance($kid_id, $day_id) {
+		$kid = Kid::findOrFail($kid_id);
+		$day = Day::findOrFail($day_id);
+		$family = $kid->family()->first();
+		$user = $family->users()->first();
+
+		if($kid->days()->findOrFail($day['id'], ['day_id'])->pivot->isPresent === 0) {
+			$kid->days()->sync([$day['id'] => [ 'isPresent' => true] ], false);
+		} else {
+			$kid->days()->sync([$day['id'] => [ 'isPresent' => false] ], false);
+		}
+
+		return redirect()->route('admin.dashboard',
+			['user_id' => $user['id']]);
+	}
+
+	public function postPayment($kid_id, $day_id) {
+		$kid = Kid::findOrFail($kid_id);
+		$day = Day::findOrFail($day_id);
+		$family = $kid->family()->first();
+		$user = $family->users()->first();
+
+		if($kid->days()->findOrFail($day['id'], ['day_id'])->pivot->hasPaid === 0) {
+			$kid->days()->sync([$day['id'] => [ 'hasPaid' => true] ], false);
+		} else {
+			$kid->days()->sync([$day['id'] => [ 'hasPaid' => false] ], false);
+		}
+
+
+		return redirect()->route('admin.dashboard',
+			['user_id' => $user['id']]);
 	}
 }

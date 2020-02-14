@@ -3,7 +3,7 @@
 	transition: 0.3s;
 	border-radius: 10px;
 	overflow: hidden;
-	width: 200px;
+	width: 250px;
 	margin-right: 20px;
 	margin-top: 20px;
 
@@ -44,13 +44,14 @@
 	}
 
 	&--mc-container {
-		padding: 5px;
+		padding: 10px;
+		margin: 10px;
 	}
 
 	&--masonry {
 		margin-top: 20px;
-		column-count: 4;
-		column-gap: 0;
+		column-count: 3;
+		column-gap: 5px;
 	}
 
 	&__image {
@@ -89,7 +90,7 @@
 	&__text {
 		margin: 10px 0;
 		font-size: 14px;
-		word-break: break-all;
+		word-break: break-word;
 
 		&.is-role {
 			opacity: .7;

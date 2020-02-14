@@ -11,7 +11,7 @@
 			</a>
 		</div>
 		<h1>
-			Maak een activity aan
+			Maak een activiteit aan
 		</h1>
 		
 		<form
@@ -144,7 +144,7 @@
 			
 			<div class="form__actions">
 				<button type="submit" class="btn for-admin">
-					Maak de speelgroep aan
+					Maak de activiteit aan
 				</button>
 			</div>
 		</form>

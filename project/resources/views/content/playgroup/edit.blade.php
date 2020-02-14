@@ -71,16 +71,8 @@
 					</span>
 				@enderror
 			</div>
-			<div>
-				<div class="ctn-image">
-					@if(File::exists(public_path() . "/images/playgroup/" . $playgroup['image']))
-						<img src="{{ asset('/images/playgroup/' . $playgroup['image'] ) }}" alt="{{ $playgroup['name'] }}" loading="lazy">
-					@else
-						<img src="https://placekitten.com/600/600" alt="{{ $playgroup['name'] }}" loading="lazy">
-					@endif
-				</div>
-				
-				<div class="form__group">
+			<div class="row">
+				<div class="form__group grow">
 					<input
 						id="image"
 						type="file"
@@ -93,6 +85,64 @@
 					</label>
 					
 					@error('image')
+						<span class="invalid-feedback" role="alert">
+							<strong>{{ $message }}</strong>
+						</span>
+					@enderror
+				</div>
+				
+				@if($playgroup['image'] && File::exists(public_path() . "/images/playgroup/" . $playgroup['image']))
+					<div class="ctn-image is-small">
+						<img src="{{ asset('/images/playgroup/' . $playgroup['image'] ) }}" alt="{{ $playgroup['name'] }}" loading="lazy">
+					</div>
+				@endif
+			</div>
+			
+			<div class="account__section">
+				<h2 class="account__subheading">
+					Leeftijd
+				</h2>
+				<p>
+					Om de kinderen te verdelen in de speelgroepen
+				</p>
+				
+				<div class="form__group">
+					<input
+						id="minAge"
+						type="date"
+						class="form__input for-admin @error('minAge') is-invalid @enderror"
+						name="minAge"
+						value="{{ $playgroup['minAge'] }}"
+						required
+					>
+					
+					<label for="minAge" class="form__label">
+						Eerste toegelate geboortedatum
+					</label>
+					
+					@error('minAge')
+					<span class="invalid-feedback" role="alert">
+						<strong>{{ $message }}</strong>
+					</span>
+					@enderror
+				</div>
+				
+				<div class="form__group">
+					<input
+						id="maxAge"
+						type="date"
+						class="form__input for-admin @error('maxAge') is-invalid @enderror"
+						name="maxAge"
+						placeholder="bv: 1/10/2022"
+						value="{{ $playgroup['maxAge'] }}"
+						required
+					>
+					
+					<label for="maxAge" class="form__label">
+						Laatste toegelaten geboortedatum
+					</label>
+					
+					@error('maxAge')
 					<span class="invalid-feedback" role="alert">
 						<strong>{{ $message }}</strong>
 					</span>
@@ -101,54 +151,6 @@
 			</div>
 			
 			
-			<h2>
-				Leeftijd
-			</h2>
-			<p>
-				Om de kinderen te verdelen in de speelgroepen
-			</p>
-			<div class="form__group">
-				<input
-					id="minAge"
-					type="date"
-					class="form__input for-admin @error('minAge') is-invalid @enderror"
-					name="minAge"
-					value="{{ $playgroup['minAge'] }}"
-					required
-				>
-				
-				<label for="minAge" class="form__label">
-					Eerste toegelate geboortedatum
-				</label>
-				
-				@error('minAge')
-				<span class="invalid-feedback" role="alert">
-						<strong>{{ $message }}</strong>
-					</span>
-				@enderror
-			</div>
-			
-			<div class="form__group">
-				<input
-					id="maxAge"
-					type="date"
-					class="form__input for-admin @error('maxAge') is-invalid @enderror"
-					name="maxAge"
-					placeholder="bv: 1/10/2022"
-					value="{{ $playgroup['maxAge'] }}"
-					required
-				>
-				
-				<label for="maxAge" class="form__label">
-					Laatste toegelaten geboortedatum
-				</label>
-				
-				@error('maxAge')
-				<span class="invalid-feedback" role="alert">
-						<strong>{{ $message }}</strong>
-					</span>
-				@enderror
-			</div>
 			<div class="form__actions">
 				<button type="submit" class="btn for-admin">
 					Bewerk gegevens van speelgroep {{ $playgroup['name'] }}

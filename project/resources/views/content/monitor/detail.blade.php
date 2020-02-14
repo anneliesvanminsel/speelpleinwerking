@@ -4,6 +4,11 @@
 @endsection
 @section('content')
 	<div class="article">
+		<div class="breadcrumb">
+			<a href="{{ url()->previous() }}" class="breadcrumb__link">
+				@svg('back') Terug
+			</a>
+		</div>
 		<h1>
 			{{$monitor['first_name']}} {{$monitor['name']}}
 		</h1>
@@ -53,13 +58,16 @@
 				</div>
 				<div class="account__section">
 					@foreach($monitor->weeks()->get() as $week)
-						<div class="article__section">
-							@php
-								$start_time = strtotime($week['start_time']);
-								$end_time = strtotime($week['end_time']);
-							@endphp
-							{{ \Jenssegers\Date\Date::parse(strtotime($week['startdate']))->format('l j F Y') }}
-							t.e.m. {{ \Jenssegers\Date\Date::parse(strtotime($week['enddate']))->format('l j F Y') }}
+						<div class="row">
+							<div class="grow checkbox__title">
+								{{ \Jenssegers\Date\Date::parse(strtotime($week['startdate']))->format('l j F Y') }}
+								t.e.m. {{ \Jenssegers\Date\Date::parse(strtotime($week['enddate']))->format('l j F Y') }}
+							</div>
+							<div>
+								@if($monitor->weeks()->findOrFail($week['id'], ['week_id'])->pivot->wantsIntern === 1)
+									Wilt deze week stage lopen
+								@endif
+							</div>
 						</div>
 						<br>
 					@endforeach

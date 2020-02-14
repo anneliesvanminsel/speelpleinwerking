@@ -4,8 +4,8 @@
 @endsection
 
 @section('content')
-	<div class="section">
-		<div class="row">
+	<div>
+		<div class="section row">
 			<h1 class="grow">
 				Overzicht FAQ's
 			</h1>
@@ -13,8 +13,22 @@
 				voeg een FAQ toe
 			</a>
 		</div>
+		<div>
+			<form action="{{ route('faq.search') }}" method="GET" class="search section">
+				<div class="form__group">
+					<select class="select" id="belongsTo" name="belongsTo" onChange="this.form.submit()">
+						<option>Kies een optie</option>
+						<option value="for-family">Familie-pagina</option>
+						<option value="for-volunteer">Monitor-pagina</option>
+					</select>
+					<label for="belongsTo" class="form__label">
+						Filter op basis van pagina
+					</label>
+				</div>
+			</form>
+		</div>
 		
-		<div class="teaser--container">
+		<div class="section teaser--container">
 			@foreach($faqs as $faq)
 				<div class="teaser {{ $faq['belongsTo'] }}">
 					<div class="row">
