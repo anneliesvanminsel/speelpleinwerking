@@ -61,8 +61,8 @@ class PageController extends Controller
 
 	public function getDashboard($id){
 		$user = User::where('id', $id)->first();
-		$day = Day::where('date', '=', Carbon::today())->first();
-		$kids = $day->kids()->get();
+		$days = Day::orderBy('date', 'asc')->get();
+		//$kids = $day->kids()->get();
 
 		$monitors = Monitor::where(DB::raw("(DATE_FORMAT(created_at,'%Y'))"), date('Y'))->get();
 		$kiddos = Kid::where(DB::raw("(DATE_FORMAT(created_at,'%Y'))"), date('Y'))->get();
@@ -82,7 +82,7 @@ class PageController extends Controller
 			->groupByMonth(date('Y'), true);
 
 
-		return view('content.admin.dashboard', ['user_id' => $user['id'], 'kids' => $kids, 'day' => $day , 'chart' => $chart, 'kidchart' => $kidchart]);
+		return view('content.admin.dashboard', ['user_id' => $user['id'], 'days' => $days , 'chart' => $chart, 'kidchart' => $kidchart]);
 	}
 
 

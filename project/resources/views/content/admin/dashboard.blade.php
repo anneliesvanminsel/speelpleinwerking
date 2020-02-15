@@ -50,7 +50,7 @@
 	
 	<div class="section">
 		<h2 class="account__subheading">
-			analyses en grafieken
+			Data van registratie
 		</h2>
 		<div class="row has-two">
 			{!! $chart->html() !!}
@@ -62,92 +62,20 @@
 	
 	
 	<div class="section">
-		@if($kids->count() > 0)
-			<div>
-				<h2>
-					Vandaag
-				</h2>
-				<table class="table-overview">
-					<tr>
-						<th>Naam</th>
-						<th>Info</th>
-						<th>Groep</th>
-						<th>Aanwezig</th>
-						<th>Betaald</th>
-					</tr>
-					@foreach($kids as $kid)
-						<tr class="">
-							<td class="">
-								{{$kid['first_name']}} {{$kid['name']}}
-							</td>
-							<td>{{$kid['info']}}</td>
-							<td>
-								@if(strpos($kid['birthday'], '2016') !== false)
-									<span>autootjes</span>
-								@elseif(strpos($kid['birthday'], '2015') !== false)
-									<span>bootjes</span>
-								@elseif(strpos($kid['birthday'], '2014') !== false)
-									<span>treintjes</span>
-								@elseif(strpos($kid['birthday'], '2013') !== false)
-									<span>vliegtuigjes</span>
-								@elseif(strpos($kid['birthday'], '2012') !== false)
-									<span>vliegtuigjes</span>
-								@elseif(strpos($kid['birthday'], '2011') !== false)
-									<span>zeppelins</span>
-								@elseif(strpos($kid['birthday'], '2010') !== false)
-									<span>zeppelins</span>
-								@elseif(strpos($kid['birthday'], '2009') !== false)
-									<span>raketten</span>
-								@elseif(strpos($kid['birthday'], '2008') !== false)
-									<span>raketten</span>
-								@elseif(strpos($kid['birthday'], '2007') !== false)
-									<span>ufo's</span>
-								@endif
-							</td>
-							<td>
-								<form action="{{ route('kid.attendance', ['kid_id' => $kid['id'], 'day_id' => $day['id']]) }}" method="POST" class="search">
-									@csrf
-									<div class="search__group">
-										<div class="checkbox">
-											<label class="checkbox__label">
-												<input
-													class="checkbox__input for-admin"
-													type="checkbox"
-													name="attendance"
-													value="1"
-													onchange="this.form.submit()"
-													{{ $kid->days()->findOrFail($day['id'], ['day_id'])->pivot->isPresent === 1 ? 'checked' : '' }}
-												>
-											</label>
-										</div>
-									</div>
-								</form>
-							</td>
-							
-							<td>
-								<form action="{{ route('kid.paid', ['kid_id' => $kid['id'], 'day_id' => $day['id']]) }}" method="POST" class="search">
-									@csrf
-									<div class="search__group">
-										<div class="checkbox">
-											<label class="checkbox__label">
-												<input
-													class="checkbox__input for-admin"
-													type="checkbox"
-													name="paid"
-													onchange="this.form.submit()"
-													value="1"
-													{{ $kid->days()->findOrFail($day['id'], ['day_id'])->pivot->hasPaid === 1 ? 'checked' : '' }}
-												>
-											</label>
-										</div>
-									</div>
-								</form>
-							</td>
-						</tr>
+		<form action="" method="GET" class="search">
+			<div class="search__group">
+				<select name="event" class="select" onchange="this.form.submit()">
+					<option value="1">Kies een event</option>
+					@foreach($days as $day)
+						<option value="{{$day['id']}}" class="search__option">
+							{{ \Jenssegers\Date\Date::parse(strtotime($day['date']))->format('l j F Y') }}
+						</option>
 					@endforeach
-				</table>
+				</select>
 			</div>
-		@endif
+		</form>
+		
+		
 	</div>
 	{!! Charts::scripts() !!}
 	{!! $chart->script() !!}

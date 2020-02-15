@@ -2,7 +2,7 @@
 
 	return [
 
-		'max_kids' => 1,
+		'max_kids' => 40,
 	];
 
 ?>

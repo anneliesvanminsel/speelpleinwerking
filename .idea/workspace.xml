@@ -2,36 +2,10 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="79312b05-178c-4323-b6df-bebe4cf3de83" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/php.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/php.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/speelplein.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/speelplein.iml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/project/app/Http/Controllers/FaqController.php" beforeDir="false" afterPath="$PROJECT_DIR$/project/app/Http/Controllers/FaqController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/project/app/Http/Controllers/KidController.php" beforeDir="false" afterPath="$PROJECT_DIR$/project/app/Http/Controllers/KidController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/project/app/Http/Controllers/MonitorController.php" beforeDir="false" afterPath="$PROJECT_DIR$/project/app/Http/Controllers/MonitorController.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/project/app/Http/Controllers/PageController.php" beforeDir="false" afterPath="$PROJECT_DIR$/project/app/Http/Controllers/PageController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/project/composer.json" beforeDir="false" afterPath="$PROJECT_DIR$/project/composer.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/project/composer.lock" beforeDir="false" afterPath="$PROJECT_DIR$/project/composer.lock" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/project/config/app.php" beforeDir="false" afterPath="$PROJECT_DIR$/project/config/app.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/project/public/css/app.css" beforeDir="false" afterPath="$PROJECT_DIR$/project/public/css/app.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/project/resources/sass/components/card/_card.scss" beforeDir="false" afterPath="$PROJECT_DIR$/project/resources/sass/components/card/_card.scss" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/project/resources/sass/components/form/_checkbox-radio.scss" beforeDir="false" afterPath="$PROJECT_DIR$/project/resources/sass/components/form/_checkbox-radio.scss" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/project/resources/views/content/activities/create.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/project/resources/views/content/activities/create.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/project/resources/views/content/activities/edit.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/project/resources/views/content/activities/edit.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/project/resources/views/content/activities/overview.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/project/resources/views/content/activities/overview.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/project/config/global.php" beforeDir="false" afterPath="$PROJECT_DIR$/project/config/global.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/project/resources/views/content/admin/dashboard.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/project/resources/views/content/admin/dashboard.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/project/resources/views/content/day/overview.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/project/resources/views/content/day/overview.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/project/resources/views/content/faq/create.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/project/resources/views/content/faq/create.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/project/resources/views/content/faq/overview.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/project/resources/views/content/faq/overview.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/project/resources/views/content/kid/detail.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/project/resources/views/content/kid/detail.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/project/resources/views/content/kid/overview.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/project/resources/views/content/kid/overview.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/project/resources/views/content/monitor/account.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/project/resources/views/content/monitor/account.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/project/resources/views/content/monitor/detail.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/project/resources/views/content/monitor/detail.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/project/resources/views/content/playgroup/edit.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/project/resources/views/content/playgroup/edit.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/project/resources/views/content/sponsor/create.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/project/resources/views/content/sponsor/create.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/project/resources/views/content/sponsor/edit.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/project/resources/views/content/sponsor/edit.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/project/resources/views/content/week/overview.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/project/resources/views/content/week/overview.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/project/resources/views/index.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/project/resources/views/index.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/project/routes/web.php" beforeDir="false" afterPath="$PROJECT_DIR$/project/routes/web.php" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -47,8 +21,17 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/project/resources/views/content/admin/dashboard.blade.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="174">
-              <caret line="39" column="111" selection-start-line="39" selection-start-column="111" selection-end-line="39" selection-end-column="111" />
+            <state relative-caret-position="314">
+              <caret line="73" column="25" selection-start-line="73" selection-start-column="25" selection-end-line="73" selection-end-column="25" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/project/resources/views/content/day/add-days.blade.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="335">
+              <caret line="50" column="36" selection-start-line="50" selection-start-column="36" selection-end-line="50" selection-end-column="114" />
             </state>
           </provider>
         </entry>
@@ -56,8 +39,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/project/app/Http/Controllers/PageController.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="287">
-              <caret line="80" column="83" selection-start-line="80" selection-start-column="83" selection-end-line="80" selection-end-column="83" />
+            <state relative-caret-position="178">
+              <caret line="63" column="41" selection-start-line="63" selection-start-column="41" selection-end-line="63" selection-end-column="41" />
               <folding>
                 <element signature="e#40#58#0#PHP" expanded="true" />
               </folding>
@@ -66,10 +49,10 @@
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/project/config/app.php">
+        <entry file="file://$PROJECT_DIR$/project/config/global.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-1">
-              <caret line="168" column="51" selection-start-line="168" selection-start-column="51" selection-end-line="168" selection-end-column="51" />
+            <state relative-caret-position="60">
+              <caret line="4" column="24" selection-start-line="4" selection-start-column="24" selection-end-line="4" selection-end-column="24" />
             </state>
           </provider>
         </entry>
@@ -108,7 +91,6 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/project/resources/sass/components/menu/_header.scss" />
         <option value="$PROJECT_DIR$/project/resources/sass/components/footer/_footer.scss" />
         <option value="$PROJECT_DIR$/project/resources/sass/base/_font.scss" />
         <option value="$PROJECT_DIR$/project/resources/sass/components/polaroid/_polaroid.scss" />
@@ -157,6 +139,7 @@
         <option value="$PROJECT_DIR$/project/resources/views/content/day/overview.blade.php" />
         <option value="$PROJECT_DIR$/project/resources/views/content/kid/detail.blade.php" />
         <option value="$PROJECT_DIR$/project/config/app.php" />
+        <option value="$PROJECT_DIR$/project/config/global.php" />
         <option value="$PROJECT_DIR$/project/app/Http/Controllers/PageController.php" />
         <option value="$PROJECT_DIR$/project/resources/views/content/admin/dashboard.blade.php" />
       </list>
@@ -626,18 +609,18 @@
       <workItem from="1580154472570" duration="9559000" />
       <workItem from="1580207043718" duration="34987000" />
       <workItem from="1580384545004" duration="99720000" />
-      <workItem from="1581509157450" duration="42202000" />
+      <workItem from="1581509157450" duration="44129000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="186468000" />
+    <option name="totallyTimeSpent" value="188395000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="0" width="1440" height="900" extended-state="0" />
     <editor active="true" />
     <layout>
-      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.26037195" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.26037195" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Favorites" order="2" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
@@ -650,7 +633,7 @@
       <window_info anchor="bottom" id="Docker" order="7" show_stripe_button="false" />
       <window_info anchor="bottom" id="Database Changes" order="8" />
       <window_info anchor="bottom" id="Version Control" order="9" />
-      <window_info active="true" anchor="bottom" id="Terminal" order="10" visible="true" weight="0.3120482" />
+      <window_info anchor="bottom" id="Terminal" order="10" visible="true" weight="0.3120482" />
       <window_info anchor="bottom" id="Event Log" order="11" side_tool="true" />
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
       <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
@@ -915,13 +898,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/project/resources/views/content/day/add-days.blade.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="351">
-          <caret line="41" column="102" lean-forward="true" selection-start-line="41" selection-start-column="36" selection-end-line="41" selection-end-column="102" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/project/resources/views/content/week/add-week.blade.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="339">
@@ -984,13 +960,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/project/config/global.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="105">
-          <caret line="7" column="2" selection-start-line="7" selection-start-column="2" selection-end-line="7" selection-end-column="2" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/project/resources/views/content/day/overview.blade.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="30">
@@ -1026,10 +995,24 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/project/config/global.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="60">
+          <caret line="4" column="24" selection-start-line="4" selection-start-column="24" selection-end-line="4" selection-end-column="24" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/project/resources/views/content/day/add-days.blade.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="335">
+          <caret line="50" column="36" selection-start-line="50" selection-start-column="36" selection-end-line="50" selection-end-column="114" />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/project/app/Http/Controllers/PageController.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="287">
-          <caret line="80" column="83" selection-start-line="80" selection-start-column="83" selection-end-line="80" selection-end-column="83" />
+        <state relative-caret-position="178">
+          <caret line="63" column="41" selection-start-line="63" selection-start-column="41" selection-end-line="63" selection-end-column="41" />
           <folding>
             <element signature="e#40#58#0#PHP" expanded="true" />
           </folding>
@@ -1038,8 +1021,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/project/resources/views/content/admin/dashboard.blade.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="174">
-          <caret line="39" column="111" selection-start-line="39" selection-start-column="111" selection-end-line="39" selection-end-column="111" />
+        <state relative-caret-position="314">
+          <caret line="73" column="25" selection-start-line="73" selection-start-column="25" selection-end-line="73" selection-end-column="25" />
         </state>
       </provider>
     </entry>
