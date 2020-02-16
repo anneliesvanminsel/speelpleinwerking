@@ -47,10 +47,10 @@
 						</div>
 						<div class="teaser__content">
 							<div>
-								{{$playgroup['description']}}
+								{{ $playgroup['description'] }}
 							</div>
 							<div>
-								{{  date('d/m/Y', strtotime( $playgroup['minAge'])) }} - {{  date('d/m/Y', strtotime( $playgroup['maxAge'])) }}
+								{{  $playgroup['minAge'] }} - {{  $playgroup['maxAge'] }}
 							</div>
 						</div>
 					</div>

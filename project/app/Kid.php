@@ -3,6 +3,7 @@
 namespace App;
 
 use Illuminate\Database\Eloquent\Model;
+use Carbon\Carbon;
 
 class Kid extends Model
 {
@@ -21,5 +22,10 @@ class Kid extends Model
 			'kid_day',
 			'kid_id',
 			'day_id')->withPivot('isPresent', 'hasPaid')->withTimestamps();
+	}
+
+	public function getAge(){
+		$this->birthday->diff(Carbon::now())
+			->format('%y years, %m months and %d days');
 	}
 }

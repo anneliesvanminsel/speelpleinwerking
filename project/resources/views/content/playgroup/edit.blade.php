@@ -109,9 +109,11 @@
 				<div class="form__group">
 					<input
 						id="minAge"
-						type="date"
+						type="number"
+						step="0.5"
 						class="form__input for-admin @error('minAge') is-invalid @enderror"
 						name="minAge"
+						placeholder="Bv. 2, 7 of 3"
 						value="{{ $playgroup['minAge'] }}"
 						required
 					>
@@ -130,10 +132,11 @@
 				<div class="form__group">
 					<input
 						id="maxAge"
-						type="date"
+						type="number"
+						step="0.5"
 						class="form__input for-admin @error('maxAge') is-invalid @enderror"
 						name="maxAge"
-						placeholder="bv: 1/10/2022"
+						placeholder="Bv. 2, 7 of 3"
 						value="{{ $playgroup['maxAge'] }}"
 						required
 					>

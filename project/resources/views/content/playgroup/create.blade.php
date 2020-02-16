@@ -101,15 +101,17 @@
 			<div class="form__group">
 				<input
 					id="minAge"
-					type="date"
+					type="number"
+					step="0.5"
 					class="form__input for-admin @error('minAge') is-invalid @enderror"
 					name="minAge"
+					placeholder="Bv. 2, 7 of 3"
 					value="{{ old('minAge') }}"
 					required
 				>
 				
 				<label for="minAge" class="form__label">
-					Eerste toegelate geboortedatum
+					Minimumleeftijd
 				</label>
 				
 				@error('minAge')
@@ -125,7 +127,7 @@
 					type="date"
 					class="form__input for-admin @error('maxAge') is-invalid @enderror"
 					name="maxAge"
-					placeholder="bv: 1/10/2022"
+					placeholder="Bv. 2, 7 of 3"
 					value="{{ old('maxAge') }}"
 					required
 				>

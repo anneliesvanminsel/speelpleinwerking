@@ -24,8 +24,8 @@ class PlaygroupController extends Controller
 		$this->validate($request, [
 			'name' => 'required|string|max:255',
 			'description' => 'required|string|max:1000',
-			'minAge'=> 'required|date',
-			'maxAge'=> 'required|date',
+			'minAge'=> 'required|number',
+			'maxAge'=> 'nullable|number',
 			'image'=> 'required|image|mimes:jpeg,png,jpg,gif,svg|max:2048', //image
 		]);
 
@@ -56,7 +56,7 @@ class PlaygroupController extends Controller
 			'name' => 'required|string|max:255',
 			'description' => 'required|string|max:1000',
 			'minAge'=> 'required|date',
-			'maxAge'=> 'required|date',
+			'maxAge'=> 'nullable|date',
 			'image'=> 'nullable|image|mimes:jpeg,png,jpg,gif,svg|max:2048', //image
 		]);
 
