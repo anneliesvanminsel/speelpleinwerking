@@ -70,5 +70,15 @@
 				}
 			}
 		}
+
+		&.for-volunteer {
+			background-color: transparent;
+
+			&:hover {
+				svg {
+					fill: $vol-accent;
+				}
+			}
+		}
 	}
 }

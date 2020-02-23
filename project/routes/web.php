@@ -66,6 +66,16 @@
 			'as' => 'monitor.postCreate'
 		]);
 
+		Route::get('edit/{monitor_id}', [
+			'uses' => 'MonitorController@getEdit',
+			'as' => 'monitor.edit'
+		]);
+
+		Route::post('edit/{monitor_id}/post', [
+			'uses' => 'MonitorController@postEdit',
+			'as' => 'monitor.postEdit'
+		]);
+
 		//ADDRESS
 		Route::group(['prefix' => 'adres'], function() {
 			Route::get('create/{moni_id}', [
@@ -89,6 +99,16 @@
 			Route::post('create/{moni_id}/post', [
 				'uses' => 'ContactpersonController@postCreate',
 				'as' => 'contact.postCreate'
+			]);
+
+			Route::get('edit/{contact_id}', [
+				'uses' => 'ContactpersonController@getEdit',
+				'as' => 'contact.edit'
+			]);
+
+			Route::post('edit/{contact_id}/post', [
+				'uses' => 'ContactpersonController@postEdit',
+				'as' => 'contact.postEdit'
 			]);
 		});
 

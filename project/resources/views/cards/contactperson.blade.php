@@ -18,12 +18,9 @@
 	
 	@if(Auth::user()->role != 'admin')
 		<div class="card__actions">
-			<div>
+			<a href="{{ route('contact.edit', ['contact_id' => $contact['id']]) }}" class="btn btn--icon for-volunteer">
 				@svg('edit')
-			</div>
-			<div>
-				@svg('delete')
-			</div>
+			</a>
 		</div>
 	@endif
 </div>
