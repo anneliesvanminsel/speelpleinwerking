@@ -86,6 +86,56 @@ class KidController extends Controller
 		return redirect()->route('account', ['user_id' => Auth::id()]);
 	}
 
+	public function getEdit($kid_id) {
+		$kid = Kid::findOrFail($kid_id);
+
+		return view('content.kid.edit', ['kid' => $kid]);
+	}
+
+	public function postEdit(Request $request, $kid_id)
+	{
+		$kid = Kid::findOrFail($kid_id);
+
+		$this->validate($request, [
+			'image'=> 'nullable|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
+			'name' => 'required|string|max:255',
+			'first_name' => 'required|string|max:255',
+			'birthday' => 'required|date',
+			'doc_name'=> 'required|string|max:255',
+			'doc_phone_nr'=> 'required|string|max:255',
+			'tetanus_date' => 'required_if:hasTetanusShot,1',
+			'medicins' => 'nullable|string|max:255',
+			'allergies' => 'nullable|string|max:255',
+			'info' => 'nullable|string|max:255',
+		]);
+
+		$boolSwim = $request->input('canSwim');
+		$boolTetanus = $request->input('hasTetanusShot');
+
+		$kid->name = $request->input('name');
+		$kid->first_name = $request->input('first_name');
+		$kid->birthday = $request->input('birthday');
+		$kid->canSwim = (int)$boolSwim;
+		$kid->hasTetanusShot = (int)$boolTetanus;
+		$kid->tetanus_date = $request->input('tetanus_date');
+		$kid->allergies= $request->input('allergies');
+		$kid->medicins = $request->input('medicins');
+		$kid->doc_name = $request->input('doc_name');
+		$kid->doc_phone_nr = $request->input('doc_phone_nr');
+		$kid->info = $request->input('info');
+
+		if(request()->image) {
+			$imageName = time().'.'.request()->image->getClientOriginalExtension();
+			request()->image->move(public_path('images/kid/'), $imageName);
+
+			$kid->image = $imageName;
+		}
+
+		$kid->save();
+
+		return redirect()->route('account', ['user_id' => Auth::id()]);
+	}
+
 	public function addDays($kid_id){
 		$kid = Kid::findOrFail($kid_id);
 		$weeks = Week::orderBy('startdate', 'asc')->get();

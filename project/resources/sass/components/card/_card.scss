@@ -103,4 +103,17 @@
 		justify-content: space-around;
 		align-items: center;
 	}
+
+	&__section {
+		border-top: 1px solid $ui-grey;
+		border-bottom: 1px solid $ui-grey;
+		margin: 20px 0;
+		padding: 10px 0;
+	}
+
+	&__subtitle {
+		@include font-heading;
+		font-size: 15px;
+		margin-bottom: 10px;
+	}
 }

@@ -157,6 +157,16 @@
 				'as' => 'kid.postCreate'
 			]);
 
+			Route::get('edit/{kid_id}', [
+				'uses' => 'KidController@getEdit',
+				'as' => 'kid.edit'
+			]);
+
+			Route::post('edit/{kid_id}/post', [
+				'uses' => 'KidController@postEdit',
+				'as' => 'kid.postEdit'
+			]);
+
 			Route::get('days/{kid_id}', [
 				'uses' => 'KidController@addDays',
 				'as' => 'kid.addDays'

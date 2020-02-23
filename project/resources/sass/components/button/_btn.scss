@@ -44,4 +44,31 @@
 			margin-right: 10px;
 		}
 	}
+
+	&--icon {
+		color: $ui-black;
+		background-color: transparent;
+
+		svg {
+			fill: $ui-black;
+			transform: scale(1);
+			@include default-transition;
+		}
+
+		&:hover {
+			svg {
+				transform: scale(1.2);
+			}
+		}
+
+		&.for-family {
+			background-color: transparent;
+
+			&:hover {
+				svg {
+					fill: $fam-accent;
+				}
+			}
+		}
+	}
 }
