@@ -174,6 +174,7 @@
 						type="checkbox"
 						name="hasTetanusShot"
 						value="1"
+						{{ $kid['hasTetanusShot'] == 1 ? 'checked' : '' }}
 					>
 					<div class="checkbox__text">
 						heeft een vaccinatie tegen tetanus gekregen
@@ -260,6 +261,7 @@
 						type="checkbox"
 						name="canSwim"
 						value="1"
+						{{ $kid['canSwim'] == 1 ? 'checked' : '' }}
 					>
 					<div class="checkbox__text">
 						kan zwemmen

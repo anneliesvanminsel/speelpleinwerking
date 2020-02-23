@@ -47,7 +47,6 @@
 				Kan zwemmen!
 			</div>
 		@endif
-		checken of limiet kids is gepasseerd {{ config('global.max_kids') }}
 	</div>
 	
 	

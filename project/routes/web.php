@@ -143,6 +143,16 @@
 				'uses' => 'GuardianController@postCreate',
 				'as' => 'guardian.postCreate'
 			]);
+
+			Route::get('edit/{guardian_id}', [
+				'uses' => 'GuardianController@getEdit',
+				'as' => 'guardian.edit'
+			]);
+
+			Route::post('edit/{guardian_id}/post', [
+				'uses' => 'GuardianController@postEdit',
+				'as' => 'guardian.postEdit'
+			]);
 		});
 
 		//KID

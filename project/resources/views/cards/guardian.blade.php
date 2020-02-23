@@ -20,12 +20,9 @@
 	</div>
 	@if(Auth::user()->role != 'admin')
 		<div class="card__actions">
-			<div>
+			<a href="{{ route('guardian.edit', ['guardian_id' => $guardian['id']]) }}" class="btn btn--icon for-family">
 				@svg('edit')
-			</div>
-			<div>
-				@svg('delete')
-			</div>
+			</a>
 		</div>
 	@endif
 </div>

@@ -77,10 +77,12 @@
 							<h2 class="grow">
 								Kinderen
 							</h2>
-							<a class="btn for-family is-small row has-icon" href="{{ route('kid.create', ['family_id' => $family['id']]) }}">
-								@svg('plus', 'is-white')
-								Schrijf een kind in
-							</a>
+							@if(App\Kid::with("days")->has('days')->count() < config('global.max_kids'))
+								<a class="btn for-family is-small row has-icon" href="{{ route('kid.create', ['family_id' => $family['id']]) }}">
+									@svg('plus', 'is-white')
+									Schrijf een kind in
+								</a>
+							@endif
 						</div>
 						<div class="account__section for-family">
 							<div class="account__subheading row">
