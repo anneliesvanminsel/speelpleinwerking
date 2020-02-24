@@ -48,9 +48,14 @@
 				</div>
 			
 				<div class="account__section">
-					<h3 class="account__text is-bold">
-						Adresgegevens
-					</h3>
+					<div class="row">
+						<h3 class="grow">
+							Adresgegevens
+						</h3>
+						<a href="{{ route('family.editAddress', ['address_id' => $family->address()->first()->id ]) }}" class="btn btn--icon for-volunteer is-small">
+							@svg('edit')
+						</a>
+					</div>
 					@include('cards.address', ['address' => $family->address()->first()])
 				</div>
 				

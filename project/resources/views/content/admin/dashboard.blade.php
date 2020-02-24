@@ -56,10 +56,7 @@
 			{!! $chart->html() !!}
 			{!! $kidchart->html() !!}
 		</div>
-		
 	</div>
-	
-	
 	
 	<div class="section">
 		<form action="" method="GET" class="search">
@@ -67,16 +64,17 @@
 				<select name="event" class="select" onchange="this.form.submit()">
 					<option value="1">Kies een event</option>
 					@foreach($days as $day)
-						<option value="{{$day['id']}}" class="search__option">
-							{{ \Jenssegers\Date\Date::parse(strtotime($day['date']))->format('l j F Y') }}
-						</option>
+						@if($day['date'] == \Carbon\Carbon::today() || $day['date'] >= \Carbon\Carbon::today())
+							<option value="{{$day['id']}}" class="search__option">
+								{{ \Jenssegers\Date\Date::parse(strtotime($day['date']))->format('l j F Y') }}
+							</option>
+						@endif
 					@endforeach
 				</select>
 			</div>
 		</form>
-		
-		
 	</div>
+	
 	{!! Charts::scripts() !!}
 	{!! $chart->script() !!}
 	{!! $kidchart->script() !!}

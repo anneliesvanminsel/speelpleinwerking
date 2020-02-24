@@ -562,6 +562,40 @@ input[type=radio]:disabled.for-family {
   margin-right: 10px;
 }
 
+.btn--icon {
+  color: #000000;
+  background-color: transparent;
+}
+
+.btn--icon svg {
+  fill: #000000;
+  -webkit-transform: scale(1);
+          transform: scale(1);
+  -webkit-transition: all 0.2s ease;
+  transition: all 0.2s ease;
+}
+
+.btn--icon:hover svg {
+  -webkit-transform: scale(1.2);
+          transform: scale(1.2);
+}
+
+.btn--icon.for-family {
+  background-color: transparent;
+}
+
+.btn--icon.for-family:hover svg {
+  fill: #448d76;
+}
+
+.btn--icon.for-volunteer {
+  background-color: transparent;
+}
+
+.btn--icon.for-volunteer:hover svg {
+  fill: #fba90a;
+}
+
 .hero {
   position: relative;
   height: 100%;
@@ -1356,8 +1390,8 @@ ul.for-volunteer .list__item:before {
 .card__image {
   width: 150px;
   height: 150px;
-  max-height: 150px;
   max-width: 150px;
+  max-height: 150px;
   margin: 20px auto;
   overflow: hidden;
   border-radius: 50%;
@@ -1366,12 +1400,14 @@ ul.for-volunteer .list__item:before {
 }
 
 .card__image img {
-  display: inline;
-  margin: 0 auto;
-  min-height: 100%;
-  min-width: 100%;
-  height: 100% !important;
-  width: auto !important;
+  position: relative;
+  top: 50%;
+  left: 50%;
+  -webkit-transform: translatex(-50%) translatey(-50%);
+          transform: translatex(-50%) translatey(-50%);
+  height: auto;
+  width: auto;
+  max-width: 100%;
 }
 
 .card__content {
@@ -1403,6 +1439,19 @@ ul.for-volunteer .list__item:before {
   justify-content: space-around;
   -webkit-box-align: center;
           align-items: center;
+}
+
+.card__section {
+  border-top: 1px solid #3C3D41;
+  border-bottom: 1px solid #3C3D41;
+  margin: 20px 0;
+  padding: 10px 0;
+}
+
+.card__subtitle {
+  font-family: "Comfortaa", cursive;
+  font-size: 15px;
+  margin: 10px 0;
 }
 
 .teaser {

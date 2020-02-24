@@ -5,14 +5,14 @@
 
 @section('content')
 	<div class="section account">
-		<div>
-			<h1>
-				Mijn account
-			</h1>
-		</div>
-		
 		<div class="grid">
 			@if($user['account_id'] === null)
+				<div>
+					<h1>
+						Mijn account
+					</h1>
+				</div>
+				
 				<div class="account__section for-volunteer">
 					<div class="account__subheading row">
 						<h2 class="account__title grow">
@@ -38,21 +38,63 @@
 				@php
 					$monitor = $user->account()->first();
 				@endphp
+				<div class="row">
+					<h1 class="account__text grow">
+						{{ $monitor['first_name'] }} {{ $monitor['name'] }}
+					</h1>
+					<a href="{{ route('monitor.edit', ['monitor_id' => $monitor['id']]) }}" class="btn btn--icon for-volunteer is-small">
+						@svg('edit')
+					</a>
+				</div>
 				<div class="account__section">
-					<h2 class="account__text">
-						Account gegevens
-					</h2>
 					<div class="account__text">
 						{{ $user['email'] }}
+					</div>
+					<div class="account__text">
+						{{ $monitor['phone_nr'] }}
+					</div>
+					<div class="account__text">
+						{{ \Jenssegers\Date\Date::parse(strtotime($monitor['birthday']))->format('j F Y') }}
 					</div>
 				</div>
 				
 				<div class="account__section">
-					<h3 class="account__text is-bold">
-						Adresgegevens
-					</h3>
+					<div class="row">
+						<h3 class="grow">
+							Adresgegevens
+						</h3>
+						<a href="{{ route('monitor.editAddress', ['address_id' => $monitor->address()->first()->id ]) }}" class="btn btn--icon for-volunteer is-small">
+							@svg('edit')
+						</a>
+					</div>
 					@include('cards.address', ['address' => $monitor->address()->first()])
 				</div>
+			
+				<div class="account__section">
+					<h3>
+						Extra informatie
+					</h3>
+					@if($monitor['allergies'])
+						<div class="account__text">
+							Allergieën: <br>
+							{{ $monitor['allergies'] }}
+						</div>
+					@endif
+					@if($monitor['isVeggie'] == 1)
+						<div class="account__text">
+							Ik ben vegetarisch!
+						</div>
+					@endif
+					@if($monitor['extra_info'])
+						<div class="account__text">
+							Extra informatie die je gedeeld hebt met ons: <br>
+							{{ $monitor['extra_info'] }}
+						</div>
+					@endif
+					
+				</div>
+				
+				
 				
 				@if($monitor->contacts()->exists())
 					<div  class="account__section row">

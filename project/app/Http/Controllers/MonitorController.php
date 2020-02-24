@@ -7,6 +7,7 @@ use App\User;
 use App\Week;
 use Carbon\Carbon;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 class MonitorController extends Controller
 {
@@ -71,6 +72,51 @@ class MonitorController extends Controller
 		$user->save();
 
 		return redirect()->route('monitor.createAddress', ['moni_id' => $monitor['id']]);
+	}
+
+	public function getEdit($moni_id) {
+		$monitor = Monitor::findOrFail($moni_id);
+
+		return view('content.monitor.edit', ['monitor' => $monitor]);
+	}
+
+	public function postEdit(Request $request, $moni_id) {
+		$monitor = Monitor::findOrFail($moni_id);
+
+		$dt = new Carbon();
+		$before = $dt->subYears(16)->format('Y-m-d');
+
+		$this->validate($request, [
+			'image'=> 'nullable|image|mimes:jpeg,png,jpg,gif,svg|max:2048', //image
+			'name' => 'required|string|max:255',
+			'first_name' => 'required|string|max:255',
+			'birthday' => 'required|date|before:' . $before,
+			'extra_info' => 'nullable|string|max:255',
+			'phone_nr'=> 'required|string|max:255',
+			'isVeggie' => 'nullable|string|max:255',
+			'allergies' => 'nullable|string|max:255',
+		]);
+
+		$boolVeggie = $request->input('isVeggie');
+
+		if($request->input('image')) {
+			$imageName = time().'.'.request()->image->getClientOriginalExtension();
+			request()->image->move(public_path('images/monitor'), $imageName);
+
+			$monitor->image = $imageName;
+		}
+
+		$monitor->name = $request->input('name');
+		$monitor->first_name = $request->input('first_name');
+		$monitor->birthday = $request->input('birthday');
+		$monitor->extra_info = $request->input('extra_info');
+		$monitor->phone_nr = $request->input('phone_nr');
+		$monitor->allergies = $request->input('allergies');
+		$monitor->isVeggie = (int)$boolVeggie;
+
+		$monitor->save();
+
+		return redirect()->route('account', ['user_id' => Auth::id()]);
 	}
 
 	public function search(Request $request) {
