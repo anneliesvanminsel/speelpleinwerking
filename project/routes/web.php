@@ -87,6 +87,16 @@
 				'uses' => 'AddressController@postCreateMoni',
 				'as' => 'monitor.postCreateAddress'
 			]);
+
+			Route::get('edit/{address_id}', [
+				'uses' => 'AddressController@getMoniEdit',
+				'as' => 'monitor.editAddress'
+			]);
+
+			Route::post('edit/{address_id}/post', [
+				'uses' => 'AddressController@postMoniEdit',
+				'as' => 'monitor.postEditAddress'
+			]);
 		});
 
 		//GUARDIAN
@@ -149,6 +159,16 @@
 			Route::post('create/post', [
 				'uses' => 'AddressController@postCreateFamily',
 				'as' => 'family.postCreateAddress'
+			]);
+
+			Route::get('edit/{address_id}', [
+				'uses' => 'AddressController@getFamEdit',
+				'as' => 'family.editAddress'
+			]);
+
+			Route::post('edit/{address_id}/post', [
+				'uses' => 'AddressController@postFamEdit',
+				'as' => 'family.postEditAddress'
 			]);
 		});
 

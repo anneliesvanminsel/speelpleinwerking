@@ -84,4 +84,60 @@ class AddressController extends Controller
 
 		return redirect()->route('account', ['user_id' => $monitor['user_id']]);
 	}
+
+	public function getFamEdit($address_id) {
+		$address = Address::findOrFail($address_id);
+
+		return view('content.address.fam-edit', ['address' => $address]);
+	}
+
+	public function postFamEdit(Request $request, $address_id) {
+		$address = Address::findOrFail($address_id);
+
+		$this->validate($request, [
+			'street' => 'required|string|max:255',
+			'streetnumber'=> 'required|string|max:255',
+			'postalcode'=> 'required|integer|min:1000|max:10000',
+			'city'=> 'required|string|max:255',
+			'box'=> 'nullable|string|max:255',
+		]);
+
+		$address->street = $request->input('street');
+		$address->streetnumber = $request->input('streetnumber');
+		$address->box = $request->input('box');
+		$address->postalcode = $request->input('postalcode');
+		$address->city = $request->input('city');
+
+		$address->save();
+
+		return redirect()->route('account', ['user_id' => Auth::id()]);
+	}
+
+	public function getMoniEdit($address_id) {
+		$address = Address::findOrFail($address_id);
+
+		return view('content.address.moni-edit', ['address' => $address]);
+	}
+
+	public function postMoniEdit(Request $request, $address_id) {
+		$address = Address::findOrFail($address_id);
+
+		$this->validate($request, [
+			'street' => 'required|string|max:255',
+			'streetnumber'=> 'required|string|max:255',
+			'postalcode'=> 'required|integer|min:1000|max:10000',
+			'city'=> 'required|string|max:255',
+			'box'=> 'nullable|string|max:255',
+		]);
+
+		$address->street = $request->input('street');
+		$address->streetnumber = $request->input('streetnumber');
+		$address->box = $request->input('box');
+		$address->postalcode = $request->input('postalcode');
+		$address->city = $request->input('city');
+
+		$address->save();
+
+		return redirect()->route('account', ['user_id' => Auth::id()]);
+	}
 }
