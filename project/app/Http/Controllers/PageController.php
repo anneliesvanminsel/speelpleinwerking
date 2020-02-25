@@ -62,27 +62,11 @@ class PageController extends Controller
 	public function getDashboard($id){
 		$user = User::where('id', $id)->first();
 		$days = Day::orderBy('date', 'asc')->get();
-		//$kids = $day->kids()->get();
-
-		$monitors = Monitor::where(DB::raw("(DATE_FORMAT(created_at,'%Y'))"), date('Y'))->get();
-		$kiddos = Kid::where(DB::raw("(DATE_FORMAT(created_at,'%Y'))"), date('Y'))->get();
-
-		$chart = Charts::database($monitors, 'bar', 'highcharts')
-			->title('Registratie vrijwilligers')
-			->elementLabel('Totaal aantal vrijwilligers')
-			->dimensions(300, 500)
-			->colors(['red', 'green', 'blue', 'yellow', 'orange', 'cyan', 'magenta'])
-			->groupByMonth(date('Y'), true);
-
-		$kidchart = Charts::database($kiddos, 'bar', 'highcharts')
-			->title('Registratie Kinderen')
-			->elementLabel('Totaal aantal kinderen')
-			->dimensions(300, 500)
-			->colors(['yellow', 'orange', 'cyan', 'magenta', 'red', 'green', 'blue'])
-			->groupByMonth(date('Y'), true);
+		$kids = Kid::orderBy('first_name', 'asc')->get();
 
 
-		return view('content.admin.dashboard', ['user_id' => $user['id'], 'days' => $days , 'chart' => $chart, 'kidchart' => $kidchart]);
+
+		return view('content.admin.dashboard', ['user_id' => $user['id'], 'days' => $days, 'kids' => $kids]);
 	}
 
 
@@ -99,7 +83,7 @@ class PageController extends Controller
 	}
 
 	public function getHoofdMonitor(){
-		$admins = Admin::orderBy('created_at', 'desc')->get();
+		$admins = Admin::where('isActive', '=', 1)->get();
 
 		return view('page.admin-info', ['admins' => $admins]);
 	}

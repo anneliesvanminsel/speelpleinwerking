@@ -49,22 +49,13 @@
 	</div>
 	
 	<div class="section">
-		<h2 class="account__subheading">
-			Data van registratie
-		</h2>
-		<div class="row has-two">
-			{!! $chart->html() !!}
-			{!! $kidchart->html() !!}
-		</div>
-	</div>
-	
-	<div class="section">
-		<form action="" method="GET" class="search">
+		<form action="{{ route('search.kidsOnDay') }}" method="POST" class="search">
+			@csrf
 			<div class="search__group">
-				<select name="event" class="select" onchange="this.form.submit()">
+				<select name="day" class="select" onchange="this.form.submit()">
 					<option value="1">Kies een event</option>
 					@foreach($days as $day)
-						@if($day['date'] == \Carbon\Carbon::today() || $day['date'] >= \Carbon\Carbon::today())
+						@if(\Carbon\Carbon::parse($day['date'])->isToday() || $day['date'] >= \Carbon\Carbon::today())
 							<option value="{{$day['id']}}" class="search__option">
 								{{ \Jenssegers\Date\Date::parse(strtotime($day['date']))->format('l j F Y') }}
 							</option>
@@ -75,7 +66,11 @@
 		</form>
 	</div>
 	
-	{!! Charts::scripts() !!}
-	{!! $chart->script() !!}
-	{!! $kidchart->script() !!}
+	@if($kids->count() > 0)
+		<div class="section card--container is-overview">
+			@foreach($kids as $kid)
+				@include('cards.kid-day', ['kid' => $kid])
+			@endforeach
+		</div>
+	@endif
 @endsection
