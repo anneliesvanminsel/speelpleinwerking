@@ -14,7 +14,8 @@ class KidController extends Controller
 {
     //
 	public function getOverview() {
-		$kids = Kid::orderBy('name', 'desc')->get();
+		$kids = Kid::orderBy('name', 'desc')->paginate(4);
+
 		return view('content.kid.overview', ['kids' => $kids, 'oldSearch' => '']);
 	}
 
@@ -26,7 +27,7 @@ class KidController extends Controller
 
 	public function search(Request $request) {
 		$search = $request->input('search');
-		$kids = Kid::where('name', 'like', '%' . $search . '%')->orWhere('first_name', 'like', '%' . $search . '%')->get();
+		$kids = Kid::where('name', 'like', '%' . $search . '%')->orWhere('first_name', 'like', '%' . $search . '%')->paginate(4);
 
 		return view('content.kid.overview', ['kids' => $kids, 'oldSearch' => $search]);
 	}
@@ -56,6 +57,18 @@ class KidController extends Controller
 
 		$boolSwim = $request->input('canSwim');
 		$boolTetanus = $request->input('hasTetanusShot');
+
+		if ($boolTetanus === '1') {
+			$boolTetanus = 1;
+		} else {
+			$boolTetanus = 0;
+		}
+
+		if ($boolSwim === '1') {
+			$boolSwim = 1;
+		} else {
+			$boolSwim = 0;
+		}
 
 		$kid = new Kid([
 			'name' => $request->input('name'),
@@ -111,6 +124,18 @@ class KidController extends Controller
 
 		$boolSwim = $request->input('canSwim');
 		$boolTetanus = $request->input('hasTetanusShot');
+
+		if ($boolTetanus === '1') {
+			$boolTetanus = 1;
+		} else {
+			$boolTetanus = 0;
+		}
+
+		if ($boolSwim === '1') {
+			$boolSwim = 1;
+		} else {
+			$boolSwim = 0;
+		}
 
 		$kid->name = $request->input('name');
 		$kid->first_name = $request->input('first_name');
@@ -205,5 +230,25 @@ class KidController extends Controller
 
 		return redirect()->route('admin.dashboard',
 			['user_id' => $user['id']]);
+	}
+
+	public function postDeleteAllDays($kid_id) {
+		$kid = Kid::findOrFail($kid_id);
+
+		$kid->isActive = 0;
+		$kid->save();
+
+		$kid->days()->detach();
+
+		return redirect()->route('kid.detail', ['kid_id' => $kid['id'] ]);
+	}
+
+	public function postIsActive($kid_id) {
+		$kid = Kid::findOrFail($kid_id);
+
+		$kid->isActive = 1;
+		$kid->save();
+
+		return redirect()->route('kid.detail', ['kid_id' => $kid['id'] ]);
 	}
 }
