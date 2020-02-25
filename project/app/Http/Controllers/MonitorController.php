@@ -13,7 +13,7 @@ class MonitorController extends Controller
 {
     //
 	public function getOverview() {
-		$monitoren = Monitor::orderBy('name', 'desc')->get();
+		$monitoren = Monitor::orderBy('name', 'desc')->paginate(8);
 		return view('content.monitor.overview', ['monitoren' => $monitoren, 'oldSearch' => '']);
 	}
 
@@ -121,7 +121,7 @@ class MonitorController extends Controller
 
 	public function search(Request $request) {
 		$search = $request->input('search');
-		$monitoren = Monitor::where('name', 'like', '%' . $search . '%')->orWhere('first_name', 'like', '%' . $search . '%')->get();
+		$monitoren = Monitor::where('name', 'like', '%' . $search . '%')->orWhere('first_name', 'like', '%' . $search . '%')->paginate(8);
 		return view('content.monitor.overview', ['monitoren' => $monitoren, 'oldSearch' => $search]);
 	}
 
@@ -168,7 +168,13 @@ class MonitorController extends Controller
 		$week = Week::findOrFail($week_id);
 		$user = $monitor->users()->first();
 
-		$monitor->weeks()->sync([$week['id'] => [ 'wantsIntern' => true] ], false);
+		$checkWeek = $monitor->weeks()->find($week['id']);
+		if($checkWeek->pivot->wantsIntern == 1) {
+			$monitor->weeks()->sync([$week['id'] => [ 'wantsIntern' => false] ], false);
+		} else {
+			$monitor->weeks()->sync([$week['id'] => [ 'wantsIntern' => true] ], false);
+		}
+
 
 		return redirect()->route('account',
 			['user_id' => $user['id']]);
