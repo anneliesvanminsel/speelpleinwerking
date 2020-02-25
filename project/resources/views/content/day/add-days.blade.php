@@ -24,6 +24,19 @@
 		<form class="form article" method="POST" action="{{route('kid.postDays', ['kid_id' => $kid['id'] ])}}">
 			@csrf
 			
+			<div class="checkbox">
+				<label class="checkbox__label">
+					<input
+						class="checkbox__input for-family"
+						type="checkbox"
+						onClick="toggle(this)"
+					>
+					<div class="checkbox__title">
+						Duid alle dagen aan.
+					</div>
+				</label>
+			</div>
+			
 			@foreach($weeks as $week)
 				<div class="account__section">
 					<div class="checkbox__title account__subheading">
@@ -35,7 +48,7 @@
 							<label class="checkbox__label">
 								
 								<input
-									class="checkbox__input for-volunteer"
+									class="checkbox__input for-family"
 									type="checkbox"
 									name="days[]"
 									value="{{ $day['id'] }}"
@@ -63,5 +76,6 @@
 			</div>
 		
 		</form>
+	<script src="{{ asset('js/checkbox.js') }}" > </script>
 	</div>
 @endsection

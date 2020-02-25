@@ -98,7 +98,7 @@
 							<div class="account__text">
 								Om jouw kinderen in te schrijven voor verschillende dagen klik je hieronder op @svg('calendar (3)').
 								<br>
-								Dit geeft jouw een overzicht naar alle zomerdagen waarop jouw kind naar onze speelpleinwerking kan komen.
+								Dit geeft jou een overzicht naar alle zomerdagen waarop jouw kind naar onze speelpleinwerking kan komen.
 							</div>
 						</div>
 						<div class="account__section card--container">
