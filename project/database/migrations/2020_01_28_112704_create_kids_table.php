@@ -28,6 +28,7 @@ class CreateKidsTable extends Migration
 			$table->string('doc_phone_nr');
 			$table->string('info')->nullable();
 			$table->integer('family_id');
+			$table->boolean('isActive')->default(1);
 			$table->timestamps();
         });
     }

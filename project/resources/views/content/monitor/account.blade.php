@@ -93,9 +93,7 @@
 					@endif
 					
 				</div>
-				
-				
-				
+			
 				@if($monitor->contacts()->exists())
 					<div  class="account__section row">
 						<h2 class="grow">
@@ -107,7 +105,7 @@
 						</a>
 					</div>
 					
-					<div class="account__section card--container">
+					<div class="account__section card--container is-column">
 						@foreach($monitor->contacts()->get() as $contact)
 							@include('cards.contactperson', ['contact' => $contact])
 						@endforeach

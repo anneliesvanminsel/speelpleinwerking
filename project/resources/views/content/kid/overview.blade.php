@@ -15,27 +15,23 @@
 		</div>
 		
 		<form action="{{ route('kid.search') }}" method="GET" class="search section">
-			<div class="row">
-				<div class="form__group grow">
-					<input
-						type="text"
-						name="search"
-						class="form__input for-admin"
-						value="{{ $oldSearch }}"
-						placeholder="Voor- of achternaam"
-					>
-					<label for="search" class="form__label">
-						Naam van het kind
-					</label>
-				</div>
-				<button type="submit" class="btn is-small for-admin">
-					Zoek
-				</button>
+			<div class="form__group">
+				<input
+					type="text"
+					name="search"
+					class="form__input for-admin"
+					value="{{ $oldSearch }}"
+					placeholder="Voor- of achternaam"
+					onchange="this.form.submit()"
+				>
+				<label for="search" class="form__label">
+					Naam van het kind
+				</label>
 			</div>
 		</form>
 		
 		<div class="section">
-			<div class="account__section card--container">
+			<div class="account__section card--container is-overview">
 				@if($kids->count() > 0)
 					@foreach($kids as $kid)
 						@include('cards.kid', ['kid' => $kid])
@@ -47,6 +43,8 @@
 				@endif
 			</div>
 		</div>
-		
+		<div>
+			{{ $kids->links() }}
+		</div>
 	</div>
 @endsection

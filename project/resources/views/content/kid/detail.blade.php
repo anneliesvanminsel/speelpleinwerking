@@ -9,9 +9,21 @@
 				@svg('back') Terug
 			</a>
 		</div>
-		<h1>
-			{{$kid['first_name']}} {{$kid['name']}}
-		</h1>
+		<div class="row">
+			<h1 class="grow">
+				{{$kid['first_name']}} {{$kid['name']}}
+			</h1>
+			@if($kid['isActive'] == 0)
+				<form class="form" onsubmit="return confirm('Ben je zeker dat je {{$kid["first_name"]}} {{$kid["name"]}} weer wilt laten inschrijven?');" method="POST" action="{{route('kid.resetIsActive', ['kid_id' => $kid['id']])}}">
+					@csrf
+					<button class="btn for-admin is-small" type="submit">
+						Mag weer inschrijven
+					</button>
+				</form>
+			@endif
+		</div>
+		
+		
 	</div>
 	<div class="article">
 		<div class="account__section">
@@ -55,9 +67,13 @@
 					<h2 class="grow">
 						Ingeschreven voor de onderstaande dagen
 					</h2>
+					<form class="form" onsubmit="return confirm('Ben je zeker dat je alle dagen wilt wissen van {{$kid["first_name"]}} {{$kid["name"]}} wilt verwijderen?');" method="POST" action="{{route('kid.deleteAllDays', ['kid_id' => $kid['id']])}}">
+						@csrf
+						<button class="btn for-admin is-small" type="submit">Verwijder ALLE dagen</button>
+					</form>
 				</div>
-				<div class="account__section card--container">
-					@foreach($kid->days()->get() as $day)
+				<div class="account__section card--container is-overview">
+					@foreach($kid->days()->orderBy('date')->get() as $day)
 						<div class="card">
 							<div class="card__content">
 								<b>
@@ -77,6 +93,7 @@
 													value="1"
 													onchange="this.form.submit()"
 													{{ $kid->days()->findOrFail($day['id'], ['day_id'])->pivot->isPresent === 1 ? 'checked' : '' }}
+													{{ \Carbon\Carbon::parse($day['date']) < \Carbon\Carbon::today() ? 'disabled' : '' }}
 												>
 												Aanwezig
 											</label>

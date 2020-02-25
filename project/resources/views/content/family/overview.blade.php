@@ -11,16 +11,26 @@
 			</h1>
 		</div>
 		
-		<div class="grid">
-			@foreach($families as $family)
-				<div class="grid__item">
-					<h3>
-						@php
-							$user  = $family->users()->first()
-						@endphp
-						{{ $user['email'] }}
-					</h3>
-				</div>
+		<form action="{{ route('family.search') }}" method="GET" class="search">
+			<div class="form__group">
+				<input
+					type="text"
+					name="search"
+					class="form__input for-admin"
+					placeholder="mailadres"
+					value="{{ $oldSearch }}"
+					onchange="this.form.submit()"
+				>
+				<label for="search" class="form__label">
+					Zoek op mailadres
+				</label>
+			</div>
+		</form>
+
+		
+		<div class="card--container is-overview">
+			@foreach($users as $user)
+				@include('cards.family', ['user' => $user])
 			@endforeach
 		</div>
 	</div>

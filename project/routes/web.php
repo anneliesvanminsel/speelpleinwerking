@@ -244,6 +244,12 @@
 			'as' => 'admin.dashboard'
 		]);
 
+		Route::post('searchKids/post', [
+			'uses' => 'AdminController@postSearchKids',
+			'as' => 'search.kidsOnDay'
+		]);
+
+
 		//SUMMER
 		Route::group(['prefix' => 'zomer'], function() {
 			Route::get('create', [
@@ -304,9 +310,25 @@
 				'uses' => 'KidController@getDetail',
 				'as' => 'kid.detail'
 			]);
+
+			Route::post('detail/{kid_id}/delete-all-days', [
+				'uses' => 'KidController@postDeleteAllDays',
+				'as' => 'kid.deleteAllDays'
+			]);
+
+			Route::post('detail/{kid_id}/reset-is-active', [
+				'uses' => 'KidController@postIsActive',
+				'as' => 'kid.resetIsActive'
+			]);
+
+			Route::get('overzicht/zoek', [
+				'uses' => 'KidController@search',
+				'as' => 'kid.search'
+			]);
+
 		});
 
-		//Families
+		//HOOFDLEIDING
 		Route::group(['prefix' => 'hoofdleiding'], function() {
 			Route::get('huidig-overzicht', [
 				'uses' => 'AdminController@getCurrentAdmins',
@@ -322,9 +344,10 @@
 				'uses' => 'KidController@search',
 				'as' => 'kid.search'
 			]);
+
 		});
 
-		//Volunteer
+		//MONITOR
 		Route::group(['prefix' => 'monitors'], function() {
 			Route::get('overzicht', [
 				'uses' => 'MonitorController@getOverview',
@@ -342,11 +365,16 @@
 			]);
 		});
 
-		//Families
+		//FAMILY
 		Route::group(['prefix' => 'families'], function() {
 			Route::get('overzicht', [
 				'uses' => 'FamilyController@getOverview',
 				'as' => 'family.overview'
+			]);
+
+			Route::get('overzicht/zoek', [
+				'uses' => 'FamilyController@search',
+				'as' => 'family.search'
 			]);
 		});
 

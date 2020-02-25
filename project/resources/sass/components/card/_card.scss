@@ -3,7 +3,7 @@
 	transition: 0.3s;
 	border-radius: 10px;
 	overflow: hidden;
-	width: 250px;
+	width: calc((100% / 4) - 15px);
 	margin-right: 20px;
 	margin-top: 20px;
 
@@ -41,19 +41,24 @@
 		align-items: stretch;
 		flex-wrap: wrap;
 		margin-top: 20px;
-	}
 
-	&--mc-container {
-		padding: 10px;
-		margin: 10px;
-	}
+		&.is-column {
+			align-items: flex-start;
+		}
 
-	&--masonry {
-		margin-top: 20px;
-		column-count: 3;
-		column-gap: 5px;
-	}
+		&.is-overview {
+			display: grid;
+			grid-template-columns: 220px 220px 220px 220px;
+			grid-template-rows: auto;
 
+			.card {
+				width: calc(100% - 20px);
+				margin: 10px;
+				height: auto;
+			}
+		}
+	}
+	
 	&__image {
 		width: 150px;
 		height: 150px;
@@ -117,5 +122,21 @@
 		@include font-heading;
 		font-size: 15px;
 		margin: 10px 0;
+	}
+
+	&.has-warning {
+		background-color: $ui-warning;
+	}
+
+	&.has-error {
+		background-color: $ui-error;
+	}
+
+	&.has-none {
+		background-color: $ui-invalid;
+	}
+
+	&.invalid {
+		opacity: .5;
 	}
 }

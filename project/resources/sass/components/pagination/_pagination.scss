@@ -1,0 +1,25 @@
+.pagination {
+  text-align: center;
+  width: 100%;
+  margin-bottom: 20px;
+  list-style: none;
+
+  li {
+    display: inline-block;
+    @include font-base;
+    color: $ui-black;
+    font-size: 18px;
+    padding: 12px 20px;
+    margin: 8px 0;
+    box-sizing: border-box;
+  }
+
+  a {
+    color: $ui-black;
+  }
+
+  .active {
+    font-size: 20px;
+    color: $admin-accent;
+  }
+}
