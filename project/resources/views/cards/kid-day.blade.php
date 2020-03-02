@@ -32,6 +32,45 @@
 		<p class="card__text">
 			{{ \Jenssegers\Date\Date::parse(strtotime($kid['birthday']))->format('j F Y') }}
 		</p>
+		<div class="card__section" style="border-bottom: none">
+			<form action="{{ route('kid.attendance', ['kid_id' => $kid['id'], 'day_id' => $oldDay ]) }}" method="POST" class="search">
+				@csrf
+				<div class="search__group">
+					<div class="checkbox">
+						<label class="checkbox__label">
+							<input
+								class="checkbox__input for-admin"
+								type="checkbox"
+								name="attendance"
+								value="1"
+								onchange="this.form.submit()"
+								{{ $kid->days()->findOrFail($oldDay, ['day_id'])->pivot->isPresent === 1 ? 'checked' : '' }}
+							>
+							Aanwezig
+						</label>
+					</div>
+				</div>
+			</form>
+			
+			<form action="{{ route('kid.paid', ['kid_id' => $kid['id'], 'day_id' => $oldDay]) }}" method="POST" class="search">
+				@csrf
+				<div class="search__group">
+					<div class="checkbox">
+						<label class="checkbox__label">
+							<input
+								class="checkbox__input for-admin"
+								type="checkbox"
+								name="paid"
+								onchange="this.form.submit()"
+								value="1"
+								{{ $kid->days()->findOrFail($oldDay, ['day_id'])->pivot->hasPaid === 1 ? 'checked' : '' }}
+							>
+							Betaald
+						</label>
+					</div>
+				</div>
+			</form>
+		</div>
 		<div class="card__section">
 			<h5 class="card__subtitle">
 				Medische gegevens
@@ -54,7 +93,6 @@
 		<div class="card__text">
 			{{ $kid['info'] }}
 		</div>
-		
 		
 	</div>
 </a>

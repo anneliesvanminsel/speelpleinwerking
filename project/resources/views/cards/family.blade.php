@@ -1,4 +1,4 @@
-<a class="card for-family" href="{{ route('monitor.detail', ['moni_id' => $user->account()->first()->id]) }}">
+<a class="card for-family" href="{{ route('family.detail', ['family_id' => $user->account()->first()->id]) }}">
 	<div class="card__content">
 		<div class="card__text">
 			{{ $user->email }}

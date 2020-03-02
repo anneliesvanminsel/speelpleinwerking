@@ -27,7 +27,20 @@ class AdminController extends Controller
 
 		$days = Day::orderBy('date', 'asc')->get();
 		$kids = Day::findOrFail($day_id)->kids()->get();
+		$oldDay = $day_id;
 
-		return view('content.admin.dashboard', ['user_id' => $user['id'], 'days' => $days, 'kids' => $kids]);
+		return view('content.admin.dashboard', ['user_id' => $user['id'], 'days' => $days, 'kids' => $kids, 'oldDay' => $oldDay]);
+	}
+
+	public function postSearchCurrentAdmin () {
+		$admins = Admin::where('isActive', '=', 1)->paginate(20);
+
+		return view('content.admin.overview-current', ['admins' => $admins]);
+	}
+
+	public function postSearchOldAdmin () {
+		$admins = Admin::where('isActive', '=', 0)->paginate(20);
+
+		return view('content.admin.overview-old', ['admins' => $admins]);
 	}
 }

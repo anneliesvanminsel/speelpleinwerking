@@ -1,4 +1,14 @@
 <?php
+	use App\Mail\MailtrapExample;
+	use Illuminate\Support\Facades\Mail;
+
+	Route::get('/send-mail', function () {
+
+		Mail::to('newuser@example.com')->send(new MailtrapExample());
+
+		return 'A message has been sent to Mailtrap!';
+
+	});
 
 	/*
 	|--------------------------------------------------------------------------
@@ -375,6 +385,11 @@
 			Route::get('overzicht/zoek', [
 				'uses' => 'FamilyController@search',
 				'as' => 'family.search'
+			]);
+
+			Route::get('detail/{family_id}', [
+				'uses' => 'FamilyController@getDetail',
+				'as' => 'family.detail'
 			]);
 		});
 

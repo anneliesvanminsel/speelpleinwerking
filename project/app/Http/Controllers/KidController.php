@@ -211,8 +211,7 @@ class KidController extends Controller
 			$kid->days()->sync([$day['id'] => [ 'isPresent' => false] ], false);
 		}
 
-		return redirect()->route('admin.dashboard',
-			['user_id' => $user['id']]);
+		return redirect()->back();
 	}
 
 	public function postPayment($kid_id, $day_id) {
@@ -228,8 +227,7 @@ class KidController extends Controller
 		}
 
 
-		return redirect()->route('admin.dashboard',
-			['user_id' => $user['id']]);
+		return redirect()->back();
 	}
 
 	public function postDeleteAllDays($kid_id) {

@@ -9,9 +9,17 @@
 				@svg('back') Terug
 			</a>
 		</div>
-		<h1>
-			{{$monitor['first_name']}} {{$monitor['name']}}
-		</h1>
+		<div class="row">
+			<h1 class="grow">
+				{{$monitor['first_name']}} {{$monitor['name']}}
+			</h1>
+			<div>
+				<a href="" class="btn for-admin is-small">
+					Maak hoofdleiding
+				</a>
+			</div>
+		</div>
+		
 	</div>
 	<div class="article">
 		<div class="account__section">

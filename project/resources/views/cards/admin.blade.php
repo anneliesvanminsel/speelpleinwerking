@@ -6,24 +6,13 @@
 	@endif
 	<div class="card__content">
 		<div class="card__title">
-			{{$admin['name']}} {{$admin['first_name']}}
+			{{ $admin['name'] }} {{ $admin['first_name'] }}
 		</div>
 		<div class="card__text">
-			{{date('d F Y',strtotime($admin['birthday']))}}
+			{{ date('d F Y',strtotime($admin['birthday'])) }}
 		</div>
 		<div class="card__text is-role">
-			{{$admin['role']}}
-		</div>
-	</div>
-	<div class="card__actions">
-		<div>
-			@svg('calendar (3)')
-		</div>
-		<div>
-			@svg('edit')
-		</div>
-		<div>
-			@svg('delete')
+			{{ $admin['phone_nr'] }}
 		</div>
 	</div>
 </a>

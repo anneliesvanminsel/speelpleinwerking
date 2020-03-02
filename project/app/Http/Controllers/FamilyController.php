@@ -14,6 +14,12 @@ class FamilyController extends Controller
 		return view('content.family.overview', ['users' => $users, 'oldSearch' => '']);
 	}
 
+	public function getDetail($fam_id) {
+		$family = Family::findOrFail($fam_id);
+
+		return view('content.family.detail', ['family' => $family]);
+	}
+
 	public function search(Request $request) {
 		$search = $request->input('search');
 

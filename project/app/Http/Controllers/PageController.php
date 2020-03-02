@@ -62,11 +62,11 @@ class PageController extends Controller
 	public function getDashboard($id){
 		$user = User::where('id', $id)->first();
 		$days = Day::orderBy('date', 'asc')->get();
-		$kids = Kid::orderBy('first_name', 'asc')->get();
+		$day = Day::where('date', '=', Carbon::today())->first();
+		$oldDay = $day['id'];
+		$kids = Day::findOrFail($oldDay)->kids()->get();
 
-
-
-		return view('content.admin.dashboard', ['user_id' => $user['id'], 'days' => $days, 'kids' => $kids]);
+		return view('content.admin.dashboard', ['user_id' => $user['id'], 'days' => $days, 'kids' => $kids, 'oldDay' => $oldDay]);
 	}
 
 
