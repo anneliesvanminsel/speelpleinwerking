@@ -119,7 +119,7 @@
 					>
 					
 					<label for="minAge" class="form__label">
-						Eerste toegelate geboortedatum
+						Minimumleeftijd
 					</label>
 					
 					@error('minAge')
@@ -142,7 +142,7 @@
 					>
 					
 					<label for="maxAge" class="form__label">
-						Laatste toegelaten geboortedatum
+						Maximumleeftijd
 					</label>
 					
 					@error('maxAge')

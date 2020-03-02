@@ -87,7 +87,7 @@ class KidController extends Controller
 		]);
 
 		if(request()->image) {
-			$imageName = time().'.'.request()->image->getClientOriginalExtension();
+			$imageName = $kid->first_name.'-'.$kid->name.'.'.request()->image->getClientOriginalExtension();
 			request()->image->move(public_path('images/kid/'), $imageName);
 
 			$kid->image = $imageName;

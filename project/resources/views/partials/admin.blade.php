@@ -65,11 +65,6 @@
 			Anderen
 		</li>
 		<li class="nav__item">
-			<a class="nav__link {{ (request()->is('admin/werkgroepen*')) ? 'is-active' : '' }}" href="{{ route('playgroup.overview') }}">
-				Werkgroepen
-			</a>
-		</li>
-		<li class="nav__item">
 			<a class="nav__link {{ (request()->is('admin/speelgroepen*')) ? 'is-active' : '' }}" href="{{ route('playgroup.overview') }}">
 				Speelgroepen
 			</a>

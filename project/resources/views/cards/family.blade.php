@@ -10,7 +10,9 @@
 			</h5>
 			<div class="card__text">
 				@foreach($user->account()->first()->kids()->get() as $kid)
-					{{ $kid['first_name'] }} {{ $kid['name'] }}
+					<p>
+						{{ $kid['first_name'] }} {{ $kid['name'] }}
+					</p>
 				@endforeach
 			</div>
 		</div>
@@ -20,7 +22,9 @@
 			</h5>
 			<div class="card__text">
 				@foreach($user->account()->first()->guardians()->get() as $guardian)
-					{{ $guardian['first_name'] }} {{ $guardian['name'] }}
+					<p>
+						{{ $guardian['first_name'] }} {{ $guardian['name'] }}
+					</p>
 				@endforeach
 			</div>
 		</div>

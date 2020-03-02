@@ -20,7 +20,7 @@ class UsersTableSeeder extends Seeder
 				'password' => \Illuminate\Support\Facades\Hash::make("speelplein"),
 				'role' => 'admin',
 				'account_type' => 'App\Admin',
-				'account_id' => '1',
+				'account_id' => 1,
 			]
 		);
 		$user->save();
@@ -35,7 +35,6 @@ class UsersTableSeeder extends Seeder
 								Caramels chocolate muffin cheesecake icing. Powder croissant jelly-o pastry.',
 				'extrainfo' => 'Pie marshmallow sesame snaps candy canes carrot cake bonbon.',
 				'isVeggie' => 1,
-				'hasAllergies' => 1,
 				'allergies' => 'noten, tomaten, etc.',
 				'isActive' => 1,
 				'user_id' => 1,

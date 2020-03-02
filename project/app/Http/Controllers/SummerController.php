@@ -64,7 +64,7 @@ class SummerController extends Controller
 			}
 		}
 
-		return redirect()->route('admin.dashboard', ['user_id', Auth::id()]);
+		return redirect()->route('admin.dashboard', ['user_id' => Auth::id()]);
 	}
 
 	public function getWeeks() {

@@ -30,19 +30,19 @@ class GuardianController extends Controller
 
 		$guardian = new Guardian;
 
-		if(request()->image) {
-			$imageName = time().'.'.request()->image->getClientOriginalExtension();
-			request()->image->move(public_path('images/guardian/'), $imageName);
-
-			$guardian->image = $imageName;
-		}
-
 		$guardian->name = $request->input('name');;
 		$guardian->first_name = $request->input('first_name');;
 		$guardian->phone_nr = $request->input('phone_nr');;
 		$guardian->mailaddress = $request->input('mailaddress');;
 		$guardian->role = $request->input('role');;
 		$guardian->family_id = $family['id'];
+
+		if(request()->image) {
+			$imageName = $guardian->first_name.'-'.$guardian->name.'.'.request()->image->getClientOriginalExtension();
+			request()->image->move(public_path('images/guardian/'), $imageName);
+
+			$guardian->image = $imageName;
+		}
 
 		$guardian->save();
 		$family->guardians()->save($guardian);

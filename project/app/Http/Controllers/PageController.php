@@ -38,7 +38,7 @@ class PageController extends Controller
 	}
 
 	public function getAccount($id){
-		$user = User::where('id', $id)->first();
+		$user = User::findOrFail($id);
 
 		if(is_null($user)) {
 			return view('errors.401');
@@ -60,11 +60,18 @@ class PageController extends Controller
 	}
 
 	public function getDashboard($id){
-		$user = User::where('id', $id)->first();
+		$user = User::findOrFail($id);
 		$days = Day::orderBy('date', 'asc')->get();
 		$day = Day::where('date', '=', Carbon::today())->first();
-		$oldDay = $day['id'];
-		$kids = Day::findOrFail($oldDay)->kids()->get();
+
+		if($day) {
+			$oldDay = $day['id'];
+			$kids = Day::findOrFail($oldDay)->kids()->get();
+		}
+		else {
+			$oldDay = '';
+			$kids = Kid::orderBy('name', 'asc')->get();
+		}
 
 		return view('content.admin.dashboard', ['user_id' => $user['id'], 'days' => $days, 'kids' => $kids, 'oldDay' => $oldDay]);
 	}

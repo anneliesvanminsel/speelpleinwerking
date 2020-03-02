@@ -355,6 +355,16 @@
 				'as' => 'kid.search'
 			]);
 
+			Route::get('create/{moni_id}', [
+				'uses' => 'AdminController@getCreate',
+				'as' => 'admin.create'
+			]);
+
+			Route::post('create/{moni_id}/post', [
+				'uses' => 'AdminController@postCreate',
+				'as' => 'admin.postCreate'
+			]);
+
 		});
 
 		//MONITOR

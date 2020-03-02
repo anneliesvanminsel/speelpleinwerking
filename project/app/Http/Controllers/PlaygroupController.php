@@ -13,6 +13,7 @@ class PlaygroupController extends Controller
     //
 	public function getOverview() {
 		$playgroups = Playgroup::orderBy('created_at', 'desc')->get();
+
 		return view('content.playgroup.overview', ['playgroups' => $playgroups]);
 	}
 
@@ -24,21 +25,22 @@ class PlaygroupController extends Controller
 		$this->validate($request, [
 			'name' => 'required|string|max:255',
 			'description' => 'required|string|max:1000',
-			'minAge'=> 'required|number',
-			'maxAge'=> 'nullable|number',
+			'minAge'=> 'required|numeric',
+			'maxAge'=> 'nullable|numeric',
 			'image'=> 'required|image|mimes:jpeg,png,jpg,gif,svg|max:2048', //image
 		]);
 
-		$imageName = time().'.'.request()->image->getClientOriginalExtension();
-		request()->image->move(public_path('images/playgroup'), $imageName);
-
 		$playgroup = new Playgroup([
 			'name' => $request->input('name'),
-			'image' => $imageName,
+			'image' => '',
 			'description'=> $request->input('description'),
 			'minAge' => $request->input('minAge'),
 			'maxAge' => $request->input('maxAge'),
 		]);
+
+		$imageName = $playgroup->name.'.'.request()->image->getClientOriginalExtension();
+		request()->image->move(public_path('images/playgroup'), $imageName);
+		$playgroup->image = $imageName;
 
 		$playgroup->save();
 
@@ -55,8 +57,8 @@ class PlaygroupController extends Controller
 		$this->validate($request, [
 			'name' => 'required|string|max:255',
 			'description' => 'required|string|max:1000',
-			'minAge'=> 'required|date',
-			'maxAge'=> 'nullable|date',
+			'minAge'=> 'required|numeric',
+			'maxAge'=> 'nullable|numeric',
 			'image'=> 'nullable|image|mimes:jpeg,png,jpg,gif,svg|max:2048', //image
 		]);
 

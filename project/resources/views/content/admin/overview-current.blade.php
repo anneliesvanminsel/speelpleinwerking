@@ -9,9 +9,6 @@
 			<h1 class="grow">
 				Overzicht huidige hoofdleiding
 			</h1>
-			<a href="{{ route('faq.create') }}" class="btn is-small for-admin">
-				voeg nieuw toe
-			</a>
 		</div>
 		
 		<div class="account__section card--container">

@@ -6,10 +6,10 @@
 	@endif
 	<div class="card__content">
 		<div class="card__title">
-			{{ $admin['name'] }} {{ $admin['first_name'] }}
+			{{ $admin['first_name'] }} {{ $admin['name'] }}
 		</div>
 		<div class="card__text">
-			{{ date('d F Y',strtotime($admin['birthday'])) }}
+			{{ \Jenssegers\Date\Date::parse(strtotime($admin['birthday']))->format('j F Y') }}
 		</div>
 		<div class="card__text is-role">
 			{{ $admin['phone_nr'] }}

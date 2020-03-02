@@ -124,7 +124,8 @@
 			<div class="form__group">
 				<input
 					id="maxAge"
-					type="date"
+					type="number"
+					step="0.5"
 					class="form__input for-admin @error('maxAge') is-invalid @enderror"
 					name="maxAge"
 					placeholder="Bv. 2, 7 of 3"
@@ -133,7 +134,7 @@
 				>
 				
 				<label for="maxAge" class="form__label">
-					Laatste toegelaten geboortedatum
+					Maximumleeftijd
 				</label>
 				
 				@error('maxAge')

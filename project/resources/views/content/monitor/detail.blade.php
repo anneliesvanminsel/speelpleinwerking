@@ -14,7 +14,7 @@
 				{{$monitor['first_name']}} {{$monitor['name']}}
 			</h1>
 			<div>
-				<a href="" class="btn for-admin is-small">
+				<a href="{{ route('admin.create', ['monitor_id' => $monitor['id']]) }}" class="btn for-admin is-small">
 					Maak hoofdleiding
 				</a>
 			</div>

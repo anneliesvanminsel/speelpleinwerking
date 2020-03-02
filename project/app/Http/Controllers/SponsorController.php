@@ -26,7 +26,7 @@ class SponsorController extends Controller
 			'image'=> 'required|image|mimes:jpeg,png,jpg,gif,svg|max:2048', //image
 		]);
 
-		$imageName = time().'.'.request()->image->getClientOriginalExtension();
+		$imageName = $request->input('name').'.'.request()->image->getClientOriginalExtension();
 		request()->image->move(public_path('images/sponsor'), $imageName);
 
 		$sponsor = new Sponsor([

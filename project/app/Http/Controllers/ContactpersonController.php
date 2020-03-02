@@ -30,19 +30,19 @@ class ContactpersonController extends Controller
 
 		$contact = new Contactperson;
 
-		if(request()->image) {
-			$imageName = time().'.'.request()->image->getClientOriginalExtension();
-			request()->image->move(public_path('images/contact/'), $imageName);
-
-			$contact->image = $imageName;
-		}
-
 		$contact->name = $request->input('name');;
 		$contact->first_name = $request->input('first_name');;
 		$contact->phone_nr = $request->input('phone_nr');;
 		$contact->mailaddress = $request->input('mailaddress');;
 		$contact->role = $request->input('role');;
 		$contact->monitor_id = $monitor['id'];
+
+		if(request()->image) {
+			$imageName = $contact->first_name.'-'.$contact->name.'.'.request()->image->getClientOriginalExtension();
+			request()->image->move(public_path('images/contact/'), $imageName);
+
+			$contact->image = $imageName;
+		}
 
 		$contact->save();
 		$monitor->contacts()->save($contact);

@@ -23,7 +23,6 @@ class CreateAdminsTable extends Migration
 			$table->text('introtext')->nullable();
 			$table->string('extrainfo')->nullable();
 			$table->boolean('isVeggie')->default(0);
-			$table->boolean('hasAllergies')->default(0);
 			$table->string('allergies')->nullable();
 			$table->boolean('isActive')->default(1);
 			$table->integer('user_id')->nullable();

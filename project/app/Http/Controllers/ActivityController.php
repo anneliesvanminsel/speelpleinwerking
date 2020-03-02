@@ -31,7 +31,7 @@ class ActivityController extends Controller
 
 
 		if(request()->image) {
-			$imageName = time().'.'.request()->image->getClientOriginalExtension();
+			$imageName = $request->input('name') . '.' . request()->image->getClientOriginalExtension();
 			request()->image->move(public_path('images/activity'), $imageName);
 
 			$activity->image = $imageName;

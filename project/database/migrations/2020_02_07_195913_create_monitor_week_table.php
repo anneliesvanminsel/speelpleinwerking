@@ -17,7 +17,7 @@ class CreateMonitorWeekTable extends Migration
             $table->bigIncrements('id');
 			$table->integer('monitor_id');
 			$table->integer('week_id');
-			$table->boolean('wantsIntern');
+			$table->boolean('wantsIntern')->default(0);
             $table->timestamps();
         });
     }

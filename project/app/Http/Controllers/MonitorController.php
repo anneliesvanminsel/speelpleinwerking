@@ -99,13 +99,6 @@ class MonitorController extends Controller
 
 		$boolVeggie = $request->input('isVeggie');
 
-		if($request->input('image')) {
-			$imageName = time().'.'.request()->image->getClientOriginalExtension();
-			request()->image->move(public_path('images/monitor'), $imageName);
-
-			$monitor->image = $imageName;
-		}
-
 		$monitor->name = $request->input('name');
 		$monitor->first_name = $request->input('first_name');
 		$monitor->birthday = $request->input('birthday');
@@ -113,6 +106,13 @@ class MonitorController extends Controller
 		$monitor->phone_nr = $request->input('phone_nr');
 		$monitor->allergies = $request->input('allergies');
 		$monitor->isVeggie = (int)$boolVeggie;
+
+		if($request->input('image')) {
+			$imageName = $monitor->first_name . '-' . $monitor->name .'.'.request()->image->getClientOriginalExtension();
+			request()->image->move(public_path('images/monitor'), $imageName);
+
+			$monitor->image = $imageName;
+		}
 
 		$monitor->save();
 
